@@ -33,6 +33,8 @@ namespace HJV_2ndSemesterProject.Views
         public string Password { get; set; }
     }
 
+
+
     public partial class LogInPage : UserControl
     {
         private TestAdmin testAdmin;
@@ -86,6 +88,8 @@ namespace HJV_2ndSemesterProject.Views
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow main = new MainWindow();
+            main.Show();
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
 
@@ -161,9 +165,5 @@ namespace HJV_2ndSemesterProject.Views
             }
         }
 
-        private void TextBlock_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-
-        }
     }
 }

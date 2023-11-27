@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HJV_2ndSemesterProject.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HJV_2ndSemesterProject.Views; 
+
 
 namespace HJV_2ndSemesterProject
 {
@@ -24,5 +27,15 @@ namespace HJV_2ndSemesterProject
         {
             InitializeComponent();
         }
+        private void ShowLogEntryPage()
+        {
+            MainFrame.Navigate(new LogEntryPage());
+        }
+        private void MenuItem1_Click(object sender, RoutedEventArgs e)
+        {
+            // Skift til User Control LogEntryPage
+            ShowLogEntryPage();
+        }
+
     }
 }
