@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace HJV_2ndSemesterProject.Views
 {
@@ -36,6 +37,8 @@ namespace HJV_2ndSemesterProject.Views
     {
         private TestAdmin testAdmin;
         private TestUser testUser;
+
+
         public LogInPage()
         {
             InitializeComponent();
@@ -129,6 +132,38 @@ namespace HJV_2ndSemesterProject.Views
             }
 
             return false;
+        }
+
+        private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            string serverIp = "10.56.8.36"; 
+            string serverName = "DB_F23_TEAM_14";
+            string username = DatabaseTb.Text;
+            string password = PasswordBox.Password;
+
+            string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Nu kan du udføre SQL-forespørgsler eller andre operationer
+
+                    MessageBox.Show("Forbindelse oprettet!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
+            }
+        }
+
+        private void TextBlock_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
         }
     }
 }
