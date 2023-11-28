@@ -15,7 +15,7 @@ namespace HJV_2ndSemesterProject.Models
         SAR,
         SAREX,
         PolitiMaritimKontrol,
-        SKA-Kontrol,
+        SKA_Kontrol,
         Sommertogt,
         Springex,
         SURVEX,
