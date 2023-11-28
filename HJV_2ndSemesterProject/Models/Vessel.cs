@@ -8,5 +8,13 @@ namespace HJV_2ndSemesterProject.Models
 {
     internal class Vessel
     {
+        public string VesselNumber {  get; set; }
+        public string Name { get; set; }
+
+        public Vessel(string vesselNumber, string name) 
+        { 
+            VesselNumber = vesselNumber;             
+            Name = name;        
+        }
     }
 }
