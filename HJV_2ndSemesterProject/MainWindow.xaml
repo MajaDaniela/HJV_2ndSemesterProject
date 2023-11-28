@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Sidebar -->
+            <ColumnDefinition Width="*"/>
+            <!-- Main content -->
+        </Grid.ColumnDefinitions>
 
+        <!-- Sidebar -->
+        <Grid Width="150" Background="LightGray">
+            <!-- Sidebar content goes here -->
+            <StackPanel>
+                <Button Content="Menu Item 1" Margin="5" Click="MenuItem1_Click"/>
+                
+                <!-- Add more buttons or controls as needed -->
+            </StackPanel>
+        </Grid>
+
+        <!-- Main content -->
+        <Frame x:Name="MainFrame" Grid.Column="1"/>
     </Grid>
 </Window>
