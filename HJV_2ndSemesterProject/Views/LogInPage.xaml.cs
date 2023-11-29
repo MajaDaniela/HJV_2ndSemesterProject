@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using HJV_2ndSemesterProject.ViewModels;
 
 namespace HJV_2ndSemesterProject.Views
 {
@@ -138,24 +139,21 @@ namespace HJV_2ndSemesterProject.Views
             return false;
         }
 
-        private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
+        public void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         {
+            string serverInput = "10.56.8.36";
+            string databaseInput = "DB_F23_TEAM_14";
+            string userIdInput = DatabaseTb.Text;
+            string passwordInput = PasswordBox.Password;
 
-            string serverIp = "10.56.8.36"; 
-            string serverName = "DB_F23_TEAM_14";
-            string username = DatabaseTb.Text;
-            string password = PasswordBox.Password;
-
-            string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
+            // Create an instance of the Controller and pass the parameters
+            Controller controller = new Controller(serverInput, databaseInput, userIdInput, passwordInput);
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(controller.connectionString))
                 {
                     connection.Open();
-
-                    // Nu kan du udføre SQL-forespørgsler eller andre operationer
-
                     MessageBox.Show("Forbindelse oprettet!");
                 }
             }
@@ -164,6 +162,7 @@ namespace HJV_2ndSemesterProject.Views
                 MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
             }
         }
+
 
     }
 }

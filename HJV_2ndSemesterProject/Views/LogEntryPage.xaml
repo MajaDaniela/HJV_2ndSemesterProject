@@ -5,13 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800"  >
-    <Grid>
+             d:DesignHeight="430" d:DesignWidth="630"  >
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3498db" Offset="0"/>
+                <GradientStop Color="#FF737373" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Label Content="MA-NR" HorizontalAlignment="Left" Margin="424,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="Role" HorizontalAlignment="Left" Margin="424,145,0,0" VerticalAlignment="Top"/>
+        <Label Content="SailingID" HorizontalAlignment="Left" Margin="424,168,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ManrTb" HorizontalAlignment="Left" Margin="478,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="RoleTb" HorizontalAlignment="Left" Margin="478,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="SailingIdTb" HorizontalAlignment="Left" Margin="478,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Log Entry Database" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="AddEntryLogBtn" Content="Tilføj Log" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="28" Background="#FF4D5625" Foreground="White" FontSize="16" Margin="19,374,0,0" />
+        <Button x:Name="UpdateEntryLogBtn" Content="Opdater Log" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="28" Background="#FF4D5625" Foreground="White" FontSize="16" Margin="150,374,0,0" />
+        <Button x:Name="DeleteEntryLogBtn" Content="Slet Log" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Height="28" Background="#FF4D5625" Foreground="White" FontSize="16" Margin="291,374,0,0" />
+        <Button x:Name="ClearEntryLogBtn" Content="Ryd Log" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Height="28" Background="#FF4D5625" Foreground="White" FontSize="16" Margin="424,374,0,0" />
+        <Button x:Name="FindEntryLogBtn" Content="Søg Log (ID)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="28" Background="#FF4D5625" Foreground="White" FontSize="16" Margin="19,77,0,0" />
+        <DataGrid x:Name="EntryLogDatagrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,113,230,75" SelectionChanged="datagrid_SelectionChanged"/>
+        <TextBox x:Name="SearchOwnerTxt" HorizontalAlignment="Left" Margin="135,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="105" Height="28"/>
 
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Label Content="Hello" FontSize="30" HorizontalAlignment="Left" Margin="0,390,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
-        <Label Content="Hello" FontSize="30" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
-        <Label Content="Hello" FontSize="30" HorizontalAlignment="Left" Margin="650,103,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
+
+
 
 
     </Grid>

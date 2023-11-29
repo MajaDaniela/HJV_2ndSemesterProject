@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HJV_2ndSemesterProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace HJV_2ndSemesterProject.Views
     /// </summary>
     public partial class LogEntryPage : UserControl
     {
-        public LogEntryPage()
+        private LogEntryRepo logEntryRepo;
+
+        public LogEntryPage(LogEntryRepo logEntryRepo)
         {
             InitializeComponent();
+            this.logEntryRepo = logEntryRepo;
+            LoadEntriesIntoGrid();
+        }
+
+        private void LoadEntriesIntoGrid()
+        {
+            
+            EntryLogDatagrid.ItemsSource = logEntryRepo.GetLogEntries().DefaultView;
+        }
+
+        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Handle selection change if needed
         }
     }
 }
