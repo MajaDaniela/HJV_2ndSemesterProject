@@ -9,13 +9,13 @@ namespace HJV_2ndSemesterProject.Models
     class LogEntry
     {
         public Role Role {  get; set; }
-        public DateTime TimePeriode { get; set; }
+        public int NumberofMinutes { get; set; }
         public string Comment { get; set; }
 
-        public LogEntry(Role role, DateTime timePeriode, string comment) 
+        public LogEntry(Role role, int minutes, string comment) 
         {
             Role = role;
-            TimePeriode = timePeriode;
+            NumberofMinutes = minutes;
             Comment = comment;
         }
     }

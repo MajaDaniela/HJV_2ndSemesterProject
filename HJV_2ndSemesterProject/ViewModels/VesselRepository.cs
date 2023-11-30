@@ -7,21 +7,21 @@ using HJV_2ndSemesterProject.Models;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
-    internal class SailingRepo
+    internal class VesselRepository
     {
-        public Sailing sailing;
+        public Vessel vessel;
 
-        public void CreateSailing()
+        public void CreateVessel()
         {
 
         }
 
-        public void DeleteSailing()
+        public void DeleteVessel()
         {
 
         }
 
-        public void UpdateSailing()
+        public void UpdateVessel()
         {
 
         }

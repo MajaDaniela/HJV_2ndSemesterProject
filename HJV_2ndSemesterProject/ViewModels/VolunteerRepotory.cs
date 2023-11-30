@@ -7,7 +7,7 @@ using HJV_2ndSemesterProject.Models;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
-    internal class VolunteerRepo
+    internal class VolunteerRepotory
     {
         public Volunteer volunteer;
 
