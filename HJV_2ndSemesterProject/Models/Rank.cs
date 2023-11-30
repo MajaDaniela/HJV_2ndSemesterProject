@@ -9,6 +9,7 @@ namespace HJV_2ndSemesterProject.Models
 {
      public enum Rank
     {
+
         [Description("Menig")]
         Private,
         [Description("Korporal")]
