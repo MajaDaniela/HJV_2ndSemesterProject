@@ -1,4 +1,4 @@
-using HJV_2ndSemesterProject.Models;
+using HJV_2ndSemesterProject.ViewModels;
 namespace HJVTest
 {
     [TestClass]
@@ -8,7 +8,7 @@ namespace HJVTest
         [TestMethod]
         public void TestGetDescription()
         {
-            //Arange
+            //Arrange
             string target1 = "Korporal";
             string target2 = "Vagtchef";
             string target3 = "Sommertogt";
@@ -23,5 +23,15 @@ namespace HJVTest
             Assert.AreEqual(target2, s2);
             Assert.AreEqual(target3, s3);
         }
+
+        public void TestDBConnesction()
+        {
+            //Arranage
+            Controller controller = new();
+        }
+
+            
+
+
     }
 }

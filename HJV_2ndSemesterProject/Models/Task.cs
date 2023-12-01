@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.Models
 {
-    internal class Task
+    public class Task
     {
         public string Name { get; set; }
 

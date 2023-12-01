@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using HJV_2ndSemesterProject.ViewModels;
+using System.Threading.Channels;
 
 namespace HJV_2ndSemesterProject.Views
 {
@@ -39,7 +41,7 @@ namespace HJV_2ndSemesterProject.Views
     {
         private TestAdmin testAdmin;
         private TestUser testUser;
-
+        public bool IsConneceted = false;
 
         public LogInPage()
         {
@@ -88,8 +90,12 @@ namespace HJV_2ndSemesterProject.Views
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.Show();
+            if (IsConneceted)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+
+            }
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
 
@@ -139,31 +145,16 @@ namespace HJV_2ndSemesterProject.Views
         }
 
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-            string serverIp = "10.56.8.36"; 
-            string serverName = "DB_F23_TEAM_14";
-            string username = DatabaseTb.Text;
-            string password = PasswordBox.Password;
-
-            string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
-
-            try
+        { 
+            IsConneceted = DBConnectionManager.TestConn(DatabaseTb.Text, PasswordBox.Password);
+            
+            if (!IsConneceted)
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Nu kan du udføre SQL-forespørgsler eller andre operationer
-
-                    MessageBox.Show("Forbindelse oprettet!");
-                }
+               MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); PasswordBox.Clear();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
-            }
+            
+            
+
         }
-
     }
 }
