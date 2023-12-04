@@ -31,11 +31,36 @@ namespace HJV_2ndSemesterProject
         {
             MainFrame.Navigate(new LogEntryPage());
         }
-        private void MenuItem1_Click(object sender, RoutedEventArgs e)
+
+        private void ShowProfilePage()
+        {
+            MainFrame.Navigate(new ProfilePage());
+        }
+
+
+
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
             // Skift til User Control LogEntryPage
             ShowLogEntryPage();
         }
 
+        private void LogBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Skift til User Control LogEntryPage
+            ShowLogEntryPage();
+        }
+
+        private void DataMapBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Skift til User Control ProfilePage
+            MainFrame.Navigate (new ProfilePage());
+        }
     }
 }
