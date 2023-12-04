@@ -5,13 +5,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800"  >
+             Height="780" Width="1035"  >
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3498db" Offset="0"/>
+                <GradientStop Color="#FF737373" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Label Content="Hello" FontSize="30" HorizontalAlignment="Left" Margin="0,390,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
-        <Label Content="Hello" FontSize="30" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
-        <Label Content="Hello" FontSize="30" HorizontalAlignment="Left" Margin="650,103,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
+
+        <Label Content="Registrering" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Height="67" Width="282"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="757,175,0,0" VerticalAlignment="Top" Width="71" FontSize="18"/>
+        <Label Content="MA-Nummer" HorizontalAlignment="Left" Margin="755,210,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <Label Content="Rolle" HorizontalAlignment="Left" Margin="755,244,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
+        <TextBox x:Name="NameTxt" HorizontalAlignment="Left" Margin="880,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="22"/>
+        <TextBox x:Name="MAnumberTxt" HorizontalAlignment="Left" Margin="880,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="22"/>
+        <TextBox x:Name="RoleTxt" HorizontalAlignment="Left" Margin="880,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="22"/>
+        <Label Content="Starttid" HorizontalAlignment="Left" Margin="755,350,0,0" VerticalAlignment="Top" Width="111" FontSize="18"/>
+        <Label Content="Sluttid" HorizontalAlignment="Left" Margin="755,387,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
+        <Label Content="SkibID" HorizontalAlignment="Left" Margin="755,314,0,0" VerticalAlignment="Top" Width="73" FontSize="18"/>
+        <TextBox x:Name="StartTidTxt" HorizontalAlignment="Left" Margin="880,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="23"/>
+        <TextBox x:Name="SlutTidTxt" HorizontalAlignment="Left" Margin="880,390,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="21"/>
+        <TextBox x:Name="SkibIdTxt" HorizontalAlignment="Left" Margin="880,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="22" />
+
+        <Label Content="Bemærkning&#xD;&#xA;/kommentar" HorizontalAlignment="Left" Margin="750,490,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <TextBox x:Name="BemærkningTxt" HorizontalAlignment="Left" Margin="880,490,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="66"/>
+        <Label Content="Sejladstype" HorizontalAlignment="Left" Margin="755,278,0,0" VerticalAlignment="Top" Width="111" FontSize="18"/>
+        <TextBox x:Name="SejladstypeTxt" HorizontalAlignment="Left" Margin="880,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="20"/>
+        <Label Content="Farvande" HorizontalAlignment="Left" Margin="755,452,0,0" VerticalAlignment="Top" Width="73" FontSize="18" Height="33"/>
+        <TextBox x:Name="FarvandeTxt" HorizontalAlignment="Left" Margin="880,457,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="23"/>
+        <Label Content="Opgaver" HorizontalAlignment="Left" Margin="755,418,0,0" VerticalAlignment="Top" Width="73" FontSize="18"/>
+        <TextBox x:Name="OpgaverTxt" HorizontalAlignment="Left" Margin="880,423,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="23"/>
+
+
+        <Button x:Name="SearchLogBtn" Content="Søg registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,108,0,0" />
+        <TextBox x:Name="SearchLogTxt" HorizontalAlignment="Left" Margin="195,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="241" Height="28"/>
+
+        <Button x:Name="AddLogBtn" Content="Tilføj registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,621,0,0"/>
+        <Button x:Name="UpdateLogBtn" Content="Opdater registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="210,621,0,0" />
+        <Button x:Name="DeleteLogBtn" Content="Slet registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="430,621,0,0" />
+        <Button x:Name="ClearLogBtn" Content="Ryd data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="615,621,0,0" />
+
+
+        <DataGrid x:Name="datagrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,155,290,170" />
+
+
+
 
 
     </Grid>
