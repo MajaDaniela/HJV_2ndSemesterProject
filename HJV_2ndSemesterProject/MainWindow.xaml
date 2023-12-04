@@ -48,6 +48,6 @@
         </Grid>
 
         <!-- Main content -->
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Window>

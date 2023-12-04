@@ -9,6 +9,8 @@ namespace HJV_2ndSemesterProject.Models
 {
      public enum Role
     {
+        //A volunteer (with relevant training) may have a specialised role aboard the vessel.
+
         [Description("Navigatør")]
         Navigator,
         [Description("Vagtchef")]

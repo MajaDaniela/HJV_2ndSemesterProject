@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.Models
 {
-    class LogEntry
+     public class LogEntry
     {
         public Role Role {  get; set; }
-        public DateTime TimePeriode { get; set; }
+        public int NumberofMinutes { get; set; }
         public string Comment { get; set; }
 
-        public LogEntry(Role role, DateTime timePeriode, string comment) 
+        public string MA_Number { get; set; }
+        public int SailingID { get; set; }
+
+        public LogEntry(Role role, int minutes, string comment, string ma, int sailingID ) 
         {
             Role = role;
-            TimePeriode = timePeriode;
+            NumberofMinutes = minutes;
             Comment = comment;
+            MA_Number = ma;
+            SailingID = sailingID;
         }
     }
 }

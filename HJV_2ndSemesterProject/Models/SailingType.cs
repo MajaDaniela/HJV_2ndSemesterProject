@@ -9,21 +9,29 @@ namespace HJV_2ndSemesterProject.Models
 {
      public enum SailingType
     {
-        Autorisationssejlads,
+        // Describes the nature of a sailing.
+
+        [Description("Autorisationssejlads")]
+        AuthorisationSailing,
         MAS,
+        [Description("Patrol")]
         Patruljesejlads,
         SAR,
         SAREX,
-        PolitiMaritimKontrol,
-        SKA_Kontrol,
-        Sommertogt,
+        [Description("Politi Maritim Kontrol")]
+        PoliceMaritimeControl,
+        [Description("Ska-kontrol")]
+        SKAControl,
+        [Description("Sommertogt")]
+        SummerCruise,
         Springex,
         SURVEX,
-        Øvelsesejlads,
-        [Description("Forlægningssejlads til")]
-        ForlægningssejladstTil,
-        [Description("Forlægningssejlads fra")]
-        ForlægningssejladsFra,
+        [Description("ØvelsesSejlads")]
+        Training,
+        //[Description("Forlægningssejlads til")]
+        //ForlægningssejladstTil,
+        //[Description("Forlægningssejlads fra")]
+        //ForlægningssejladsFra,
 
     }
 }

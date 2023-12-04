@@ -10,7 +10,9 @@ namespace HJV_2ndSemesterProject.Models
 {
     public static class Extensions
     {
-        // source https://stackoverflow.com/questions/2650080/how-to-get-c-sharp-enum-description-from-value
+        /*A Method that returns the Description attribute (if available) for a given enum-value. Adding Descriptions
+         in this way allows for easy conversion to reader friendly strings as well as translation to Danish.
+         source https://stackoverflow.com/questions/2650080/how-to-get-c-sharp-enum-description-from-value */
         
         public static string GetDescription<T>(this T source) where T : Enum
         {

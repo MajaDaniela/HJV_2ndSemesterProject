@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HJV_2ndSemesterProject.Views;
+using HJV_2ndSemesterProject.ViewModels;
+=======
 using System.Data.SqlClient;
 
 
@@ -25,9 +27,11 @@ namespace HJV_2ndSemesterProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        Controller controller;
         public MainWindow()
         {
             InitializeComponent();
+            controller = new();
         }
         private void ShowLogEntryPage()
         {
@@ -84,17 +88,6 @@ namespace HJV_2ndSemesterProject
             ShowLogEntryPage();
         }
 
-        private void DataMapBtn_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Skift til User Control ProfilePage
-            ShowProfilePage();
-        }
-
-       
     }
 }

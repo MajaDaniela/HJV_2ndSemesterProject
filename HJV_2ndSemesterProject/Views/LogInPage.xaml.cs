@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using HJV_2ndSemesterProject.ViewModels;
+using System.Threading.Channels;
 
 namespace HJV_2ndSemesterProject.Views
 {
@@ -39,7 +41,7 @@ namespace HJV_2ndSemesterProject.Views
     {
         private TestAdmin testAdmin;
         private TestUser testUser;
-
+        public bool IsConneceted = false;
 
         public LogInPage()
         {
@@ -70,7 +72,15 @@ namespace HJV_2ndSemesterProject.Views
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            if (IsConneceted)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+            }
+=======
             
+
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
 
@@ -119,7 +129,22 @@ namespace HJV_2ndSemesterProject.Views
             return false;
         }
 
+
+        private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
+        { 
+            
+            IsConneceted = DataAccess.TestConn(DatabaseTb.Text, PasswordBox.Password);
+            if (!IsConneceted)
+            {
+               MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); PasswordBox.Clear();
+            }
+
+   
+
+        }
+=======
         
+
 
     }
 }

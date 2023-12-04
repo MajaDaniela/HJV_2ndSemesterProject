@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.Models
 {
-    internal class Sailing
+    public class Sailing
     {
-        public DateTime EndDate { get; set; }
-        public DateTime StartDate { get; set; }
-        public string SailingType { get; set; }
+        public DateTime EndTime { get; set; }
+        public DateTime StartTime { get; set; }
+        public SailingType SailingType { get; set; }
+        public string VesselID { get; set; }
 
-        public Sailing(DateTime endDate, DateTime startDate, string sailingType)
+        public Sailing(DateTime start, DateTime end, SailingType sailingType, string vesselID)
         {
-            EndDate = endDate;
-            StartDate = startDate;
+            EndTime = end;
+            StartTime = start;
             SailingType = sailingType;
+            VesselID = vesselID;
         }
     }
 }

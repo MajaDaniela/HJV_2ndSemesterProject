@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.Models
 {
-    internal class Vessel
+    public class Vessel
     {
-        public string VesselNumber {  get; set; }
+        public string VesselID {  get; set; }
         public string Name { get; set; }
 
         public Vessel(string vesselNumber, string name) 
         { 
-            VesselNumber = vesselNumber;             
+            VesselID = vesselNumber;             
             Name = name;        
+        }
+
+        public override string ToString()
+        {
+            return $"{VesselID} {Name}";
         }
     }
 }
