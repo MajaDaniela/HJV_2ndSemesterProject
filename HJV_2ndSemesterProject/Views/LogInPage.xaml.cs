@@ -66,30 +66,11 @@ namespace HJV_2ndSemesterProject.Views
             };
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "Indtast email")
-            {
-                textBox.Text = "";
-                textBox.Foreground = System.Windows.Media.Brushes.Black;
-            }
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = "Indtast email";
-                textBox.Foreground = System.Windows.Media.Brushes.Gray;
-            }
-        }
+        
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.Show();
+            
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
 
@@ -138,32 +119,7 @@ namespace HJV_2ndSemesterProject.Views
             return false;
         }
 
-        private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-            string serverIp = "10.56.8.36"; 
-            string serverName = "DB_F23_TEAM_14";
-            string username = DatabaseTb.Text;
-            string password = PasswordBox.Password;
-
-            string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Nu kan du udføre SQL-forespørgsler eller andre operationer
-
-                    MessageBox.Show("Forbindelse oprettet!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
-            }
-        }
+        
 
     }
 }

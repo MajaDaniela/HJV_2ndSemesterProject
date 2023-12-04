@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200" ResizeMode="NoResize">
+        Title="HJV-Eksamensprojekt" Height="800" Width="1200" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -19,8 +19,17 @@
         <!-- Sidebar -->
         <Grid Width="150" Background="LightGray">
             <StackPanel>
-                
-                <Button Click="HomeBtn_Click" Margin="0,180,0,0" Height="75">
+
+                <TextBlock Text="Server User ID" Margin="15,10,15,0"/>
+                <TextBox x:Name="DatabaseTb" Width="120"  Margin="10,0,10,10"/>
+
+                <TextBlock Text="Server Password" Margin="15,10,15,0"/>
+                <PasswordBox x:Name="DatabasePswdTb" Width="120"  Margin="10,0,10,10"/>
+                <Button Content="Forbind til Server"  Height="30" Width="120" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click"/>
+
+
+
+                <Button Click="HomeBtn_Click" Margin="0,100,0,0" Height="75">
                     <materialDesign:PackIcon Kind="HomeCircleOutline" Height="50" Width="50"/>
                 </Button>
                 <Button Click="LogBtn_Click" Margin="0,45,0,0" Height="75">
@@ -32,6 +41,8 @@
                 <Button Click="ProfileBtn_Click" Margin="0,45,0,0" Height="75">
                     <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
                 </Button>
+
+
 
             </StackPanel>
         </Grid>
