@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using HJV_2ndSemesterProject.Models;
@@ -23,19 +22,21 @@ namespace HJV_2ndSemesterProject.ViewModels
         }
         public void GetVessels()
         {
-            using (DBConnectionManager.conn)
+            DataAccess.NewConn();
+            using (DataAccess.conn)
             {
-                DBConnectionManager.conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Vessel", DBConnectionManager.conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                DataAccess.conn.Open();
+                using (SqlCommand cmd = new SqlCommand("Select * from Vessel", DataAccess.conn)) 
                 {
-                    while (reader.Read())
+                    using SqlDataReader reader = cmd.ExecuteReader();
                     {
-                        Vessel v = new(reader["VesselID"].ToString(), reader["VesselName"].ToString());
-                        vessels.Add(v);
+                        while (reader.Read())
+                        {
+                            Vessel v = new(reader["VesselID"].ToString(), reader["VesselName"].ToString());
+                            vessels.Add(v);
+                        }
                     }
                 }
-
 
             }
         }

@@ -1,3 +1,4 @@
+using HJV_2ndSemesterProject.Models;
 using HJV_2ndSemesterProject.ViewModels;
 namespace HJVTest
 {
@@ -16,18 +17,12 @@ namespace HJVTest
             //Act
             string s1 = Rank.Corporal.GetDescription(); 
             string s2 = Role.OfficerOfTheWatch.GetDescription();
-            string s3 = SailingType.Sommertogt.GetDescription();
+            string s3 = SailingType.SummerCruise.GetDescription();
 
             //Assert
             Assert.AreEqual(target1, s1);
             Assert.AreEqual(target2, s2);
             Assert.AreEqual(target3, s3);
-        }
-
-        public void TestDBConnesction()
-        {
-            //Arranage
-            Controller controller = new();
         }
 
             

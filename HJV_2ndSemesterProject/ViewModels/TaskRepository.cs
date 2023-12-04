@@ -12,28 +12,28 @@ namespace HJV_2ndSemesterProject.ViewModels
     public class TaskRepository
     {
         public ObservableCollection <Models.Task> tasks { get; set; }
-
         public void GetTasks()
         {
-            using (DBConnectionManager.conn)
+            DataAccess.NewConn();
+            using (DataAccess.conn)
+            using (SqlCommand cmd = new SqlCommand("Select TaskType from Task", DataAccess.conn))
             {
-                DBConnectionManager.conn.Open();
-                SqlCommand cmd = new SqlCommand("Select tasktype from TaSk", DBConnectionManager.conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
+                    DataAccess.conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        Models.Task t = new(reader["TaskType"].ToString());
-                        tasks.Add(t);
+                        while (reader.Read())
+                        {
+                            Models.Task t = new(reader["TaskType"].ToString());
+                            tasks.Add(t);
+                        }
                     }
-                }
-
-
             }
+
+            
         }
-        public TaskRepository() 
-        { 
+        public TaskRepository()
+        {
             tasks = new ObservableCollection<Models.Task>();
             GetTasks();
-        }
+    }   }           
 }

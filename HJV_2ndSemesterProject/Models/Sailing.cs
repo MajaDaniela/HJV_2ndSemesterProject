@@ -14,7 +14,7 @@ namespace HJV_2ndSemesterProject.Models
         public SailingType SailingType { get; set; }
         public string VesselID { get; set; }
 
-        public Sailing(DateTime end, DateTime start, SailingType sailingType, string vesselID)
+        public Sailing(DateTime start, DateTime end, SailingType sailingType, string vesselID)
         {
             EndTime = end;
             StartTime = start;

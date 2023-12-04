@@ -16,20 +16,24 @@ namespace HJV_2ndSemesterProject.ViewModels
 
         public void CreateLogEntry(LogEntry entry)
         {
-            using (DBConnectionManager.conn)
+            DataAccess.NewConn();
+            using (DataAccess.conn)
             {
-                SqlCommand cmd = new SqlCommand("CreateLogEntry", DBConnectionManager.conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Role", (int)entry.Role);
-                cmd.Parameters.AddWithValue("@NumberOfMinutes", entry.NumberofMinutes);
-                cmd.Parameters.AddWithValue("@Comment", entry.Comment);
-                cmd.Parameters.AddWithValue("@MA_Number", entry.MA_Number);
-                cmd.Parameters.AddWithValue("@SailingID", entry.SailingID);
+                using (SqlCommand cmd = new SqlCommand("sp_CreateLogEntry", DataAccess.conn))
+                {
 
-                DBConnectionManager.conn.Open();
-                cmd.ExecuteNonQuery();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Role", (int)entry.Role);
+                    cmd.Parameters.AddWithValue("@NumberOfMinutes", entry.NumberofMinutes);
+                    cmd.Parameters.AddWithValue("@Comment", entry.Comment);
+                    cmd.Parameters.AddWithValue("@MA_Number", entry.MA_Number);
+                    cmd.Parameters.AddWithValue("@SailingID", entry.SailingID);
 
+                    DataAccess.conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
 
-            }   }
+            }
+        }
     }
 }

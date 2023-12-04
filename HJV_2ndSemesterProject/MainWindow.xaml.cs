@@ -13,8 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HJV_2ndSemesterProject.Views; 
-
+using HJV_2ndSemesterProject.Views;
+using HJV_2ndSemesterProject.ViewModels;
 
 namespace HJV_2ndSemesterProject
 {
@@ -23,9 +23,11 @@ namespace HJV_2ndSemesterProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        Controller controller;
         public MainWindow()
         {
             InitializeComponent();
+            controller = new();
         }
         private void ShowLogEntryPage()
         {
@@ -37,5 +39,9 @@ namespace HJV_2ndSemesterProject
             ShowLogEntryPage();
         }
 
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            controller.AddLogEntry();
+        }
     }
 }
