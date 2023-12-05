@@ -15,8 +15,16 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="720" Width="875">
+        <TextBlock Text="Server User ID" Margin="783,5,172,761"/>
+        <TextBox x:Name="DatabaseTb"  Margin="783,26,20,733"/>
+        <TextBlock Text="Server Password" Margin="783,59,152,700"/>
+        <PasswordBox x:Name="DatabasePswdTb"  Margin="783,80,20,680"/>
+        <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="844,120,68,630"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="1035">
             <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,80,0,20" Width="182"/>
+
+
 
             <StackPanel Margin="0,40,0,10">
                 <TextBlock Text="Email:" Foreground="White" FontSize="46" Width="120"/>

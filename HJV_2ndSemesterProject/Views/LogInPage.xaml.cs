@@ -78,8 +78,6 @@ namespace HJV_2ndSemesterProject.Views
                 MainWindow main = new MainWindow();
                 main.Show();
             }
-=======
-            
 
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
@@ -133,17 +131,14 @@ namespace HJV_2ndSemesterProject.Views
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         { 
             
-            IsConneceted = DataAccess.TestConn(DatabaseTb.Text, PasswordBox.Password);
+            IsConneceted = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); //Skiftet fra PasswordBox
             if (!IsConneceted)
             {
-               MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); PasswordBox.Clear();
+               MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();
             }
-
-   
-
         }
-=======
         
+
 
 
     }

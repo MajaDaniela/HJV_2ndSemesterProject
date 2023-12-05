@@ -13,9 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HJV_2ndSemesterProject.Views;
 using HJV_2ndSemesterProject.ViewModels;
-=======
 using System.Data.SqlClient;
 
 
@@ -48,32 +46,32 @@ namespace HJV_2ndSemesterProject
             MainFrame.Navigate(new LogInPage());
         }
 
-        private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
-        {
+        //private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
+        //{
 
-            string serverIp = "10.56.8.36";
-            string serverName = "DB_F23_TEAM_14";
-            string username = DatabaseTb.Text;
-            string password = DatabasePswdTb.Password;
+        //    string serverIp = "10.56.8.36";
+        //    string serverName = "DB_F23_TEAM_14";
+        //    string username = DatabaseTb.Text;
+        //    string password = DatabasePswdTb.Password;
 
-            string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
+        //    string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
+        //    try
+        //    {
+        //        using (SqlConnection connection = new SqlConnection(connectionString))
+        //        {
+        //            connection.Open();
 
-                    // Nu kan du udføre SQL-forespørgsler eller andre operationer
+        //            // Nu kan du udføre SQL-forespørgsler eller andre operationer
 
-                    MessageBox.Show("Forbindelse oprettet!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
-            }
-        }
+        //            MessageBox.Show("Forbindelse oprettet!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
+        //    }
+        //}
 
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
@@ -88,6 +86,16 @@ namespace HJV_2ndSemesterProject
             ShowLogEntryPage();
         }
 
-
+        
+        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Skift til User Control LogEntryPage
+            ShowLogInPage();
+        }
+        private void DataMapBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Skift til User Control LogEntryPage
+            ShowLogInPage();
+        }
     }
 }
