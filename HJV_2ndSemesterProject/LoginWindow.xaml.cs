@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HJV_2ndSemesterProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,12 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
-using HJV_2ndSemesterProject.ViewModels;
-using System.Threading.Channels;
 
-namespace HJV_2ndSemesterProject.Views
+namespace HJV_2ndSemesterProject
 {
     /// <summary>
-    /// Interaction logic for LogInPage.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
     /// 
 
@@ -37,18 +34,21 @@ namespace HJV_2ndSemesterProject.Views
 
 
 
-    public partial class LogInPage : UserControl
+    public partial class LoginWindow : Window
     {
         private TestAdmin testAdmin;
         private TestUser testUser;
         public bool IsConneceted = false;
 
-        public LogInPage()
+        public LoginWindow()
         {
             InitializeComponent();
             InitializeTestUser();
             InitializeTestAdmin();
         }
+        
+
+        
 
         private void InitializeTestAdmin()
         {
@@ -68,7 +68,7 @@ namespace HJV_2ndSemesterProject.Views
             };
         }
 
-        
+
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -129,17 +129,17 @@ namespace HJV_2ndSemesterProject.Views
 
 
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
-        { 
-            
+        {
+
             IsConneceted = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); //Skiftet fra PasswordBox
             if (!IsConneceted)
             {
-               MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();
+                MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();
+            }
+            else
+            {
+                MessageBox.Show($"Login virkede");
             }
         }
-        
-
-
-
     }
 }
