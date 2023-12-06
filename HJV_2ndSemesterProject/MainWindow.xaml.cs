@@ -58,7 +58,11 @@ namespace HJV_2ndSemesterProject
             this.Close();
         }
 
-        /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///
+       /*
+       Funtions and methods..
+        -----------------
+       UI clicks..
+        */
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
             // Skift til User Control LogEntryPage
@@ -79,8 +83,12 @@ namespace HJV_2ndSemesterProject
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
+            ShowProfilePage();
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
             OpenLoginWindowAndCloseMainWindow();
         }
-        
     }
 }
