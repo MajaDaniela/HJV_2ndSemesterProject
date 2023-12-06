@@ -90,12 +90,12 @@ namespace HJV_2ndSemesterProject
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
             // Skift til User Control LogEntryPage
-            ShowLogInPage();
+           //ShowLogInPage();
         }
         private void DataMapBtn_Click(object sender, RoutedEventArgs e)
         {
             // Skift til User Control LogEntryPage
-            ShowLogInPage();
+            //ShowLogInPage();
         }
     }
 }
