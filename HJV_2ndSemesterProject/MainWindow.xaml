@@ -22,6 +22,9 @@
             </LinearGradientBrush>
         </Grid.Background>
 
+        <Frame x:Name="MainFrame" Grid.Column="1" />
+
+
         <!-- Sidebar -->
         <Grid Width="150" Background="LightGray">
             <StackPanel>
@@ -42,8 +45,7 @@
             </StackPanel>
         </Grid>
 
-        <!-- Main content -->
-        <Frame x:Name="MainFrame"  />
+       
 
     </Grid>
 </Window>
