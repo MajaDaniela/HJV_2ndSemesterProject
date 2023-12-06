@@ -77,7 +77,9 @@ namespace HJV_2ndSemesterProject
             {
                 MainWindow main = new MainWindow();
                 main.Show();
+                this.Close();
             }
+
 
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
