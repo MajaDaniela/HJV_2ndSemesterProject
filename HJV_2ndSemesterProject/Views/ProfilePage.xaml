@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="HJV_2ndSemesterProject.Views.ProfilePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
+             mc:Ignorable="d" 
+                          Height="780" Width="1035"  >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3498db" Offset="0"/>
+                <GradientStop Color="#FF737373" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <StackPanel >
+
+        </StackPanel>
+        <Label Content="Profil" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Height="67" Width="282"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="54,142,0,0" VerticalAlignment="Top" Width="128" FontSize="38"/>
+        <TextBox x:Name="NameTxt" HorizontalAlignment="Left" Margin="300,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" Height="67" FontSize="40"/>
+
+        <Label Content="MA-Nummer" HorizontalAlignment="Left" Margin="50,248,0,0" VerticalAlignment="Top" Width="235" FontSize="38"/>
+        <TextBox x:Name="MAnumberTxt" HorizontalAlignment="Left" Margin="300,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" Height="67" FontSize="40"/>
+
+        <Label Content="Roller" HorizontalAlignment="Left" Margin="59,468,0,0" VerticalAlignment="Top" Width="206" FontSize="38"/>
+        <TextBox x:Name="RoleTxt" HorizontalAlignment="Left" Margin="300,468,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" Height="64" FontSize="40"/>
+
+        <Label Content="Certifikat" HorizontalAlignment="Left" Margin="59,577,0,0" VerticalAlignment="Top" Width="206" FontSize="38"/>
+        <TextBox x:Name="CertifikatTxt" HorizontalAlignment="Left" Margin="300,577,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" Height="64" FontSize="40"/>
+
+        <Label Content="Email" HorizontalAlignment="Left" Margin="59,681,0,0" VerticalAlignment="Top" Width="206" FontSize="38"/>
+        <TextBox x:Name="EmailTxt" HorizontalAlignment="Left" Margin="300,681,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" Height="64" FontSize="40"/>
+
+        <Label Content="Flottila" HorizontalAlignment="Left" Margin="59,358,0,0" VerticalAlignment="Top" Width="206" FontSize="38"/>
+        <TextBox x:Name="FlotillaTxt" HorizontalAlignment="Left" Margin="300,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="310" Height="64" FontSize="40"/>
+
+        <Button x:Name="UpdateLogBtn" Content="Gem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="67" Background="DarkSlateGray" Foreground="White" FontSize="30" Margin="737,542,0,0"  />
+        <Button x:Name="ClearLogBtn" Content="Fortryd" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="66" Background="DarkSlateGray" Foreground="White" FontSize="30" Margin="737,641,0,0" />
+
+    </Grid>
+</UserControl>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HJV_2ndSemesterProject.Views
 {
     /// <summary>
-    /// Interaction logic for ServerLogInPage.xaml
+    /// Interaction logic for ProfilePage.xaml
     /// </summary>
-    public partial class ServerLogInPage : UserControl
+    public partial class ProfilePage : UserControl
     {
-        public ServerLogInPage()
+        public ProfilePage()
         {
             InitializeComponent();
         }

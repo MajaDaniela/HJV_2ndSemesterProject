@@ -68,33 +68,19 @@ namespace HJV_2ndSemesterProject.Views
             };
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "Indtast email")
-            {
-                textBox.Text = "";
-                textBox.Foreground = System.Windows.Media.Brushes.Black;
-            }
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = "Indtast email";
-                textBox.Foreground = System.Windows.Media.Brushes.Gray;
-            }
-        }
+        
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+
             if (IsConneceted)
             {
                 MainWindow main = new MainWindow();
                 main.Show();
             }
+=======
+            
+
             //string enteredEmail = emailTextBox.Text;
             //string enteredPassword = passwordBox.Password;
 
@@ -143,6 +129,7 @@ namespace HJV_2ndSemesterProject.Views
             return false;
         }
 
+
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         { 
             
@@ -155,5 +142,9 @@ namespace HJV_2ndSemesterProject.Views
    
 
         }
+=======
+        
+
+
     }
 }
