@@ -6,7 +6,8 @@
              
              xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
              mc:Ignorable="d" 
-              Height="780" Width="1035"  >
+             Height="780" Width="1035"  >
+            
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
