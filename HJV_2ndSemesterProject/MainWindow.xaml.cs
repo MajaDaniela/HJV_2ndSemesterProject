@@ -79,8 +79,12 @@ namespace HJV_2ndSemesterProject
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
+            //
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
             OpenLoginWindowAndCloseMainWindow();
         }
-        
     }
 }

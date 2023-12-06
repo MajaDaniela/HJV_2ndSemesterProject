@@ -29,19 +29,28 @@
         <Grid Width="150" Background="LightGray">
             <StackPanel>
                 
-                <Button Click="HomeBtn_Click" Margin="0,150,0,0" Height="75">
+                <Button Click="HomeBtn_Click" Margin="0,80,0,0" Height="75">
                     <materialDesign:PackIcon Kind="HomeCircleOutline" Height="50" Width="50"/>
                 </Button>
-                <Button Click="LogBtn_Click" Margin="0,45,0,0" Height="75">
+                <TextBlock Text="Hjem" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center"/>
+                <Button Click="LogBtn_Click" Margin="0,35,0,0" Height="75">
                     <materialDesign:PackIcon Kind="AccountClockOutline" Height="50" Width="50"/>
                 </Button>
-                <Button Click="DataMapBtn_Click" Margin="0,45,0,0" Height="75">
+                <TextBlock Text="Log timer" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
+                <Button Click="DataMapBtn_Click" Margin="0,35,0,0" Height="75">
                     <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50"/>
                 </Button>
-                <Button Click="ProfileBtn_Click" Margin="0,45,0,0" Height="75">
+                <TextBlock Text="Se tidligere logs" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
+                <Button Click="ProfileBtn_Click" Margin="0,35,0,0" Height="75">
                     <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
                 </Button>
-                
+                <TextBlock Text="Rediger Profil" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
+
+                <Button Click="LogOut_Click" Margin="0,75,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
+                    <materialDesign:PackIcon Kind="logout" Height="50" Width="50"/>
+                </Button>
+                <TextBlock Text="Log ud" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
+
             </StackPanel>
         </Grid>
 
