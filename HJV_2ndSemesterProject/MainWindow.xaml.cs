@@ -46,33 +46,6 @@ namespace HJV_2ndSemesterProject
             MainFrame.Navigate(new LogInPage());
         }
 
-        //private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    string serverIp = "10.56.8.36";
-        //    string serverName = "DB_F23_TEAM_14";
-        //    string username = DatabaseTb.Text;
-        //    string password = DatabasePswdTb.Password;
-
-        //    string connectionString = $"Data Source={serverIp};Initial Catalog={serverName};User Id={username};Password={password};";
-
-        //    try
-        //    {
-        //        using (SqlConnection connection = new SqlConnection(connectionString))
-        //        {
-        //            connection.Open();
-
-        //            // Nu kan du udføre SQL-forespørgsler eller andre operationer
-
-        //            MessageBox.Show("Forbindelse oprettet!");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Fejl under oprettelse af forbindelse: {ex.Message}");
-        //    }
-        //}
-
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {

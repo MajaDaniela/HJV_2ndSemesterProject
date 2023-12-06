@@ -9,11 +9,13 @@
         mc:Ignorable="d"
         Title="HJV-Eksamensprojekt" Height="800" Width="1200" ResizeMode="NoResize">
     <Grid >
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <!-- Sidebar -->
             <ColumnDefinition Width="*"/>
             <!-- Main content -->
+            
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -21,6 +23,9 @@
                 <GradientStop Color="#FF737373" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+
+        <!-- Main content -->
+        <Frame x:Name="MainFrame" Grid.Column="1" />
 
         <!-- Sidebar -->
         <Grid Width="150" Background="LightGray">
@@ -42,8 +47,9 @@
             </StackPanel>
         </Grid>
 
-        <!-- Main content -->
-        <Frame x:Name="MainFrame"  />
+       
+       
 
     </Grid>
+    
 </Window>
