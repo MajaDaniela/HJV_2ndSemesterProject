@@ -28,13 +28,13 @@
 
 
             <StackPanel Margin="0,40,0,10">
-                <TextBlock Text="Email:" Foreground="White" FontSize="46" Width="120"/>
-                <TextBox x:Name="emailTextBox" Width="419" Height="42" FontSize="14" Padding="5" Background="LightGray"/>
+                <TextBlock Text="Username:"  Foreground="White" FontSize="46" Width="218"/>
+                <TextBox x:Name="emailTextBox" Text="568493"  Width="419" Height="42" FontSize="24" Padding="5" Background="LightGray"/>
             </StackPanel>
 
             <StackPanel Margin="0,20,0,50">
-                <TextBlock Text="Password:" Foreground="White" FontSize="46" Width="209"/>
-                <PasswordBox x:Name="passwordBox" Width="416" Height="41" FontSize="14" Background="LightGray"/>
+                <TextBlock Text="Password:"  Foreground="White" FontSize="46" Width="209"/>
+                <PasswordBox x:Name="passwordBox" Password="testpassword" Width="416" Height="41" FontSize="24" Background="LightGray"/>
             </StackPanel>
 
             <Button Content="Login" x:Name="LoginBtn" Width="316" Height="85" HorizontalAlignment="Center" FontSize="36" Background="#2ecc71" Foreground="White" Click="LoginBtn_Click"/>
