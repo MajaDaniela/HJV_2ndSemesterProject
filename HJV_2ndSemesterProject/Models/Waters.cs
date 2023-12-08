@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.Models
 {
-    internal class Waters
+    public class Waters
     {
         public string Name {  get; set; }
         public string WatersType { get; set; }

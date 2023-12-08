@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
 using HJV_2ndSemesterProject.Models;
+using HJV_2ndSemesterProject.Data;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {

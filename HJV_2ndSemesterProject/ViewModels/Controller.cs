@@ -17,9 +17,10 @@ namespace HJV_2ndSemesterProject.ViewModels
         private LogEntryRepository LogEntryRepo { get; set; }
         private VolunteerRepository VolunteerRepo { get; set; }
 
-        private Volunteer CurrentUser {  get; set; }
-        private ObservableCollection<LogEntry> UsersLogs { get; set; }
-        private Sailing sailing;
+        public Volunteer CurrentUser {  get; set; }
+        public ObservableCollection<LogEntry> UsersLogs { get;}
+        public Sailing Currentsailing { get; set; }
+       
         public Controller() // MA_NUmber from login as parameter?
         {
             TaskRepo = new TaskRepository();
@@ -29,11 +30,12 @@ namespace HJV_2ndSemesterProject.ViewModels
             VolunteerRepo = new VolunteerRepository();
             // CurrentUser = VolunteerRepo.GetVolunteer(MA_numberLOGIN);
             //UserLogs = LogEntryRepo.GetlogsByMA
+
         }
 
         public void AddLogEntry()
         {
-             int id = SailingRepo.CreateSailing(sailing);
+             int id = SailingRepo.CreateSailing(Currentsailing);
             LogEntry entry = new((Role)2, 120, "Test", CurrentUser.MA_Number, id);
             LogEntryRepo.CreateLogEntry(entry);
         }

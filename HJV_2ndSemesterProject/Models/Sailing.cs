@@ -13,13 +13,20 @@ namespace HJV_2ndSemesterProject.Models
         public DateTime StartTime { get; set; }
         public SailingType SailingType { get; set; }
         public string VesselID { get; set; }
+        public List<Waters> Waters { get;} 
 
-        public Sailing(DateTime start, DateTime end, SailingType sailingType, string vesselID)
+
+        public Sailing(DateTime start, DateTime end, SailingType sailingType, string vesselID, List<Waters> waters)
         {
             EndTime = end;
             StartTime = start;
             SailingType = sailingType;
             VesselID = vesselID;
+
+            Waters = new List<Waters>();
+            Waters = waters;
+
+           
         }
     }
 }
