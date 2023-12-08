@@ -32,6 +32,5 @@ namespace HJV_2ndSemesterProject.Models
         //ForlægningssejladstTil,
         //[Description("Forlægningssejlads fra")]
         //ForlægningssejladsFra,
-
     }
 }

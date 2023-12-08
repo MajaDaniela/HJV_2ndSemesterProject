@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace HJV_2ndSemesterProject.ViewModels
+namespace HJV_2ndSemesterProject.Data
 {
     public static class DataAccess
     {
