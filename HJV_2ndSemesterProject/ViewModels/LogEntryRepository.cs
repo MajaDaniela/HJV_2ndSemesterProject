@@ -17,6 +17,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 
         public void CreateLogEntry(LogEntry entry)
         {
+            int newID;
             DataAccess.NewConn();
             using (DataAccess.conn)
             {
@@ -31,22 +32,25 @@ namespace HJV_2ndSemesterProject.ViewModels
                     cmd.Parameters.AddWithValue("@SailingID", entry.SailingID);
 
                     DataAccess.conn.Open();
-                    cmd.ExecuteNonQuery();
+                    newID= Convert.ToInt32(cmd.ExecuteScalar());
                 }
 
+                foreach (Models.Task t in entry.Tasks)
+                {
+                    LinkTaskToLogEntry(newID, t.TaskType, DataAccess.conn);
+                }
             }
         }
 
-        public void UpdateLogentry(int id, LogEntry updated )
+        public void UpdateLogentry( LogEntry updated )
         {
             DataAccess.NewConn();
             using (DataAccess.conn)
             {
-
                 using (SqlCommand cmd = new SqlCommand("sp_UpdateLogEntry", DataAccess.conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("LogID", id);
+                    cmd.Parameters.AddWithValue("@LogID", updated.Id);
                     cmd.Parameters.AddWithValue("@Role", (int)updated.Role);
                     cmd.Parameters.AddWithValue("@NumberOfMinutes", updated.NumberofMinutes);
                     cmd.Parameters.AddWithValue("@Comment", updated.Comment);
@@ -56,7 +60,6 @@ namespace HJV_2ndSemesterProject.ViewModels
                     cmd.ExecuteNonQuery();
                 }
             }
-
         }
 
         public void DeleteLogEntry(int id)
@@ -68,12 +71,11 @@ namespace HJV_2ndSemesterProject.ViewModels
                 using (SqlCommand cmd = new SqlCommand("sp_DeleteLogEntry", DataAccess.conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("LogID", id);
+                    cmd.Parameters.AddWithValue("@LogID", id);
                     DataAccess.conn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
-
         }
 
         public List<LogEntry> GetLogsByMA (string MA_NUmber)
@@ -86,7 +88,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                 using (SqlCommand cmd = new SqlCommand("sp_GetLogEntriesByMa_Number", DataAccess.conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("MA_NUmber",MA_NUmber);
+                    cmd.Parameters.AddWithValue("@MA_NUmber",MA_NUmber);
                     DataAccess.conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader()) 
                     {
@@ -100,10 +102,19 @@ namespace HJV_2ndSemesterProject.ViewModels
                         }
                         return result;
                     }
-
                 }
             }
+        }
 
+        private void LinkTaskToLogEntry(int logId, string taskType,SqlConnection connection) 
+        {
+            using (SqlCommand cmd= new("sp_CreateLogEntryTask",connection))
+            {
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@LogID",logId);
+                cmd.Parameters.AddWithValue("@TaskType", taskType);
+                cmd.ExecuteNonQuery();
+            }      
         }
     }
 }

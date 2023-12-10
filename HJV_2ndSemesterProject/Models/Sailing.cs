@@ -22,7 +22,6 @@ namespace HJV_2ndSemesterProject.Models
             StartTime = start;
             SailingType = sailingType;
             VesselID = vesselID;
-
             Waters = new List<Waters>();
             Waters = waters;
 

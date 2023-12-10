@@ -17,7 +17,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 
         public int CreateSailing(Sailing s)
         {
-            
+            int newId;
             DataAccess.NewConn();
             using (DataAccess.conn)
             {
@@ -31,15 +31,37 @@ namespace HJV_2ndSemesterProject.ViewModels
                 }
 
                 using SqlCommand cmd2 = new SqlCommand("sp_CreateSailing", DataAccess.conn);
-                cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.AddWithValue("@SailingType", (int)s.SailingType);
-                cmd2.Parameters.AddWithValue("@StartTime", s.StartTime);
-                cmd2.Parameters.AddWithValue("@EndTime", s.EndTime);
-                cmd2.Parameters.AddWithValue("@VesselID", s.VesselID);
-  
-                return Convert.ToInt32(cmd2.ExecuteScalar());
+                {
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.Parameters.AddWithValue("@SailingType", (int)s.SailingType);
+                    cmd2.Parameters.AddWithValue("@StartTime", s.StartTime);
+                    cmd2.Parameters.AddWithValue("@EndTime", s.EndTime);
+                    cmd2.Parameters.AddWithValue("@VesselID", s.VesselID);
+
+                    newId = Convert.ToInt32(cmd2.ExecuteScalar());
+
+                    foreach (Waters waters in s.Waters)
+                    {
+                        LinkWatersToSailing(waters.Name,newId,DataAccess.conn);
+                    }
+
+                    return newId;
+                }
+                
+
             }
 
+        }
+
+        private void LinkWatersToSailing(string watersName,int sailingId,SqlConnection conn)
+        {
+            using (SqlCommand cmd = new SqlCommand("sp_CreateSailingWaters", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SailingID", sailingId);
+                cmd.Parameters.AddWithValue("@WatersName", watersName);
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void DeleteSailing()

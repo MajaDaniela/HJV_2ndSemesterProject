@@ -17,7 +17,7 @@ namespace HJV_2ndSemesterProject.Models
         public int SailingID { get; set; }
         public List<Task> Tasks { get; }
 
-        public LogEntry(Role role, int minutes, string comment, string ma, int sailingID, List<Task> tasks, int id =0 ) 
+        public LogEntry(Role role, int minutes, string comment, string ma, int sailingID, int id =0 ) 
         {
             Role = role;
             NumberofMinutes = minutes;
@@ -26,7 +26,6 @@ namespace HJV_2ndSemesterProject.Models
             SailingID = sailingID;
             Id = id;
             Tasks = new List<Task>();
-            Tasks = tasks;
         }
 
     }

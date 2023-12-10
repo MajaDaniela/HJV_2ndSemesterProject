@@ -9,9 +9,9 @@ namespace HJV_2ndSemesterProject.Models
     public class Waters
     {
         public string Name {  get; set; }
-        public string WatersType { get; set; }
+        public int WatersType { get; set; }
 
-        public Waters(string name, string watersType)
+        public Waters(string name, int watersType)
         {
             Name = name;
             WatersType = watersType;

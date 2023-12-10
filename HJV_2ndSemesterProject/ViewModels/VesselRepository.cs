@@ -21,13 +21,13 @@ namespace HJV_2ndSemesterProject.ViewModels
             vessels = new ObservableCollection<Vessel>();
             GetVessels();
         }
-        public void GetVessels()
+        private void GetVessels()
         {
             DataAccess.NewConn();
             using (DataAccess.conn)
             {
                 DataAccess.conn.Open();
-                using (SqlCommand cmd = new SqlCommand("Select * from Vessel", DataAccess.conn)) 
+                using (SqlCommand cmd = new SqlCommand("Select * from VESSEL", DataAccess.conn)) 
                 {
                     using SqlDataReader reader = cmd.ExecuteReader();
                     {
