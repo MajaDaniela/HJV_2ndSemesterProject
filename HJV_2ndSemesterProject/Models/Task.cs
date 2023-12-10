@@ -8,11 +8,11 @@ namespace HJV_2ndSemesterProject.Models
 {
     public class Task
     {
-        public string Name { get; set; }
+        public string TaskType { get; set; }
 
-        public Task(string name)
+        public Task(string type)
         {   
-            Name = name;
+            TaskType = type;
         }
     }
 }

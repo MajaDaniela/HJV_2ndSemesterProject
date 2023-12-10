@@ -16,28 +16,39 @@ namespace HJV_2ndSemesterProject.ViewModels
 
         private LogEntryRepository LogEntryRepo { get; set; }
         private VolunteerRepository VolunteerRepo { get; set; }
+        
 
-        public Volunteer CurrentUser {  get; set; }
+        public Volunteer CurrentUser { get; set; }
         public ObservableCollection<LogEntry> UsersLogs { get;}
-        public Sailing Currentsailing { get; set; }
+        public Sailing CurrentSailing { get; set; }
+        public LogEntry CurrentLogEntry {  get; set; }
        
-        public Controller() // MA_NUmber from login as parameter?
+        public Controller( string MA_Number) 
         {
             TaskRepo = new TaskRepository();
             VesselRepo = new VesselRepository();
             LogEntryRepo = new LogEntryRepository();
             SailingRepo = new SailingRepository();
             VolunteerRepo = new VolunteerRepository();
-            // CurrentUser = VolunteerRepo.GetVolunteer(MA_numberLOGIN);
-            //UserLogs = LogEntryRepo.GetlogsByMA
-
+            CurrentUser = VolunteerRepo.GetVolunteer(MA_Number);
+            UsersLogs = new (LogEntryRepo.GetLogsByMA(CurrentUser.MA_Number));
         }
 
         public void AddLogEntry()
         {
-             int id = SailingRepo.CreateSailing(Currentsailing);
-            LogEntry entry = new((Role)2, 120, "Test", CurrentUser.MA_Number, id);
-            LogEntryRepo.CreateLogEntry(entry);
+             int id = SailingRepo.CreateSailing(CurrentSailing);
+            CurrentLogEntry.SailingID = id;
+            LogEntryRepo.CreateLogEntry(CurrentLogEntry);
+        }
+
+        public void EditLogEntry()
+        {
+            LogEntryRepo.UpdateLogentry(CurrentLogEntry);
+        }
+
+        public void DeleteLogEntry()
+        {
+            LogEntryRepo.DeleteLogEntry(CurrentLogEntry.Id);
         }
 
 
