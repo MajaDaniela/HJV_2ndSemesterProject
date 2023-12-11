@@ -16,59 +16,58 @@
         </Grid.Background>
 
         <!-- Left Side StackPanel -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="325">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="650" Margin="10,10,0,10">
             <Label Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,20"/>
 
-            <StackPanel Margin="10,0,0,0">
+            <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
                 <Label Content="Navn" FontSize="26"/>
-                <TextBox x:Name="NameTxt" Width="310" Height="40" FontSize="24"/>
+                <Label x:Name="ProfileNavn"  Content="{Binding VolunteerName}" FontSize="26" Margin="105,0,0,0" Width="460"/>
             </StackPanel>
 
-            <StackPanel Margin="10,0,0,0">
-                <Label Content="MA-Nummer" FontSize="26"/>
-                <TextBox x:Name="MAnumberTxt" Width="310" Height="40" FontSize="24"/>
+            <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
+                <Label Content="MA-Nummer" FontSize="26" Width="165"/>
+                <Label x:Name="ProfileMaNummer" Content="{Binding MA_Number}" FontSize="26" Margin="10,0,0,0" Width="445"/>
             </StackPanel>
 
-            <StackPanel Margin="10,0,0,0">
+            
+            
+            <StackPanel Margin="10,40,0,0" Orientation="Horizontal" >
                 <Label Content="Roller" FontSize="26"/>
-                <ComboBox x:Name="RoleComboBox" Width="310" Height="40" FontSize="24">
+                <ComboBox x:Name="RoleComboBox" Width="311" Height="40" FontSize="24" Margin="72,0,0,0" >
                     <ComboBoxItem Content="SG"/>
                     <ComboBoxItem Content="Sergent"/>
                 </ComboBox>
             </StackPanel>
 
-            <StackPanel Margin="10,0,0,0">
+            <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
                 <Label Content="Certifikat" FontSize="26"/>
-                <ComboBox x:Name="CertifikatComboBox" Width="310" Height="40" FontSize="24">
+                <ComboBox x:Name="CertifikatComboBox" Width="310" Height="40" FontSize="24" Margin="35,0,0,0">
                     <ComboBoxItem Content="Cert1"/>
                     <ComboBoxItem Content="Cert2"/>
                 </ComboBox>
             </StackPanel>
 
-            <StackPanel Margin="10,0,0,0">
-                <Label Content="Email" FontSize="26"/>
-                <TextBox x:Name="EmailTxt" Width="310" Height="40" FontSize="24"/>
-            </StackPanel>
+            
 
-            <StackPanel Margin="10,0,0,0">
-                <Label Content="Flottila" FontSize="26"/>
-                <ComboBox x:Name="FlotillaComboBox" Width="310" Height="40" FontSize="24">
+            <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
+                <Label Content="Flotille" FontSize="26"/>
+                <ComboBox x:Name="FlotilleComboBox" Width="310" Height="40" FontSize="24" Margin="63,0,0,0" >
                     <ComboBoxItem Content="Deling1"/>
                     <ComboBoxItem Content="Deling2"/>
                 </ComboBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,20" Width="280">
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0" Width="280">
                 <Button x:Name="UpdateLogBtn" Content="Gem" Width="120" Height="50" Background="DarkSlateGray" Foreground="White" FontSize="20"/>
                 <Button x:Name="ClearLogBtn" Content="Fortryd" Width="120" Height="50" Background="DarkSlateGray" Foreground="White" FontSize="20" Margin="10,0,0,0"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="675">
-            <Label Content="Flottila" FontSize="26" Margin="70" Width="95"/>
-            <Label Content="Flottila" FontSize="26" Margin="70" Width="95"/>
-            <Label Content="Flottila" FontSize="26" Margin="70" Width="95"/>
-            <Label Content="Flottila" FontSize="26" Margin="70" Width="95"/>
-            
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="375">
+            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
+            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
+            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
+            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
+
 
         </StackPanel>
 

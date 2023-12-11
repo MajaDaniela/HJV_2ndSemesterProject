@@ -26,10 +26,11 @@ namespace HJV_2ndSemesterProject
     public partial class MainWindow : Window
     {
         Controller controller;
-        public MainWindow()
+        public MainWindow(string enteredUsername)
         {
             InitializeComponent();
             controller = new();
+            usernameLabel.Content = $"Velkommen, \n {enteredUsername}!";
         }
         private void ShowLogEntryPage()
         {

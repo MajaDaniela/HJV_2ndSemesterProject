@@ -26,13 +26,15 @@ namespace HJV_2ndSemesterProject
 
     public class TestAdmin
     {
-        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
     }
 
     public class TestUser
     {
-        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Name { get; set; }
         public string Password { get; set; }
     }
 
@@ -58,8 +60,9 @@ namespace HJV_2ndSemesterProject
         {
             testAdmin = new TestAdmin
             {
-                Email = "admin@example.com",
-                Password = "adminpassword"
+                Username = "Admin",
+                Name = "AdminName",
+                Password = "admin"
             };
         }
 
@@ -67,7 +70,8 @@ namespace HJV_2ndSemesterProject
         {
             testUser = new TestUser
             {
-                Email = "test@example.com",
+                Username = "568493",
+                Name = "Egon",
                 Password = "testpassword"
             };
         }
@@ -76,62 +80,48 @@ namespace HJV_2ndSemesterProject
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+            string enteredUsername = emailTextBox.Text;
+            string enteredPassword = passwordBox.Password;
 
-            if (IsConneceted)
+            if (IsValidLogin(enteredUsername, enteredPassword, testUser))
             {
-                MainWindow main = new MainWindow();
-                main.Show();
-                this.Close();
+                // Navigate to the user profile. HAS TO BE CHANGED TO PAGE instead of window
+                if (IsConneceted)
+                {
+                    MainWindow main = new MainWindow(enteredUsername);
+                    main.Show();
+                    this.Close();
+                }
             }
-
-
-            //string enteredEmail = emailTextBox.Text;
-            //string enteredPassword = passwordBox.Password;
-
-            //if (IsValidLogin(enteredEmail, enteredPassword, testUser))
-            //{
-            //    // Navigate to the user profile. HAS TO BE CHANGED TO PAGE instead of window
-            //    UserProfileWindow userProfileWindow = new UserProfileWindow();
-            //    userProfileWindow.Show();
-
-
-            //    Window parentWindow = Window.GetWindow(this);
-            //    if (parentWindow != null)
-            //    {
-            //        parentWindow.Close();
-            //    }
-            //}
-            //else if (IsValidLogin(enteredEmail, enteredPassword, testAdmin))
-            //{
-            //    // Navigate to the admin profile  HAS TO BE CHANGED TO PAGE instead of window
-            //    AdminProfileWindow adminProfileWindow = new AdminProfileWindow();
-            //    adminProfileWindow.Show();
-
-            //    Window parentWindow = Window.GetWindow(this);
-            //    if (parentWindow != null)
-            //    {
-            //        parentWindow.Close();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Forkert email eller adgangskode. Prøv igen..");
-            //}
+            else if (IsValidLogin(enteredUsername, enteredPassword, testAdmin))
+            {
+                if (IsConneceted)
+                {
+                    MainWindow main = new MainWindow(enteredUsername);
+                    main.Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Forkert email eller adgangskode. Prøv igen..");
+            }
         }
 
-        private bool IsValidLogin(string enteredEmail, string enteredPassword, object user)
+        private bool IsValidLogin(string enteredUsername, string enteredPassword, object user)
         {
             if (user is TestUser)
             {
-                return enteredEmail == ((TestUser)user).Email && enteredPassword == ((TestUser)user).Password;
+                return enteredUsername == ((TestUser)user).Username && enteredPassword == ((TestUser)user).Password;
             }
             else if (user is TestAdmin)
             {
-                return enteredEmail == ((TestAdmin)user).Email && enteredPassword == ((TestAdmin)user).Password;
+                return enteredUsername == ((TestAdmin)user).Username && enteredPassword == ((TestAdmin)user).Password;
             }
 
             return false;
         }
+
 
 
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
