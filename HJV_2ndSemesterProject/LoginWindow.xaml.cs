@@ -24,58 +24,17 @@ namespace HJV_2ndSemesterProject
     /// </summary>
     /// 
 
-    public class TestAdmin
-    {
-        public string Username { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }
-    }
-
-    public class TestUser
-    {
-        public string Username { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }
-    }
-
-
 
     public partial class LoginWindow : Window
     {
-        private TestAdmin testAdmin;
-        private TestUser testUser;
         public bool IsConneceted = false;
 
         public LoginWindow()
         {
             InitializeComponent();
-            InitializeTestUser();
-            InitializeTestAdmin();
-        }
-        
-
-        
-
-        private void InitializeTestAdmin()
-        {
-            testAdmin = new TestAdmin
-            {
-                Username = "Admin",
-                Name = "AdminName",
-                Password = "admin"
-            };
         }
 
-        private void InitializeTestUser()
-        {
-            testUser = new TestUser
-            {
-                Username = "568493",
-                Name = "Egon",
-                Password = "testpassword"
-            };
-        }
-
+        //TestPassword string TestPassword
 
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
@@ -83,24 +42,17 @@ namespace HJV_2ndSemesterProject
             string enteredUsername = emailTextBox.Text;
             string enteredPassword = passwordBox.Password;
 
-            if (IsValidLogin(enteredUsername, enteredPassword, testUser))
+            if (!IsConneceted)
             {
-                // Navigate to the user profile. HAS TO BE CHANGED TO PAGE instead of window
-                if (IsConneceted)
-                {
-                    MainWindow main = new MainWindow(enteredUsername);
-                    main.Show();
-                    this.Close();
-                }
+                MessageBox.Show("Ingen forbindelse til databasen..");
+                return;
             }
-            else if (IsValidLogin(enteredUsername, enteredPassword, testAdmin))
+
+            if (IsValidLogin(enteredUsername))
             {
-                if (IsConneceted)
-                {
-                    MainWindow main = new MainWindow(enteredUsername);
-                    main.Show();
-                    this.Close();
-                }
+                MainWindow main = new MainWindow(enteredUsername);
+                main.Show();
+                this.Close();
             }
             else
             {
@@ -108,26 +60,56 @@ namespace HJV_2ndSemesterProject
             }
         }
 
-        private bool IsValidLogin(string enteredUsername, string enteredPassword, object user)
+        private bool IsValidLogin(string enteredUsername)
         {
-            if (user is TestUser)
+            const string enteredPassword = "Test123"; // Set password to "Test123"
+
+            if (string.IsNullOrEmpty(DataAccess.connectionString))
             {
-                return enteredUsername == ((TestUser)user).Username && enteredPassword == ((TestUser)user).Password;
-            }
-            else if (user is TestAdmin)
-            {
-                return enteredUsername == ((TestAdmin)user).Username && enteredPassword == ((TestAdmin)user).Password;
+                MessageBox.Show("Ingen forbindelse til databasen..");
+                return false;
             }
 
-            return false;
+            DataAccess.NewConn(); // Set the connection string
+
+            if (!IsConneceted)
+            {
+                MessageBox.Show("Ingen forbindelse til databasen..");
+                return false;
+            }
+
+            using (SqlConnection sqlConnection = DataAccess.conn) // Use the existing connection
+            { //Dette afsnit fungerer efter hensigten, men kalder på VolunteerRepositoriet hvor den kalder fejl på GetVolunteer (String MA-Number = unknown)
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand($"SELECT * FROM VOLUNTEER WHERE MA_Number = '{enteredUsername}'", sqlConnection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@MA_Number", enteredUsername);
+
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        return true; // Valid login
+
+                    }
+                }
+            }
+
+            return false; // Invalid login 
         }
+
+
+
+
+
 
 
 
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            IsConneceted = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); //Skiftet fra PasswordBox
+            IsConneceted = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); 
             if (!IsConneceted)
             {
                 MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();

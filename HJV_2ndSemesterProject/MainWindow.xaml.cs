@@ -29,7 +29,7 @@ namespace HJV_2ndSemesterProject
         public MainWindow(string enteredUsername)
         {
             InitializeComponent();
-            controller = new();
+            controller = new(enteredUsername);
             usernameLabel.Content = $"Velkommen, \n {enteredUsername}!";
         }
         private void ShowLogEntryPage()
