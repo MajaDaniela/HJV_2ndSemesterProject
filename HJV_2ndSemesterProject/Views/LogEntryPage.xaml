@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
+             xmlns:local="clr-namespace:HJV_2ndSemesterProject"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="HJV_2ndSemesterProject.Views.LogEntryPage"
              mc:Ignorable="d"
-             Height="780" Width="1035"  >
+             Height="780" Width="1035"  
+                >
+    <!--<UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EffectStyle"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>-->
+
+    <!--<UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum " MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:RoleTest"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>-->
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -14,9 +34,10 @@
                 <GradientStop Color="#FF737373" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        
+            
 
-
-        <Label Content="Log" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Height="67" Width="282"/>
+            <Label Content="Log" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Height="67" Width="282"/>
         <Label Content="Navn" HorizontalAlignment="Left" Margin="317,127,0,0" VerticalAlignment="Top" Width="71" FontSize="18"/>
         <Label Content="MA-Nummer" HorizontalAlignment="Left" Margin="315,162,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
         <Label Content="Rolle" HorizontalAlignment="Left" Margin="315,196,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
@@ -36,14 +57,10 @@
         <DatePicker x:Name="EndTime" HorizontalAlignment="Left" Margin="470,342,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="EndTime_SelectedDateChanged"/>
         <DatePicker x:Name="StartTime" HorizontalAlignment="Left" Margin="470,309,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="StartTime_SelectedDateChanged"/>
         <ComboBox x:Name="VesselName" HorizontalAlignment="Left" Margin="469,274,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="VesselName_SelectionChanged"/>
-        <ComboBox x:Name="SailingType" HorizontalAlignment="Left" Margin="469,238,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SailingType_SelectionChanged"/>
+        <ComboBox x:Name="SailingType" HorizontalAlignment="Left" Margin="469,238,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SailingType_SelectionChanged"
+                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:SailingTypeTest}}}"/>
 
 
-
-
-
-        <!--<materialDesign:TimePicker HorizontalAlignment="Left" Margin="768,235,0,0" VerticalAlignment="Top" Width="102"/>
-        <materialDesign:TimePicker HorizontalAlignment="Left" Margin="592,342,0,0" VerticalAlignment="Top"/>-->
         <ComboBox x:Name="WatersType" HorizontalAlignment="Left" Margin="471,560,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="WatersType_SelectionChanged"/>
         <Label Content="Farvandes type" HorizontalAlignment="Left" Margin="317,554,0,0" VerticalAlignment="Top" Width="135" FontSize="18" Height="33"/>
         <ComboBox x:Name="Hour" HorizontalAlignment="Left" Margin="591,312,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="Hour_SelectionChanged"/>
@@ -52,15 +69,20 @@
         <ComboBox x:Name="HourEnd" HorizontalAlignment="Left" Margin="591,347,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="HourEnd_SelectionChanged"/>
         <ComboBox x:Name="MinutEnd" HorizontalAlignment="Left" Margin="658,347,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="MinutEnd_SelectionChanged"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="640,345,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="469,202,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged"/>
-        <ComboBox x:Name="LogHours" HorizontalAlignment="Left" Margin="472,595,0,0" VerticalAlignment="Top" Width="76" SelectionChanged="LogHours_SelectionChanged"/>
+        <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="469,202,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged" 
+                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:RoleTest}}}"/>
+                  <!--ItemsSource="{local:EnumToItemsSource local:Status}"--> 
+                  <!--ItemsSource="{Binding Source={StaticResource dataFromEnum }}"-->
+            <!--<ComboBox DisplayMemberPath="DisplayName"
+          ItemsSource="{local:EnumToItemsSource {x:Type enums:RoleTest}}"
+          SelectedValue="{Binding Path=WhereEverYouWant}"
+          SelectedValuePath="Value"-->
         <Label Content="Tid" HorizontalAlignment="Left" Margin="317,589,0,0" VerticalAlignment="Top" Width="135" FontSize="18" Height="33"/>
         <Label Content="" HorizontalAlignment="Left" Margin="473,162,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
         <Label Content="" HorizontalAlignment="Left" Margin="470,123,0,0" VerticalAlignment="Top" Width="165" FontSize="18"/>
         <ListBox x:Name="WatersList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="473,473,343,231" SelectionChanged="WatersList_SelectionChanged" SelectionMode="Multiple"/>
         <ListBox x:Name="TaskList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="473,377,343,327" SelectionChanged="WatersList_SelectionChanged" SelectionMode="Multiple"/>
-        <Label Content=":" HorizontalAlignment="Left" Margin="559,596,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="LogMinutes" HorizontalAlignment="Left" Margin="582,595,0,0" VerticalAlignment="Top" Width="76" SelectionChanged="LogMinutes_SelectionChanged"/>
+        <TextBox x:Name="LogTime" HorizontalAlignment="Left" Margin="471,594,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="23" TextChanged="LogTime_TextChanged"/>
 
 
 

@@ -35,6 +35,7 @@ namespace HJV_2ndSemesterProject.Views
         string MinutString;
         string HourStringEnd;
         string MinutStringEnd;
+        string RoleString;
         public LogEntryPage()
         {
             InitializeComponent();
@@ -68,7 +69,7 @@ namespace HJV_2ndSemesterProject.Views
 
             for (int i = 00; i < 400; i++)
             {
-                LogHours.Items.Add(new ComboBoxItem() { Content = i });
+                //LogHours.Items.Add(new ComboBoxItem() { Content = i });
                 HourEnd.Items.Add(new ComboBoxItem() { Content = i });
             }
 
@@ -80,7 +81,7 @@ namespace HJV_2ndSemesterProject.Views
             {
                 Minut.Items.Add(new ComboBoxItem() { Content = i });
                 MinutEnd.Items.Add(new ComboBoxItem() { Content = i });
-                LogMinutes.Items.Add(new ComboBoxItem() { Content = i });
+                //LogMinutes.Items.Add(new ComboBoxItem() { Content = i });
             }
             
 
@@ -91,7 +92,7 @@ namespace HJV_2ndSemesterProject.Views
 
             foreach (var name in RoleNames)
             {
-                Role.Items.Add(new ComboBoxItem() { Content = name });
+                //Role.Items.Add(new ComboBoxItem() { Content = name });
             }
 
 
@@ -113,7 +114,7 @@ namespace HJV_2ndSemesterProject.Views
 
             foreach (var name in SailingTypeNames)
             {
-                SailingType.Items.Add(new ComboBoxItem() { Content = name });
+                //SailingType.Items.Add(new ComboBoxItem() { Content = name });
             }
 
             var WatersTypeNames = new List<string>()
@@ -162,7 +163,7 @@ namespace HJV_2ndSemesterProject.Views
 
         private void SailingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            //SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
                 
 
         }
@@ -202,7 +203,7 @@ namespace HJV_2ndSemesterProject.Views
 
         private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //RoleString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
         }
 
         private void Hour_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -240,6 +241,11 @@ namespace HJV_2ndSemesterProject.Views
         }
 
         private void LogMinutes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LogTime_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
