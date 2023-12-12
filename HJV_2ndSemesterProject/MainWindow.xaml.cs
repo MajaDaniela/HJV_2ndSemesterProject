@@ -32,11 +32,9 @@ namespace HJV_2ndSemesterProject
         public MainWindow(string MA_Number)
         {
             InitializeComponent();
-            VolunteerRepository volunteerRepository = new VolunteerRepository();
+            controller = new(MA_Number);
 
-            // Call GetVolunteer to retrieve the volunteer information
-            volunteer = volunteerRepository.GetVolunteer(MA_Number);
-            usernameLabel.Content = $"Velkommen, \n {MA_Number}! \n {volunteer?.Name} ";
+            usernameLabel.Content = $"Velkommen, \n {MA_Number}! \n {controller.CurrentUser.Name}  "; 
         }
         private void ShowLogEntryPage()
         {

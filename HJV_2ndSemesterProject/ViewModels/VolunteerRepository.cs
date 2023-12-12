@@ -27,28 +27,13 @@ namespace HJV_2ndSemesterProject.ViewModels
                     DataAccess.conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
+                        
+
                         while (reader.Read())
                         {
-                            string volunteerName = reader["VolunteerName"] != DBNull.Value ? reader["VolunteerName"].ToString() : string.Empty;
-                            string flotilla = reader["Flottila"] != DBNull.Value ? reader["Flottila"].ToString() : string.Empty;
-
-                            // Checking rank.
-                            if (int.TryParse(reader["VolunteerRank"].ToString(), out int volunteerRankValue)) //Laver værdien om til en int. 
-                            {
-                                int volunteerRank = volunteerRankValue;
-                                volunteer = new Volunteer(MA_Number, volunteerName, flotilla, (Rank)volunteerRank);
-                            }
-                            else
-                            {
-                                Console.WriteLine("Problem, fejl i indtastningen..");
-                            }
+                            volunteer = new(MA_Number, reader["VolunteerName"].ToString(),
+                             reader["Flottila"].ToString(), (Rank)(int)reader["VolunteerRank"]);
                         }
-
-                        //while (reader.Read())
-                        //{
-                        //    volunteer = new(MA_Number, reader["VolunteerName"].ToString(),
-                        //     reader["Flotilla"].ToString(), (Rank)(int)reader["VolunteerRank"]);
-                        //}
                         return volunteer;
                     }
 
@@ -56,9 +41,6 @@ namespace HJV_2ndSemesterProject.ViewModels
 
             }
         }
-
-
-
 
         public void CreateVolunteer()
         {
