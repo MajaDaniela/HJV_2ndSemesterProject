@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HJV_2ndSemesterProject.ViewModels;
+using HJV_2ndSemesterProject.Models;
 using System.Data.SqlClient;
 
 
@@ -26,11 +27,16 @@ namespace HJV_2ndSemesterProject
     public partial class MainWindow : Window
     {
         Controller controller;
-        public MainWindow(string enteredUsername)
+        private Volunteer volunteer;
+
+        public MainWindow(string MA_Number)
         {
             InitializeComponent();
-            controller = new(enteredUsername);
-            usernameLabel.Content = $"Velkommen, \n {enteredUsername}!";
+            VolunteerRepository volunteerRepository = new VolunteerRepository();
+
+            // Call GetVolunteer to retrieve the volunteer information
+            volunteer = volunteerRepository.GetVolunteer(MA_Number);
+            usernameLabel.Content = $"Velkommen, \n {MA_Number}! \n {volunteer?.Name} ";
         }
         private void ShowLogEntryPage()
         {

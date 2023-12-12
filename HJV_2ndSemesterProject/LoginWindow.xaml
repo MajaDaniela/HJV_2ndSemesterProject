@@ -28,12 +28,12 @@
 
 
             <StackPanel Margin="0,40,0,10">
-                <TextBlock Text="Username:"  Foreground="White" FontSize="46" Width="218"/>
-                <TextBox x:Name="emailTextBox" Text="568493"  Width="419" Height="42" FontSize="24" Padding="5" Background="LightGray" />
+                <TextBlock Text="MA-Nummer:"  Foreground="White" FontSize="46" Width="286"/>
+                <TextBox x:Name="emailTextBox" Text="111111"  Width="419" Height="42" FontSize="24" Padding="5" Background="LightGray" />
             </StackPanel>
 
             <StackPanel Margin="0,20,0,50">
-                <TextBlock Text="Password:"  Foreground="White" FontSize="46" Width="209"/>
+                <TextBlock Text="Kodeord:"  Foreground="White" FontSize="46" Width="209"/>
                 <PasswordBox x:Name="passwordBox" Password="testpassword" Width="416" Height="41" FontSize="24" Background="LightGray"/>
             </StackPanel>
 
