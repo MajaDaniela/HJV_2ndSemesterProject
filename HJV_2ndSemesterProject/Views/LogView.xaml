@@ -1,0 +1,70 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="HJV_2ndSemesterProject.Views.LogView"
+             mc:Ignorable="d"
+             Height="780" Width="1035"  >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#3498db" Offset="0"/>
+                <GradientStop Color="#FF737373" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Button x:Name="SearchLogBtn" Content="Søg registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,108,0,0" />
+        <TextBox x:Name="SearchLogTxt" HorizontalAlignment="Left" Margin="195,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="241" Height="28" TextChanged="SearchLogTxt_TextChanged"/>
+
+        <Button x:Name="AddLogBtn" Content="Tilføj registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,621,0,0" Click="AddLogBtn_Click"/>
+        <Button x:Name="UpdateLogBtn" Content="Opdater registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="210,621,0,0" Click="UpdateLogBtn_Click" />
+        <Button x:Name="DeleteLogBtn" Content="Slet registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="430,621,0,0" Click="DeleteLogBtn_Click" />
+        <Button x:Name="ClearLogBtn" Content="Ryd data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="615,621,0,0" Click="ClearLogBtn_Click" />
+
+
+
+
+
+        <DataGrid x:Name="datagrid1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="29,192,433,370"/>
+
+        <Label Content="Log" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Height="67" Width="282"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="728,175,0,0" VerticalAlignment="Top" Width="71" FontSize="18"/>
+        <Label Content="MA-Nummer" HorizontalAlignment="Left" Margin="726,210,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <Label Content="Rolle" HorizontalAlignment="Left" Margin="726,244,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
+        <Label Content="Starttid" HorizontalAlignment="Left" Margin="726,350,0,0" VerticalAlignment="Top" Width="111" FontSize="18"/>
+        <Label Content="Sluttid" HorizontalAlignment="Left" Margin="726,387,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
+        <Label Content="SkibID" HorizontalAlignment="Left" Margin="726,314,0,0" VerticalAlignment="Top" Width="73" FontSize="18"/>
+
+        <Label Content="Bemærkning&#xA;/kommentar" HorizontalAlignment="Left" Margin="721,528,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <TextBox x:Name="Remark" HorizontalAlignment="Left" Margin="880,528,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="66"/>
+        <Label Content="Sejladstype" HorizontalAlignment="Left" Margin="726,278,0,0" VerticalAlignment="Top" Width="111" FontSize="18"/>
+        <Label Content="Farvande" HorizontalAlignment="Left" Margin="726,452,0,0" VerticalAlignment="Top" Width="73" FontSize="18" Height="33"/>
+        <Label Content="Opgaver" HorizontalAlignment="Left" Margin="726,418,0,0" VerticalAlignment="Top" Width="73" FontSize="18"/>
+        <ComboBox x:Name="Waters" HorizontalAlignment="Left" Margin="880,458,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Waters_SelectionChanged"/>
+        <ComboBox HorizontalAlignment="Left" Margin="880,426,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+        <DatePicker x:Name="EndTime" HorizontalAlignment="Left" Margin="797,388,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="EndTime_SelectedDateChanged"/>
+        <DatePicker x:Name="StartTime" HorizontalAlignment="Left" Margin="797,355,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="StartTime_SelectedDateChanged"/>
+        <ComboBox x:Name="VesselName" HorizontalAlignment="Left" Margin="880,322,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="VesselName_SelectionChanged"/>
+        <ComboBox x:Name="SailingType" HorizontalAlignment="Left" Margin="880,286,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SailingType_SelectionChanged"/>
+
+
+
+
+
+        <materialDesign:TimePicker HorizontalAlignment="Left" Margin="919,355,0,0" VerticalAlignment="Top"/>
+        <materialDesign:TimePicker HorizontalAlignment="Left" Margin="919,388,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="WatersType" HorizontalAlignment="Left" Margin="880,490,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="WatersType_SelectionChanged"/>
+        <Label Content="Farvandes type" HorizontalAlignment="Left" Margin="726,484,0,0" VerticalAlignment="Top" Width="135" FontSize="18" Height="33"/>
+        <ComboBox x:Name="Hour" HorizontalAlignment="Left" Margin="918,358,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="SailingType_SelectionChanged"/>
+        <ComboBox x:Name="Minut" HorizontalAlignment="Left" Margin="985,358,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="SailingType_SelectionChanged"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="967,356,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="HourEnd" HorizontalAlignment="Left" Margin="918,393,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="SailingType_SelectionChanged"/>
+        <ComboBox x:Name="MinutEnd" HorizontalAlignment="Left" Margin="985,393,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="SailingType_SelectionChanged"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="967,391,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="880,250,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged"/>
+
+    </Grid>
+</UserControl>
+

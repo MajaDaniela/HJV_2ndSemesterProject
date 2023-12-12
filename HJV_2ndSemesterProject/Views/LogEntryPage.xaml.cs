@@ -31,6 +31,11 @@ namespace HJV_2ndSemesterProject.Views
         string WatersTypeString;
         DateTime StartDate_date;
         DateTime EndDate_date;
+        string HourString;
+        string MinutString;
+        string HourStringEnd;
+        string MinutStringEnd;
+        string RoleString;
         public LogEntryPage()
         {
             InitializeComponent();
@@ -41,49 +46,75 @@ namespace HJV_2ndSemesterProject.Views
             //StartTime.SelectedDateFormat = DatePickerFormat.;
             //timePicker.ShowUpDown = true;
 
-            
+            var WatersListNames = new List<string>()
+                    {
+                        //"Brandrulle", "Havarirulle", "Bjærgningsrulle", "Intern SAR-øvelse", "Intern miljø-øvelse", "Investigering af andet skib",
+                        "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
+                    };
+
+            foreach (var name in WatersListNames)
+            {
+                WatersList.Items.Add(new ListBoxItem() { Content = name });
+            }
+
+            var TaskNames = new List<string>()
+            {
+                "Brandrulle", "Havarirulle", "Bjærgningsrulle", "Intern SAR-øvelse", "Intern miljø-øvelse", "Investigering af andet skib",
+            };
+
+            foreach (var name in TaskNames)
+            {
+                TaskList.Items.Add(new ListBoxItem() { Content = name });
+            }
+
+            for (int i = 00; i < 400; i++)
+            {
+                //LogHours.Items.Add(new ComboBoxItem() { Content = i });
+                HourEnd.Items.Add(new ComboBoxItem() { Content = i });
+            }
 
             for (int i = 00; i<24; i++)
             {
                 Hour.Items.Add(new ComboBoxItem() { Content = i });
             }
-            for (int i = 00; i < 60; i++)
+            for (int i = 00; i < 60; i+=10)
             {
                 Minut.Items.Add(new ComboBoxItem() { Content = i });
-            }
-
-            for (int i = 00; i < 24; i++)
-            {
-                HourEnd.Items.Add(new ComboBoxItem() { Content = i });
-            }
-            for (int i = 00; i < 60; i++)
-            {
                 MinutEnd.Items.Add(new ComboBoxItem() { Content = i });
+                //LogMinutes.Items.Add(new ComboBoxItem() { Content = i });
             }
+            
 
             var RoleNames = new List<string>()
                     {
                         "Motorpasser", "FARF",
-
                     };
 
             foreach (var name in RoleNames)
             {
-                Role.Items.Add(new ComboBoxItem() { Content = name });
+                //Role.Items.Add(new ComboBoxItem() { Content = name });
             }
 
 
+            //var TaskNames = new List<string>()
+            //        {
+            //            "Brandrulle", "Havarirulle",
+            //        };
+
+            //foreach (var name in TaskNames)
+            //{
+            //    Task.Items.Add(new ComboBoxItem() { Content = name });
+            //}
 
 
             var SailingTypeNames = new List<string>()
                     {
-                        "Sætning og hejsning", "MAS", "Patruljesejlads", "SAR", "SAREX",
-                
+                        "Forlægningssejllads", "MAS", "Patruljesejlads", "SAR", "SAREX",                
                     };
 
             foreach (var name in SailingTypeNames)
             {
-                SailingType.Items.Add(new ComboBoxItem() { Content = name });
+                //SailingType.Items.Add(new ComboBoxItem() { Content = name });
             }
 
             var WatersTypeNames = new List<string>()
@@ -99,15 +130,15 @@ namespace HJV_2ndSemesterProject.Views
 
             
 
-            var WatersNames = new List<string>()
-                    {
-                        "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
-                    };
+            //var WatersNames = new List<string>()
+            //        {
+            //            "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
+            //        };
 
-            foreach (var name in WatersNames)
-            {
-                Waters.Items.Add(new ComboBoxItem() { Content = name });
-            }
+            //foreach (var name in WatersNames)
+            //{
+            //    Waters.Items.Add(new ComboBoxItem() { Content = name });
+            //}
 
             var VesselNames = new List<string>()
                     {
@@ -132,7 +163,7 @@ namespace HJV_2ndSemesterProject.Views
 
         private void SailingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            //SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
                 
 
         }
@@ -149,6 +180,12 @@ namespace HJV_2ndSemesterProject.Views
 
         private void AddLogBtn_Click(object sender, RoutedEventArgs e)
         {
+            TimeSpan end = new TimeSpan(int.Parse(HourStringEnd), int.Parse(MinutStringEnd), 0);
+            EndDate_date = EndDate_date.Date + end;
+
+            TimeSpan start = new TimeSpan(int.Parse(HourString), int.Parse(MinutString), 0);
+            StartDate_date = StartDate_date.Date + start;
+
             Sailing currentSailing = new Sailing(StartDate_date, EndDate_date, (SailingType)1, VesselString);
             Debug.WriteLine($"{currentSailing.StartTime}, {currentSailing.EndTime},{currentSailing.SailingType},{currentSailing.VesselID}");
             
@@ -165,6 +202,50 @@ namespace HJV_2ndSemesterProject.Views
         }
 
         private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //RoleString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        }
+
+        private void Hour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HourString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();                                 
+        }
+
+        private void Minut_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MinutString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        }
+        private void HourEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HourStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        }
+
+        private void MinutEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MinutStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();            
+        }
+
+        private void Task_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void WatersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LogHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LogMinutes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LogTime_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
