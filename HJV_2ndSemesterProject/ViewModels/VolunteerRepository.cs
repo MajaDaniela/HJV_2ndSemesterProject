@@ -32,16 +32,15 @@ namespace HJV_2ndSemesterProject.ViewModels
                             string volunteerName = reader["VolunteerName"] != DBNull.Value ? reader["VolunteerName"].ToString() : string.Empty;
                             string flotilla = reader["Flottila"] != DBNull.Value ? reader["Flottila"].ToString() : string.Empty;
 
-                            // Ensure VolunteerRank is a valid integer before casting to Rank enum
-                            if (int.TryParse(reader["VolunteerRank"].ToString(), out int volunteerRankValue))
+                            // Checking rank.
+                            if (int.TryParse(reader["VolunteerRank"].ToString(), out int volunteerRankValue)) //Laver værdien om til en int. 
                             {
                                 int volunteerRank = volunteerRankValue;
                                 volunteer = new Volunteer(MA_Number, volunteerName, flotilla, (Rank)volunteerRank);
                             }
                             else
                             {
-                                
-                                Console.WriteLine("Værdien er ikke funktionel.");
+                                Console.WriteLine("Problem, fejl i indtastningen..");
                             }
                         }
 

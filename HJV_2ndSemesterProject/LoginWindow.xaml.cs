@@ -27,17 +27,14 @@ namespace HJV_2ndSemesterProject
 
     public partial class LoginWindow : Window
     {
-        public bool IsConneceted = false;
+        public bool IsConneceted = false; //Starting with a not active connection to the database.
 
         public LoginWindow()
         {
             InitializeComponent();
         }
 
-        //TestPassword string TestPassword
-
-
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private void LoginBtn_Click(object sender, RoutedEventArgs e) //Checking if the application is conncted to the database. Also takes the inputs from the user. Opens mainwindow if entered username is valid.
         {
             string enteredUsername = emailTextBox.Text;
             string enteredPassword = passwordBox.Password;
@@ -60,9 +57,10 @@ namespace HJV_2ndSemesterProject
             }
         }
 
+        //It checks if database is connected and executes a SQL query, checking for the MA_Number.
+        //If a matching record is found (reader.HasRows is true) the method returns true.
         private bool IsValidLogin(string enteredUsername)
         {
-            const string enteredPassword = "Test123"; // Set password to "Test123"
 
             if (string.IsNullOrEmpty(DataAccess.connectionString))
             {
@@ -72,14 +70,14 @@ namespace HJV_2ndSemesterProject
 
             DataAccess.NewConn(); // Set the connection string
 
-            if (!IsConneceted)
+            if (!IsConneceted) //If isConnected is false. 
             {
                 MessageBox.Show("Ingen forbindelse til databasen..");
                 return false;
             }
 
-            using (SqlConnection sqlConnection = DataAccess.conn) // Use the existing connection
-            { //Dette afsnit fungerer efter hensigten, men kalder på VolunteerRepositoriet hvor den kalder fejl på GetVolunteer (String MA-Number = unknown)
+            using (SqlConnection sqlConnection = DataAccess.conn) 
+            { 
                 sqlConnection.Open();
 
                 using (SqlCommand sqlCommand = new SqlCommand($"SELECT * FROM VOLUNTEER WHERE MA_Number = '{enteredUsername}'", sqlConnection))
@@ -90,21 +88,13 @@ namespace HJV_2ndSemesterProject
 
                     if (reader.HasRows)
                     {
-                        return true; // Valid login
-
+                        return true; // Username exist as a MA-number in the database
                     }
                 }
             }
 
             return false; // Invalid login 
         }
-
-
-
-
-
-
-
 
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         {
