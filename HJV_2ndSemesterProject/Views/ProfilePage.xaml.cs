@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HJV_2ndSemesterProject.Models;
+using HJV_2ndSemesterProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -21,9 +23,11 @@ namespace HJV_2ndSemesterProject.Views
     /// </summary>
     public partial class ProfilePage : UserControl
     {
-        public ProfilePage()
+
+        public ProfilePage(Controller controller)
         {
             InitializeComponent();
+            DataContext = controller;
         }
 
     }
