@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
-             xmlns:System="clr-namespace:System;assembly=System.Runtime" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="HJV_2ndSemesterProject.Views.ProfilePage"
+             xmlns:System="clr-namespace:System;assembly=System.Runtime" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:ViewModels="clr-namespace:HJV_2ndSemesterProject.ViewModels" x:Class="HJV_2ndSemesterProject.Views.ProfilePage"
              mc:Ignorable="d" 
                           Height="745" Width="1035"  >
     <Grid>
@@ -15,62 +15,69 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Left Side StackPanel -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="650" Margin="10,10,0,10">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="175" Margin="10,10,0,10">
             <Label Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,20"/>
 
             <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
                 <Label Content="Navn" FontSize="26"/>
-                <Label x:Name="ProfileNavn"  Content="{Binding VolunteerName}" FontSize="26" Margin="105,0,0,0" Width="460"/>
+                
             </StackPanel>
 
             <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
                 <Label Content="MA-Nummer" FontSize="26" Width="165"/>
-                <Label x:Name="ProfileMaNummer" Content="{Binding MA_Number}" FontSize="26" Margin="10,0,0,0" Width="445"/>
             </StackPanel>
 
-            
-            
-            <StackPanel Margin="10,40,0,0" Orientation="Horizontal" >
-                <Label Content="Roller" FontSize="26"/>
-                <ComboBox x:Name="RoleComboBox" Width="311" Height="40" FontSize="24" Margin="72,0,0,0" >
-                    <ComboBoxItem Content="SG"/>
-                    <ComboBoxItem Content="Sergent"/>
-                </ComboBox>
-            </StackPanel>
-
-            <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
-                <Label Content="Certifikat" FontSize="26"/>
-                <ComboBox x:Name="CertifikatComboBox" Width="310" Height="40" FontSize="24" Margin="35,0,0,0">
-                    <ComboBoxItem Content="Cert1"/>
-                    <ComboBoxItem Content="Cert2"/>
-                </ComboBox>
-            </StackPanel>
-
-            
-
-            <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
+            <StackPanel Margin="10,40,50,0" Orientation="Horizontal">
                 <Label Content="Flotille" FontSize="26"/>
-                <ComboBox x:Name="FlotilleComboBox" Width="310" Height="40" FontSize="24" Margin="63,0,0,0" >
-                    <ComboBoxItem Content="Deling1"/>
-                    <ComboBoxItem Content="Deling2"/>
-                </ComboBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,40,0,0" Width="280">
-                <Button x:Name="UpdateLogBtn" Content="Gem" Width="120" Height="50" Background="DarkSlateGray" Foreground="White" FontSize="20"/>
-                <Button x:Name="ClearLogBtn" Content="Fortryd" Width="120" Height="50" Background="DarkSlateGray" Foreground="White" FontSize="20" Margin="10,0,0,0"/>
+            <StackPanel Margin="10,40,10,0" Orientation="Horizontal">
+                <Label Content="Rank" FontSize="26"/>
             </StackPanel>
+
+        
         </StackPanel>
+        
+        
         <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="375">
-            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
-            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
-            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
-            <Label Content="flotille " FontSize="26" Margin="70" Width="95"/>
-
-
+            <Label Content="Antal timer til mål:" FontSize="26" Margin="70" Width="270"/>
+            <Grid>
+                <ProgressBar Minimum="0" 
+                Maximum="100" 
+                Value="{Binding InsertBindingHere}" 
+                x:Name="pbStatus" Margin="10,-20,10,0" />
+                <TextBlock Text="{Binding Value, ElementName=progressBar, StringFormat=\{0:0\}%}" 
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Center" Height="37" />
+            </Grid>
         </StackPanel>
 
+        <StackPanel Orientation="Vertical" Margin="190,0,375,0">
+            <StackPanel Margin="0,105,0,0" Orientation="Horizontal" Width="165" HorizontalAlignment="Left">
+                <Label x:Name="ProfileNavn" 
+                Content="{Binding Path=CurrentUser.Name}" 
+                FontSize="26" Margin="0,0,0,0" Width="445" Height="50"/>
+
+            </StackPanel>
+
+            <StackPanel Margin="0,35,0,0" Orientation="Horizontal">
+                <Label x:Name="ProfileMaNummer" 
+           Content="{Binding Path=CurrentUser.MA_Number}" 
+           FontSize="26" Margin="0,0,0,0" Width="445" Height="50"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,30,50,0" Orientation="Horizontal">
+                <Label x:Name="flotilletxt"  
+           Content="{Binding Path=CurrentUser.Flotilla}" 
+           FontSize="26" Margin="0,0,0,0" Width="425" Height="50"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,38,10,0" Orientation="Horizontal">
+                <Label x:Name="ranktxt" 
+           Content="{Binding Path=CurrentUser.Rank}" 
+           FontSize="26" Margin="0,0,0,0" Width="460" Height="50"/>
+            </StackPanel>
+        </StackPanel>
 
     </Grid>
 </UserControl>

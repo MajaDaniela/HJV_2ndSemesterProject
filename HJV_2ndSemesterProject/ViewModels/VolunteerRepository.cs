@@ -32,7 +32,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                         while (reader.Read())
                         {
                             volunteer = new(MA_Number, reader["VolunteerName"].ToString(),
-                             reader["Flottila"].ToString(), (Rank)(int)reader["VolunteerRank"]);
+                             reader["Flotilla"].ToString(), (Rank)(int)reader["VolunteerRank"]);
                         }
                         return volunteer;
                     }
