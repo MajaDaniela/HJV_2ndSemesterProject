@@ -22,8 +22,7 @@
             <PasswordBox x:Name="DatabasePswdTb" />
             <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" />
         </StackPanel>
-
-        <!-- Rectangle to represent the box -->
+        
         <StackPanel HorizontalAlignment="Center">
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,15,0,0">
                 <Rectangle x:Name="connectionIndicator" Width="50" Height="50">
