@@ -34,7 +34,7 @@ namespace HJV_2ndSemesterProject
             InitializeComponent();
             controller = new(MA_Number);
 
-            usernameLabel.Content = $"Velkommen, \n {controller.CurrentUser.MA_Number}! \n {controller.CurrentUser.Name}"; 
+            usernameLabel.Content = $"Velkommen, \n {controller.CurrentUser.MA_Number} \n {controller.CurrentUser.Name}"; 
         }
         private void ShowLogEntryPage()
         {

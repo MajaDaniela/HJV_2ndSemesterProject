@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="HJV-Eksamensprojekt" Height="800" Width="1200" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem" Height="800" Width="1200" ResizeMode="NoResize">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -28,31 +28,45 @@
         <!-- Sidebar -->
         <Grid Width="150" Background="LightGray">
             <StackPanel>
-
-                <Button Click="HomeBtn_Click" Margin="0,80,0,0" Height="75">
-                    <materialDesign:PackIcon Kind="HomeCircleOutline" Height="50" Width="50"/>
-                </Button>
-                <TextBlock Text="Hjem" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center"/>
-                <Button Click="LogBtn_Click" Margin="0,35,0,0" Height="75">
-                    <materialDesign:PackIcon Kind="AccountClockOutline" Height="50" Width="50"/>
-                </Button>
-                <TextBlock Text="Log timer" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
-                <Button Click="DataMapBtn_Click" Margin="0,35,0,0" Height="75">
-                    <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50"/>
-                </Button>
-                <TextBlock Text="Se tidligere logs" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
-                <Button Click="ProfileBtn_Click" Margin="0,35,0,0" Height="75">
-                    <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
-                </Button>
-                <TextBlock Text="Rediger Profil" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
-
-                <Button Click="LogOut_Click" Margin="0,75,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
-                    <materialDesign:PackIcon Kind="logout" Height="50" Width="50"/>
-                </Button>
-                <TextBlock Text="Log ud" FontSize="18" ToolTip="Benyt denne knap til at logge ud.." HorizontalAlignment="Center" />
-
+                <Label x:Name="usernameLabel" Content="Tager indhold fra class" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
             </StackPanel>
-            <Label x:Name="usernameLabel" Content="Tager indhold fra xaml.cs filen" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Height="84" Width="150"/>
+            <StackPanel>
+                <Button Click="LogBtn_Click" Margin="0,185,0,0" Height="75">
+                    <Button.Content>
+                        <StackPanel HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="AccountClockOutline" Height="50" Width="50" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Log timer" FontWeight="Bold" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="DataMapBtn_Click" Margin="0,55,0,0" Height="75">
+                    <Button.Content>
+                        <StackPanel HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Tidligere Logs" FontWeight="Bold" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="ProfileBtn_Click" Margin="0,55,0,0" Height="75">
+                    <Button.Content>
+                        <StackPanel HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
+                            <TextBlock Text="Profil" FontWeight="Bold" TextAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="LogOut_Click" Margin="0,125,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
+                    <Button.Content>
+                        <StackPanel HorizontalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Logout" Height="50" Width="50"/>
+                            <TextBlock Text="Log ud" FontWeight="Bold" TextAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
         </Grid>
 
 
