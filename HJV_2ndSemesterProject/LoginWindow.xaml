@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="780" Width="1035" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem-LoginWindow" Height="780" Width="1035" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
