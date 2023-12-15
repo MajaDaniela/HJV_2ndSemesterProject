@@ -44,9 +44,9 @@
             <Grid>
                 <ProgressBar Minimum="0" 
                 Maximum="100" 
-                Value="{Binding InsertBindingHere}" 
+                Value="{Binding UsersLogs.NumberOfHours}" 
                 x:Name="pbStatus" Margin="10,-20,10,0" />
-                <TextBlock Text="{Binding Value, ElementName=progressBar, StringFormat=\{0:0\}%}" 
+                <TextBlock Text="{Binding Value, ElementName=pbStatus, StringFormat=\{0:0\}%}" 
            HorizontalAlignment="Center" 
            VerticalAlignment="Center" Height="37" />
             </Grid>
