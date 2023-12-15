@@ -15,7 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Threading.Channels;
-
+using System.ComponentModel;
+using MaterialDesignThemes.Wpf;
 
 namespace HJV_2ndSemesterProject
 {
@@ -28,6 +29,7 @@ namespace HJV_2ndSemesterProject
     public partial class LoginWindow : Window
     {
         public bool IsConnected = false; //Starting with a not active connection to the database.
+
 
         public LoginWindow()
         {
@@ -99,15 +101,21 @@ namespace HJV_2ndSemesterProject
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            IsConnected = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); 
+            IsConnected = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password);
             if (!IsConnected)
             {
                 MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();
+                connectionIndicator.Fill = Brushes.Red;
+                BindingIconUI.Kind = PackIconKind.DatabaseLock; // Set the desired PackIcon kind when connected
+                return;
             }
             else
             {
-                MessageBox.Show($"Login virkede");
+                connectionIndicator.Fill = Brushes.Green;
+                BindingIconUI.Kind = PackIconKind.DatabaseCheck; // Set the desired PackIcon kind when connected
+                return;
             }
         }
+        
     }
 }
