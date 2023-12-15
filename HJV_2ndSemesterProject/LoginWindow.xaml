@@ -21,7 +21,21 @@
             <PasswordBox x:Name="DatabasePswdTb" />
             <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" />
         </StackPanel>
-        
+
+        <!-- Rectangle to represent the box -->
+        <Rectangle x:Name="connectionIndicator" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="650,10,0,0">
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Fill" Value="Red"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsConnected}" Value="True">
+                            <Setter Property="Fill" Value="Green"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="1035">
             <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,80,0,20" Width="182"/>
 

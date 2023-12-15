@@ -27,7 +27,7 @@ namespace HJV_2ndSemesterProject
 
     public partial class LoginWindow : Window
     {
-        public bool IsConneceted = false; //Starting with a not active connection to the database.
+        public bool IsConnected = false; //Starting with a not active connection to the database.
 
         public LoginWindow()
         {
@@ -39,7 +39,7 @@ namespace HJV_2ndSemesterProject
             string enteredUsername = emailTextBox.Text;
             string enteredPassword = passwordBox.Password;
 
-            if (!IsConneceted)
+            if (!IsConnected)
             {
                 MessageBox.Show("Ingen forbindelse til databasen..");
                 return;
@@ -70,7 +70,7 @@ namespace HJV_2ndSemesterProject
 
             DataAccess.NewConn(); // Set the connection string
 
-            if (!IsConneceted) //If isConnected is false. 
+            if (!IsConnected) //If IsConnected is false. 
             {
                 MessageBox.Show("Ingen forbindelse til databasen..");
                 return false;
@@ -99,8 +99,8 @@ namespace HJV_2ndSemesterProject
         private void ConnectToDbBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            IsConneceted = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); 
-            if (!IsConneceted)
+            IsConnected = DataAccess.TestConn(DatabaseTb.Text, DatabasePswdTb.Password); 
+            if (!IsConnected)
             {
                 MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();
             }
