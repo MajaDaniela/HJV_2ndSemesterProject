@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
         Title="HJV-Timeregistreringssystem-LoginWindow" Height="780" Width="1035" ResizeMode="NoResize">
@@ -22,6 +23,19 @@
             <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" />
         </StackPanel>
         
+        <StackPanel HorizontalAlignment="Center">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,15,0,0">
+                <Rectangle x:Name="connectionIndicator" Width="50" Height="50">
+                    <Rectangle.Style>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Fill" Value="Red" />
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+                <materialDesign:PackIcon x:Name="BindingIconUI" Kind="DatabaseLock" Height="53" Width="41" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </StackPanel>
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="1035">
             <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,80,0,20" Width="182"/>
 
