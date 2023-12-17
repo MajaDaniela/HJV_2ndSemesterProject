@@ -26,7 +26,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Role", (int)entry.Role);
-                    cmd.Parameters.AddWithValue("@NumberOfMinutes", entry.NumberofMinutes);
+                    cmd.Parameters.AddWithValue("@NumberOfHours", entry.NumberofHours);
                     cmd.Parameters.AddWithValue("@Comment", entry.Comment);
                     cmd.Parameters.AddWithValue("@MA_Number", entry.MA_Number);
                     cmd.Parameters.AddWithValue("@SailingID", entry.SailingID);
@@ -52,7 +52,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@LogID", updated.Id);
                     cmd.Parameters.AddWithValue("@Role", (int)updated.Role);
-                    cmd.Parameters.AddWithValue("@NumberOfMinutes", updated.NumberofMinutes);
+                    cmd.Parameters.AddWithValue("@NumberOfHours", updated.NumberofHours);
                     cmd.Parameters.AddWithValue("@Comment", updated.Comment);
                     cmd.Parameters.AddWithValue("@MA_Number", updated.MA_Number);
                     cmd.Parameters.AddWithValue("@SailingID", updated.SailingID);
@@ -94,7 +94,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                     {
                         while (reader.Read())
                         {
-                            LogEntry entry = new((Role)(int)reader["Role"], (int)reader["NumberOFMinutes"],
+                            LogEntry entry = new((Role)(int)reader["Role"], (double)reader["NumberOFHours"],
                                 reader["Comment"].ToString(), MA_NUmber, (int)reader["SailingID"],
                                 (int)reader["LogID"]);
 

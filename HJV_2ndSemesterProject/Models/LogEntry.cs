@@ -10,17 +10,17 @@ namespace HJV_2ndSemesterProject.Models
     {
         public int Id { get; set; }
         public Role Role {  get; set; }
-        public int NumberofMinutes { get; set; }
+        public double NumberofHours { get; set; }
         public string Comment { get; set; }
 
         public string MA_Number { get; set; }
         public int SailingID { get; set; }
         public List<Task> Tasks { get; }
 
-        public LogEntry(Role role, int minutes, string comment, string ma, int sailingID, int id =0 ) 
+        public LogEntry(Role role, double hours, string comment, string ma, int sailingID, int id =0 ) 
         {
             Role = role;
-            NumberofMinutes = minutes;
+            NumberofHours = hours;
             Comment = comment;
             MA_Number = ma;
             SailingID = sailingID;
