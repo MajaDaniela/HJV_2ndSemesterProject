@@ -58,7 +58,7 @@
         <DatePicker x:Name="StartTime" HorizontalAlignment="Left" Margin="470,309,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="StartTime_SelectedDateChanged"/>
         <ComboBox x:Name="VesselName" HorizontalAlignment="Left" Margin="469,274,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="VesselName_SelectionChanged"/>
         <ComboBox x:Name="SailingType" HorizontalAlignment="Left" Margin="469,238,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SailingType_SelectionChanged"
-                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:SailingTypeTest}}}"/>
+                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:SailingType}}}"/>
 
 
         <ComboBox x:Name="WatersType" HorizontalAlignment="Left" Margin="471,560,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="WatersType_SelectionChanged"/>
@@ -70,7 +70,7 @@
         <ComboBox x:Name="MinutEnd" HorizontalAlignment="Left" Margin="658,347,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="MinutEnd_SelectionChanged"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="640,345,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="469,202,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged" 
-                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:RoleTest}}}"/>
+                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}"/>
                   <!--ItemsSource="{local:EnumToItemsSource local:Status}"--> 
                   <!--ItemsSource="{Binding Source={StaticResource dataFromEnum }}"-->
             <!--<ComboBox DisplayMemberPath="DisplayName"

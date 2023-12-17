@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.Models
 {
-     public class LogEntry
+    public class LogEntry
     {
         public int Id { get; set; }
         public Role Role {  get; set; }
@@ -15,9 +15,9 @@ namespace HJV_2ndSemesterProject.Models
 
         public string MA_Number { get; set; }
         public int SailingID { get; set; }
-        public List<Task> Tasks { get; }
+        public List<Task>? Tasks { get; }
 
-        public LogEntry(Role role, double hours, string comment, string ma, int sailingID, int id =0 ) 
+        public LogEntry(Role role, double hours, string comment, string ma, int sailingID, List<Task> tasks, int id =0 ) 
         {
             Role = role;
             NumberofHours = hours;
@@ -25,8 +25,7 @@ namespace HJV_2ndSemesterProject.Models
             MA_Number = ma;
             SailingID = sailingID;
             Id = id;
-            Tasks = new List<Task>();
+            Tasks = tasks;
         }
-
     }
 }

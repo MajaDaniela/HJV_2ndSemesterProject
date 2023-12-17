@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject
 {
-    public enum SailingTypeTest
+    public enum SailingType
     {
         // Describes the nature of a sailing.
 
         [Description("Autorisationssejlads")]
         AuthorisationSailing,
         MAS,
-        [Description("Patrol")]
-        Patruljesejlads,
+        [Description("Patruljesejlads")]
+        Partole,
         SAR,
         SAREX,
         [Description("Politi Maritim Kontrol")]
@@ -32,6 +32,5 @@ namespace HJV_2ndSemesterProject
         //ForlægningssejladstTil,
         //[Description("Forlægningssejlads fra")]
         //ForlægningssejladsFra,
-
     }
 }

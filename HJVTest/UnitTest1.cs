@@ -1,4 +1,4 @@
-using HJV_2ndSemesterProject.Models;
+using HJV_2ndSemesterProject;
 using HJV_2ndSemesterProject.ViewModels;
 namespace HJVTest
 {
