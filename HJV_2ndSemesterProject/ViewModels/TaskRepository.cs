@@ -12,11 +12,11 @@ namespace HJV_2ndSemesterProject.ViewModels
 {
     public class TaskRepository
     {
-        public ObservableCollection <Models.Task> tasks { get; set; }
+        public ObservableCollection <Models.Task> Tasks { get; set; }
 
         public TaskRepository()
         {
-            tasks = new ObservableCollection<Models.Task>();
+            Tasks = new ObservableCollection<Models.Task>();
             GetTasks();
 
         }
@@ -32,7 +32,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                         while (reader.Read())
                         {
                             Models.Task t = new(reader["TaskType"].ToString());
-                            tasks.Add(t);
+                            Tasks.Add(t);
                         }
                     }
             }

@@ -29,6 +29,7 @@ namespace HJV_2ndSemesterProject.ViewModels
         public VesselRepository Vessels{ get;}
         public TaskRepository Tasks{ get;}
         public WatersRepository Waters{ get;}
+
        
         
         public LogEntryViewModel (string MA_Number)

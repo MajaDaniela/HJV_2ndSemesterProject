@@ -12,7 +12,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 {
     public class WatersRepository
     {
-        public ObservableCollection<Waters> Waters;
+        public ObservableCollection<Waters> Waters { get;}
         public WatersRepository() 
         {
             Waters = new();

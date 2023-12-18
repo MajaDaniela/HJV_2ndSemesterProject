@@ -30,12 +30,24 @@ namespace HJV_2ndSemesterProject.Views
 
         public LogEntryPage(string MA_Number)
         {
-            logEntryVM= new(MA_Number);
+            logEntryVM = new(MA_Number);
             InitializeComponent();
+            StartDatePicker.SelectedDate = DateTime.Today;
+            EndDatePicker.SelectedDate = DateTime.Today;
             DataContext = logEntryVM;
+
+            for(int i = 0; i<23; i++)
+            {
+                StartHour.Items.Add((i+1).ToString("D2"));
+                EndHour.Items.Add((i+1).ToString("D2"));
+
+                if (StartMinute.Items.Count <6) 
+                {
+                    StartMinute.Items.Add(i*10);
+                    EndMinute.Items.Add(i * 10);
+                }
+            }
         }
-
-
 
         #region Maja
         //string SailingTypeString;
@@ -164,104 +176,196 @@ namespace HJV_2ndSemesterProject.Views
         //    }
         //}
 
-        private void Waters_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //WatersString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void Waters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //WatersString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void VesselName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //VesselString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void VesselName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //VesselString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void SailingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //private void SailingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
 
 
-        }
+        //}
 
-        private void StartTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-           // StartDate_date = (DateTime)StartTime.SelectedDate;
-            //DateTime EndDate_date;
-            //DateTime myDate = StartTime.DisplayDate.Date +
-            //        StartTime.DisplayDate.TimeOfDay;
-            //Debug.WriteLine(StartTime.DisplayDate.Day);
-            //Debug.WriteLine(StartTime.DisplayDate.TimeOfDay);
-        }
+        //private void StartTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // StartDate_date = (DateTime)StartTime.SelectedDate;
+        //    //DateTime EndDate_date;
+        //    //DateTime myDate = StartTime.DisplayDate.Date +
+        //    //        StartTime.DisplayDate.TimeOfDay;
+        //    //Debug.WriteLine(StartTime.DisplayDate.Day);
+        //    //Debug.WriteLine(StartTime.DisplayDate.TimeOfDay);
+        //}
 
-        private void AddLogBtn_Click(object sender, RoutedEventArgs e)
-        {
-        //    TimeSpan end = new TimeSpan(int.Parse(HourStringEnd), int.Parse(MinutStringEnd), 0);
-        //    EndDate_date = EndDate_date.Date + end;
+        //private void AddLogBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        ////    TimeSpan end = new TimeSpan(int.Parse(HourStringEnd), int.Parse(MinutStringEnd), 0);
+        ////    EndDate_date = EndDate_date.Date + end;
 
-        //    TimeSpan start = new TimeSpan(int.Parse(HourString), int.Parse(MinutString), 0);
-        //    StartDate_date = StartDate_date.Date + start;
+        ////    TimeSpan start = new TimeSpan(int.Parse(HourString), int.Parse(MinutString), 0);
+        ////    StartDate_date = StartDate_date.Date + start;
 
-        //    Sailing currentSailing = new Sailing(StartDate_date, EndDate_date, (SailingType)1, VesselString);
-        //    Debug.WriteLine($"{currentSailing.StartTime}, {currentSailing.EndTime},{currentSailing.SailingType},{currentSailing.VesselID}");
+        ////    Sailing currentSailing = new Sailing(StartDate_date, EndDate_date, (SailingType)1, VesselString);
+        ////    Debug.WriteLine($"{currentSailing.StartTime}, {currentSailing.EndTime},{currentSailing.SailingType},{currentSailing.VesselID}");
 
-        }
+        //}
 
-        private void WatersType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //WatersTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void WatersType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //WatersTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void EndTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //EndDate_date = (DateTime)EndTime.SelectedDate;
-        }
+        //private void EndTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //EndDate_date = (DateTime)EndTime.SelectedDate;
+        //}
 
-        private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //RoleString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //RoleString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void Hour_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //HourString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void Hour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //HourString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void Minut_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //MinutString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
-        private void HourEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           // HourStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void Minut_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //MinutString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+        //private void HourEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // HourStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void MinutEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           // MinutStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
+        //private void MinutEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // MinutStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
 
-        private void Task_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void Task_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void WatersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void WatersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void LogHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void LogHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void LogMinutes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void LogMinutes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void LogTime_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void LogTime_TextChanged(object sender, TextChangedEventArgs e)
+        //{
 
-        }
+        //}
         #endregion
+
+        private void VesselPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string[] parts = VesselPicker.SelectedItem.ToString().Split(' ');
+            logEntryVM.VesselID = parts[0] + "" + parts[1];
+        }
+
+        private void TypePicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.SailingType = (SailingType)TypePicker.SelectedIndex;
+        }
+
+        private void StartDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.StartTimes[0] = StartDatePicker.SelectedDate.Value.ToString("dd/MM/yyyy");
+        }
+
+        private void EndDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.EndTimes[0] = EndDatePicker.SelectedDate.Value.ToString("dd/MM/yyyy");
+        }
+
+        private void StartHour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.StartTimes[1] = StartHour.SelectedItem.ToString();
+        }
+
+        private void StartMinute_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.StartTimes[2] = StartMinute.SelectedItem.ToString();
+        }
+
+        private void EndMinute_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.EndTimes[2] = EndMinute.SelectedItem.ToString();
+        }
+
+        private void EndHour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.EndTimes[1] = EndHour.SelectedItem.ToString();
+        }
+
+        private void WatersPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.SelectedWaters.Clear();
+            foreach (object o in WatersPicker.SelectedItems)
+            {
+                logEntryVM.SelectedWaters.Add((Waters)o);
+            }
+        }
+
+        private void RolePicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.Role = (Role)RolePicker.SelectedIndex;
+        }
+
+        private void HourNumberBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+           string temp = HourNumberBox.Text.Replace(',', '.');
+            try
+            {
+                logEntryVM.NumberofHours = double.Parse(temp);
+            }
+            catch
+            {
+                HourNumberBox.Text = "";
+                HourNumberBox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
+        }
+
+        private void TaskPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            logEntryVM.SelectedTasks.Clear();
+            foreach (object o in TaskPicker.SelectedItems)
+            {
+                logEntryVM.SelectedTasks.Add((Models.Task) o);
+            }
+        }
+
+
+        private void LogEntrybtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                logEntryVM.AddLogEntry();
+
+            }
+            catch
+            {
+                MessageBox.Show("Udfyld venligst alle feter.");
+            }
+        }
     }
 }
