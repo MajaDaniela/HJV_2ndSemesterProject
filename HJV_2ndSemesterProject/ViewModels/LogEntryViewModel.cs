@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+    //Gives datacontext (Porperties) and functionality (AddLogEntry()) to the LogEntryPage.
     public class LogEntryViewModel
     {
         public Role Role { get; set; }
@@ -50,6 +51,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 
         public void AddLogEntry()
         {
+            //Converts three UI input strings to Datetime.
             DateTime StartTime = DateTime.Parse($"{StartTimes[0]} {StartTimes[1]}:{StartTimes[2]}");
             DateTime EndTime = DateTime.Parse($"{EndTimes[0]} {EndTimes[1]}:{EndTimes[2]}");
             

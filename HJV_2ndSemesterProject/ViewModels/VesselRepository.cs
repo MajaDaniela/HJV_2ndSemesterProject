@@ -10,6 +10,7 @@ using HJV_2ndSemesterProject.Data;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+    //This class supplies a list of all the Vessels from the database. Used by LogEntryViewModel for databinding a combobox.
     public class VesselRepository
     {
         public Vessel vessel;
@@ -40,33 +41,6 @@ namespace HJV_2ndSemesterProject.ViewModels
                 }
 
             }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public void CreateVessel()
-        {
-
-        }
-
-        public void DeleteVessel()
-        {
-
-        }
-
-        public void UpdateVessel()
-        {
-
         }
     }
 }

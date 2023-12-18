@@ -9,6 +9,7 @@ namespace HJV_2ndSemesterProject
 {
     public enum Rank
     {
+        //This is an enum for the ranks of volunteers. The enum values are English while the descriptions are Danish.
 
         [Description("Menig")]
         Private,

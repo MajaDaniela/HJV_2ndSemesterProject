@@ -9,7 +9,7 @@ namespace HJV_2ndSemesterProject
 {
     public enum SailingType
     {
-        // Describes the nature of a sailing.
+        //This is an enumeration for the different types of sailings. The enum values are English while the descriptions are Danish.
 
         [Description("Autorisationssejlads")]
         AuthorisationSailing,
@@ -26,11 +26,8 @@ namespace HJV_2ndSemesterProject
         SummerCruise,
         Springex,
         SURVEX,
-        [Description("ØvelsesSejlads")]
+        [Description("Øvelsessejlads")]
         Training,
-        //[Description("Forlægningssejlads til")]
-        //ForlægningssejladstTil,
-        //[Description("Forlægningssejlads fra")]
-        //ForlægningssejladsFra,
+
     }
 }

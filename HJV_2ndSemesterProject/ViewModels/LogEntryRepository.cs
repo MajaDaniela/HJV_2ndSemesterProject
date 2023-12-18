@@ -10,6 +10,7 @@ using HJV_2ndSemesterProject.Data;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+    //This class handles CRUD-functions for the LogEntry class.
     public class LogEntryRepository
     {
 
@@ -68,7 +69,6 @@ namespace HJV_2ndSemesterProject.ViewModels
             DataAccess.NewConn();
             using (DataAccess.conn)
             {
-
                 using (SqlCommand cmd = new SqlCommand("sp_DeleteLogEntry", DataAccess.conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -79,6 +79,7 @@ namespace HJV_2ndSemesterProject.ViewModels
             }
         }
 
+        //Gets all logs for one volunteer.
         public List<LogEntry> GetLogsByMA (string MA_NUmber)
         {
             List<LogEntry> result= new();
@@ -103,7 +104,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                 }
             }
         }
-
+        // Adds rows to the  LOG_ENTRY_TASK linking table.
         private void LinkTaskToLogEntry(int logId, int taskId,SqlConnection connection) 
         {
             using (SqlCommand cmd1= new("sp_CreateLogEntryTask",connection))

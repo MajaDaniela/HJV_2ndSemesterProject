@@ -23,11 +23,9 @@ namespace HJV_2ndSemesterProject.Views
     /// </summary>
     public partial class ProfilePage : UserControl
     {
-
-        public ProfilePage(MainViewModel controller)
+        public ProfilePage(string Ma_Number)
         {
             InitializeComponent();
-            DataContext = controller;
         }
 
     }

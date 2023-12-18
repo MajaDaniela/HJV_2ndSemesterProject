@@ -30,13 +30,13 @@ namespace HJV_2ndSemesterProject
     {
         public bool IsConnected = false; //Starting with a not active connection to the database.
 
-
         public LoginWindow()
         {
             InitializeComponent();
         }
 
-        private void LoginBtn_Click(object sender, RoutedEventArgs e) //Checking if the application is conncted to the database. Also takes the inputs from the user. Opens mainwindow if entered username is valid.
+        private void LoginBtn_Click(object sender, RoutedEventArgs e) //Checking if the application is conncted to the database.
+                                                                      //Also takes the inputs from the user. Opens mainwindow if entered username is valid.
         {
             string enteredUsername = emailTextBox.Text;
             string enteredPassword = passwordBox.Password;
@@ -61,7 +61,7 @@ namespace HJV_2ndSemesterProject
 
         //It checks if database is connected and executes a SQL query, checking for the MA_Number.
         //If a matching record is found (reader.HasRows is true) the method returns true.
-        private bool IsValidLogin(string enteredUsername)
+        private bool IsValidLogin(string enteredUsername)//For the sake of simplicity, we are ignoring the password box for now. 
         {
 
             if (string.IsNullOrEmpty(DataAccess.connectionString))
@@ -106,7 +106,7 @@ namespace HJV_2ndSemesterProject
             {
                 MessageBox.Show($"Fejl under oprettelse af forbindelse"); DatabaseTb.Clear(); DatabasePswdTb.Clear();
                 connectionIndicator.Fill = Brushes.Red;
-                BindingIconUI.Kind = PackIconKind.DatabaseLock; // Set the desired PackIcon kind when connected
+                BindingIconUI.Kind = PackIconKind.DatabaseLock; // Set the desired PackIcon kind when not connected
                 return;
             }
             else

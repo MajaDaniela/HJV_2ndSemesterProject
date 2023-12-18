@@ -11,6 +11,7 @@ using System.Data;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+    //Gets a volunteer from the database, based on the MA_Number. Is used by the MainViewModel to get the current user.
     public class VolunteerRepository
     {
         private Volunteer volunteer;
@@ -19,44 +20,21 @@ namespace HJV_2ndSemesterProject.ViewModels
         {
             DataAccess.NewConn();
             using (DataAccess.conn)
+            using (SqlCommand cmd = new SqlCommand("sp_GetVolunteer", DataAccess.conn))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_GetVolunteer", DataAccess.conn))
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MA_Number", MA_Number);
+                DataAccess.conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@MA_Number", MA_Number);
-                    DataAccess.conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        
-
-                        while (reader.Read())
-                        {
-                            volunteer = new(MA_Number, reader["VolunteerName"].ToString(),
-                             reader["Flotilla"].ToString(), (Rank)(int)reader["VolunteerRank"]);
-                        }
-                        return volunteer;
+                        volunteer = new(MA_Number, reader["VolunteerName"].ToString(),
+                         reader["Flotilla"].ToString(), (Rank)(int)reader["VolunteerRank"]);
                     }
-
+                    return volunteer;
                 }
-
             }
-        }
-
-
-
-        public void CreateVolunteer()
-        {
-
-        }
-
-        public void DeleteVolunteer()
-        {
-
-        }
-
-        public void UpdateVolunteer()
-        {
-
         }
     }
 }

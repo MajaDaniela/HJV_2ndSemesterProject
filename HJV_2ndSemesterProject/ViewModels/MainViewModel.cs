@@ -8,6 +8,7 @@ using HJV_2ndSemesterProject.Models;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+    //Holds the current user's data which is used by other viewmodels.
     public class MainViewModel
     {
         private VolunteerRepository VolunteerRepo { get; set; }    
@@ -19,18 +20,5 @@ namespace HJV_2ndSemesterProject.ViewModels
 
             CurrentUser = VolunteerRepo.GetVolunteer(MA_Number);
         }
-
-
-        //public void EditLogEntry()
-        //{
-        //    LogEntryRepo.UpdateLogentry(CurrentLogEntry);
-        //}
-
-        //public void DeleteLogEntry()
-        //{
-        //    LogEntryRepo.DeleteLogEntry(CurrentLogEntry.Id);
-        //}
-
-
     }
 }
