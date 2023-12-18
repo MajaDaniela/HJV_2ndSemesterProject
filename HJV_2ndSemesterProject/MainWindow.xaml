@@ -7,13 +7,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="HJV-Timeregistreringssystem" Height="800" Width="1200" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem" Height="600" Width="800" ResizeMode="NoResize">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <!-- Sidebar -->
             <ColumnDefinition Width="*"/>
-            <!-- Main content -->
+            
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -22,14 +21,12 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Frame x:Name="MainFrame" Grid.Column="1" />
-
-
-        <!-- Sidebar -->
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
         <Grid Width="150" Background="LightGray">
             <StackPanel>
                 <Label x:Name="usernameLabel" Content="Tager indhold fra class" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
             </StackPanel>
+            
             <StackPanel>
                 <Button Click="LogBtn_Click" Margin="0,185,0,0" Height="75">
                     <Button.Content>
@@ -39,12 +36,14 @@
                         </StackPanel>
                     </Button.Content>
                 </Button>
+
                 <Button Click="LogViewBtn_Click" Height="75">
                     <StackPanel HorizontalAlignment="Center">
                         <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50" HorizontalAlignment="Center"/>
                         <TextBlock Text="Tidligere Logs" FontWeight="Bold" TextAlignment="Center"/>
                     </StackPanel>
                 </Button>
+
                 <Button Click="ProfileBtn_Click" Height="75">
                     <StackPanel HorizontalAlignment="Center">
                         <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
@@ -52,7 +51,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Click="LogOut_Click" Margin="0,125,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
+                <Button Click="LogOut_Click" Margin="0,77,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
                     <Button.Content>
                         <StackPanel HorizontalAlignment="Center">
                             <materialDesign:PackIcon Kind="Logout" Height="50" Width="50"/>
@@ -60,12 +59,7 @@
                         </StackPanel>
                     </Button.Content>
                 </Button>
-
-                
             </StackPanel>
         </Grid>
-
-
-
     </Grid>
 </Window>

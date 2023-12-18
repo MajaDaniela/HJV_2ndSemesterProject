@@ -6,7 +6,7 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="HJV-Timeregistreringssystem-LoginWindow" Height="780" Width="1035" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem-LoginWindow" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -15,16 +15,15 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="104" Width="300">
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="187" Width="300">
+            
             <TextBlock Text="Server User ID" />
             <TextBox x:Name="DatabaseTb"  />
             <TextBlock Text="Server Password" />
             <PasswordBox x:Name="DatabasePswdTb" />
             <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" />
-        </StackPanel>
-        
-        <StackPanel HorizontalAlignment="Center">
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,15,0,0">
+
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,10,10">
                 <Rectangle x:Name="connectionIndicator" Width="50" Height="50">
                     <Rectangle.Style>
                         <Style TargetType="Rectangle">
@@ -36,7 +35,9 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="1035">
+        
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="654" Width="800">
             <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,80,0,20" Width="182"/>
 
 
