@@ -36,15 +36,15 @@ namespace HJV_2ndSemesterProject.Views
             EndDatePicker.SelectedDate = DateTime.Today;
             DataContext = logEntryVM;
 
-            for(int i = 0; i<23; i++)
+            for(int i = 0; i<24; i++)
             {
                 StartHour.Items.Add((i+1).ToString("D2"));
                 EndHour.Items.Add((i+1).ToString("D2"));
 
                 if (StartMinute.Items.Count <6) 
                 {
-                    StartMinute.Items.Add(i*10);
-                    EndMinute.Items.Add(i * 10);
+                    StartMinute.Items.Add((i*10).ToString("D2)"));
+                    EndMinute.Items.Add((i * 10).ToString("D2)"));
                 }
             }
         }

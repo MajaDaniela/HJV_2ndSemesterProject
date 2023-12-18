@@ -12,7 +12,7 @@ namespace HJV_2ndSemesterProject.ViewModels
     {
         public Role Role { get; set; }
         public double NumberofHours { get; set; }
-        public string? Comment { get; set; }
+        public string Comment { get; set; }
         public string MA_Number { get;}
         public List<Models.Task> SelectedTasks { get; }
         public string[] EndTimes { get; set; }
@@ -44,6 +44,7 @@ namespace HJV_2ndSemesterProject.ViewModels
             EndTimes = new string[3];
             SelectedTasks = new();
             SelectedWaters = new();
+            Comment = "";
         }
 
 
