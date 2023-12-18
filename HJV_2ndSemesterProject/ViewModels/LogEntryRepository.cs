@@ -37,7 +37,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 
                 foreach (Models.Task t in entry.Tasks)
                 {
-                    LinkTaskToLogEntry(newID, t.TaskType, DataAccess.conn);
+                    LinkTaskToLogEntry(newID, t.TaskID, DataAccess.conn);
                 }
             }
         }
@@ -104,14 +104,14 @@ namespace HJV_2ndSemesterProject.ViewModels
             }
         }
 
-        private void LinkTaskToLogEntry(int logId, string taskType,SqlConnection connection) 
+        private void LinkTaskToLogEntry(int logId, int taskId,SqlConnection connection) 
         {
-            using (SqlCommand cmd= new("sp_CreateLogEntryTask",connection))
+            using (SqlCommand cmd1= new("sp_CreateLogEntryTask",connection))
             {
-                cmd.CommandType=CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@LogID",logId);
-                cmd.Parameters.AddWithValue("@TaskType", taskType);
-                cmd.ExecuteNonQuery();
+                cmd1.CommandType=CommandType.StoredProcedure;
+                cmd1.Parameters.AddWithValue("@LogID",logId);
+                cmd1.Parameters.AddWithValue("@TaskID", taskId);
+                cmd1.ExecuteNonQuery();
             }      
         }
 

@@ -49,7 +49,7 @@
             <Label Content=":" Height=" 25" Background="#FFE5E5E5" Width="12" />
             <ComboBox x:Name="EndMinute"  Width="38" Height="25" SelectionChanged="EndMinute_SelectionChanged" RenderTransformOrigin="0.5,0.5" BorderThickness="0"/>
         </StackPanel>
-        <ListBox x:Name="WatersPicker"  ItemsSource="{Binding Waters.Waters }" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="296,98,527,536" SelectionMode="Multiple" SelectionChanged="WatersPicker_SelectionChanged">
+        <ListBox x:Name="WatersPicker"  ItemsSource="{Binding Waters.Waters }" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="296,142,527,386" SelectionMode="Multiple" SelectionChanged="WatersPicker_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -59,9 +59,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <ComboBox x:Name="RolePicker" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}" HorizontalAlignment="Left" Margin="80,313,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="RolePicker_SelectionChanged"/>
-        <TextBox x:Name="HourNumberBox" MaxLength="5" HorizontalAlignment="Left" Margin="80,356,0,0" TextWrapping="Wrap" Text="000,0" VerticalAlignment="Top" Width="36" Height="18" LostFocus="HourNumberBox_LostFocus" />
+        <TextBox x:Name="HourNumberBox" MaxLength="5" HorizontalAlignment="Left" Margin="80,356,0,0" TextWrapping="Wrap" Text="000,0" VerticalAlignment="Top" Width="36" Height="18" LostFocus="HourNumberBox_LostFocus" GotFocus="HourNumberBox_GotFocus" />
         <TextBox x:Name="CommentBox"  HorizontalAlignment="Left" Margin="80,401,0,0" TextWrapping="Wrap" Text="{Binding Comment }" VerticalAlignment="Top" Width="418" Height="121"/>
-        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="296,250,527,386" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
+        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="544,142,279,386" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

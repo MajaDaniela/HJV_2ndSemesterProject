@@ -279,7 +279,7 @@ namespace HJV_2ndSemesterProject.Views
         private void VesselPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string[] parts = VesselPicker.SelectedItem.ToString().Split(' ');
-            logEntryVM.VesselID = parts[0] + "" + parts[1];
+            logEntryVM.VesselID = parts[0] + " " + parts[1];
         }
 
         private void TypePicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -333,10 +333,9 @@ namespace HJV_2ndSemesterProject.Views
 
         private void HourNumberBox_LostFocus(object sender, RoutedEventArgs e)
         {
-           string temp = HourNumberBox.Text.Replace(',', '.');
             try
             {
-                logEntryVM.NumberofHours = double.Parse(temp);
+                logEntryVM.NumberofHours = double.Parse(HourNumberBox.Text);
             }
             catch
             {
@@ -364,8 +363,13 @@ namespace HJV_2ndSemesterProject.Views
             }
             catch
             {
-                MessageBox.Show("Udfyld venligst alle feter.");
+                MessageBox.Show("Udfyld venligst alle felter.");
             }
+        }
+
+        private void HourNumberBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            HourNumberBox.Clear();
         }
     }
 }

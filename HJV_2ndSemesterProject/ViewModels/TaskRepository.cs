@@ -24,14 +24,14 @@ namespace HJV_2ndSemesterProject.ViewModels
         {
             DataAccess.NewConn();
             using (DataAccess.conn)
-            using (SqlCommand cmd = new SqlCommand("Select TaskType from TASK", DataAccess.conn))
+            using (SqlCommand cmd = new SqlCommand("Select * from TASK", DataAccess.conn))
             {
                     DataAccess.conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Models.Task t = new(reader["TaskType"].ToString());
+                            Models.Task t = new(reader["TaskType"].ToString(),(int) reader["TaskID"]);
                             Tasks.Add(t);
                         }
                     }
