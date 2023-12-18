@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 
+
 namespace HJV_2ndSemesterProject
 {
     public class EnumBindingSourceExtension : MarkupExtension
@@ -20,7 +21,14 @@ namespace HJV_2ndSemesterProject
         }
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return Enum.GetValues(EnumType);
+            List<string> descriptions = new List<string>();
+            //return Enum.GetValues(EnumType);
+              Array values = Enum.GetValues(EnumType);
+            foreach(Enum value in values)
+            {
+                descriptions.Add(value.GetDescription());
+            }
+            return descriptions.ToArray();
         }
 
 

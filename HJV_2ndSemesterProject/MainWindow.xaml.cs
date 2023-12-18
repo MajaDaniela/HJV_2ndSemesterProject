@@ -26,24 +26,25 @@ namespace HJV_2ndSemesterProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        Controller controller;
+        MainViewModel mainVM;
         private Volunteer volunteer;
 
         public MainWindow(string MA_Number)
         {
             InitializeComponent();
-            controller = new(MA_Number);
+            mainVM = new(MA_Number);
 
-            usernameLabel.Content = $"Velkommen, \n {controller.CurrentUser.MA_Number} \n {controller.CurrentUser.Name}"; 
+            usernameLabel.Content = $"Velkommen, \n {mainVM.CurrentUser.MA_Number} \n {mainVM.CurrentUser.Name}";
+            ShowLogEntryPage();
         }
         private void ShowLogEntryPage()
         {
-            MainFrame.Navigate(new LogEntryPage());
+            MainFrame.Navigate(new LogEntryPage(mainVM.CurrentUser.MA_Number));
         }
 
         private void ShowProfilePage()
         {
-            MainFrame.Navigate(new ProfilePage(controller));
+            MainFrame.Navigate(new ProfilePage(mainVM));
         }
 
         private void GoToLoginWindow()
@@ -68,11 +69,11 @@ namespace HJV_2ndSemesterProject
         -----------------
        UI clicks..
         */
-        private void HomeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Skift til User Control LogEntryPage
-            ShowLogEntryPage();
-        }
+        //private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    // Skift til User Control LogEntryPage
+        //    ShowLogEntryPage();
+        //}
 
         private void LogBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -14,11 +14,11 @@ namespace HJV_2ndSemesterProject.ViewModels
     {
         public Vessel vessel;
 
-        public ObservableCollection<Vessel> vessels;
+        public ObservableCollection<Vessel> Vessels { get; }
 
         public VesselRepository()
         {
-            vessels = new ObservableCollection<Vessel>();
+            Vessels = new ObservableCollection<Vessel>();
             GetVessels();
         }
         private void GetVessels()
@@ -34,7 +34,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                         while (reader.Read())
                         {
                             Vessel v = new(reader["VesselID"].ToString(), reader["VesselName"].ToString());
-                            vessels.Add(v);
+                            Vessels.Add(v);
                         }
                     }
                 }

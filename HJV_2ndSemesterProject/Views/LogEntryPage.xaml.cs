@@ -1,4 +1,5 @@
 ﻿using HJV_2ndSemesterProject.Models;
+using HJV_2ndSemesterProject.ViewModels;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -25,229 +26,352 @@ namespace HJV_2ndSemesterProject.Views
     /// </summary>
     public partial class LogEntryPage : UserControl
     {
-        string SailingTypeString;
-        string VesselString;
-        string WatersString;
-        string WatersTypeString;
-        DateTime StartDate_date;
-        DateTime EndDate_date;
-        string HourString;
-        string MinutString;
-        string HourStringEnd;
-        string MinutStringEnd;
-        string RoleString;
-        public LogEntryPage()
+        LogEntryViewModel logEntryVM;
+
+        public LogEntryPage(string MA_Number)
         {
+            logEntryVM = new(MA_Number);
             InitializeComponent();
-            //StartTime.Format = DateTimePickerFormat.Custom;
-            //StartTime.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            StartDatePicker.SelectedDate = DateTime.Today;
+            EndDatePicker.SelectedDate = DateTime.Today;
+            DataContext = logEntryVM;
 
-            //StartTime = new DatePicker();
-            //StartTime.SelectedDateFormat = DatePickerFormat.;
-            //timePicker.ShowUpDown = true;
-
-            var WatersListNames = new List<string>()
-                    {
-                        //"Brandrulle", "Havarirulle", "Bjærgningsrulle", "Intern SAR-øvelse", "Intern miljø-øvelse", "Investigering af andet skib",
-                        "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
-                    };
-
-            foreach (var name in WatersListNames)
+            for(int i = 0; i<24; i++)
             {
-                WatersList.Items.Add(new ListBoxItem() { Content = name });
-            }
+                StartHour.Items.Add((i+1).ToString("D2"));
+                EndHour.Items.Add((i+1).ToString("D2"));
 
-            var TaskNames = new List<string>()
-            {
-                "Brandrulle", "Havarirulle", "Bjærgningsrulle", "Intern SAR-øvelse", "Intern miljø-øvelse", "Investigering af andet skib",
-            };
-
-            foreach (var name in TaskNames)
-            {
-                TaskList.Items.Add(new ListBoxItem() { Content = name });
-            }
-
-            for (int i = 00; i < 400; i++)
-            {
-                //LogHours.Items.Add(new ComboBoxItem() { Content = i });
-                HourEnd.Items.Add(new ComboBoxItem() { Content = i });
-            }
-
-            for (int i = 00; i<24; i++)
-            {
-                Hour.Items.Add(new ComboBoxItem() { Content = i });
-            }
-            for (int i = 00; i < 60; i+=10)
-            {
-                Minut.Items.Add(new ComboBoxItem() { Content = i });
-                MinutEnd.Items.Add(new ComboBoxItem() { Content = i });
-                //LogMinutes.Items.Add(new ComboBoxItem() { Content = i });
-            }
-            
-
-            var RoleNames = new List<string>()
-                    {
-                        "Motorpasser", "FARF",
-                    };
-
-            foreach (var name in RoleNames)
-            {
-                //Role.Items.Add(new ComboBoxItem() { Content = name });
-            }
-
-
-            //var TaskNames = new List<string>()
-            //        {
-            //            "Brandrulle", "Havarirulle",
-            //        };
-
-            //foreach (var name in TaskNames)
-            //{
-            //    Task.Items.Add(new ComboBoxItem() { Content = name });
-            //}
-
-
-            var SailingTypeNames = new List<string>()
-                    {
-                        "Forlægningssejllads", "MAS", "Patruljesejlads", "SAR", "SAREX",                
-                    };
-
-            foreach (var name in SailingTypeNames)
-            {
-                //SailingType.Items.Add(new ComboBoxItem() { Content = name });
-            }
-
-            var WatersTypeNames = new List<string>()
-                    {
-                        "Bugt", "Fjord", "Stræde", "Sund",
-                    };
-
-            foreach (var name in WatersTypeNames)
-            {
-                WatersType.Items.Add(new ComboBoxItem() { Content = name });
-            }
-
-
-            
-
-            //var WatersNames = new List<string>()
-            //        {
-            //            "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
-            //        };
-
-            //foreach (var name in WatersNames)
-            //{
-            //    Waters.Items.Add(new ComboBoxItem() { Content = name });
-            //}
-
-            var VesselNames = new List<string>()
-                    {
-                        "MHV 807", "MHV 808", "MHV 809", "MHV 810", "MHV 811"
-                    };
-
-            foreach (var name in VesselNames)
-            {
-                VesselName.Items.Add(new ComboBoxItem() { Content = name });               
+                if (StartMinute.Items.Count <6) 
+                {
+                    StartMinute.Items.Add((i*10).ToString("D2)"));
+                    EndMinute.Items.Add((i * 10).ToString("D2)"));
+                }
             }
         }
 
-        private void Waters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region Maja
+        //string SailingTypeString;
+        //string VesselString;
+        //string WatersString;
+        //string WatersTypeString;
+        //DateTime StartDate_date;
+        //DateTime EndDate_date;
+        //string HourString;
+        //string MinutString;
+        //string HourStringEnd;
+        //string MinutStringEnd;
+        //string RoleString;
+        //public LogEntryPage()
+        //{
+        //    InitializeComponent();
+        //    //StartTime.Format = DateTimePickerFormat.Custom;
+        //    //StartTime.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+
+        //    //StartTime = new DatePicker();
+        //    //StartTime.SelectedDateFormat = DatePickerFormat.;
+        //    //timePicker.ShowUpDown = true;
+
+        //    var WatersListNames = new List<string>()
+        //            {
+        //                //"Brandrulle", "Havarirulle", "Bjærgningsrulle", "Intern SAR-øvelse", "Intern miljø-øvelse", "Investigering af andet skib",
+        //                "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
+        //            };
+
+        //    foreach (var name in WatersListNames)
+        //    {
+        //        WatersList.Items.Add(new ListBoxItem() { Content = name });
+        //    }
+
+        //    var TaskNames = new List<string>()
+        //    {
+        //        "Brandrulle", "Havarirulle", "Bjærgningsrulle", "Intern SAR-øvelse", "Intern miljø-øvelse", "Investigering af andet skib",
+        //    };
+
+        //    foreach (var name in TaskNames)
+        //    {
+        //        TaskList.Items.Add(new ListBoxItem() { Content = name });
+        //    }
+
+        //    for (int i = 00; i < 400; i++)
+        //    {
+        //        //LogHours.Items.Add(new ComboBoxItem() { Content = i });
+        //        HourEnd.Items.Add(new ComboBoxItem() { Content = i });
+        //    }
+
+        //    for (int i = 00; i<24; i++)
+        //    {
+        //        Hour.Items.Add(new ComboBoxItem() { Content = i });
+        //    }
+        //    for (int i = 00; i < 60; i+=10)
+        //    {
+        //        Minut.Items.Add(new ComboBoxItem() { Content = i });
+        //        MinutEnd.Items.Add(new ComboBoxItem() { Content = i });
+        //        //LogMinutes.Items.Add(new ComboBoxItem() { Content = i });
+        //    }
+
+
+        //    var RoleNames = new List<string>()
+        //            {
+        //                "Motorpasser", "FARF",
+        //            };
+
+        //    foreach (var name in RoleNames)
+        //    {
+        //        //Role.Items.Add(new ComboBoxItem() { Content = name });
+        //    }
+
+
+        //    //var TaskNames = new List<string>()
+        //    //        {
+        //    //            "Brandrulle", "Havarirulle",
+        //    //        };
+
+        //    //foreach (var name in TaskNames)
+        //    //{
+        //    //    Task.Items.Add(new ComboBoxItem() { Content = name });
+        //    //}
+
+
+        //    var SailingTypeNames = new List<string>()
+        //            {
+        //                "Forlægningssejllads", "MAS", "Patruljesejlads", "SAR", "SAREX",                
+        //            };
+
+        //    foreach (var name in SailingTypeNames)
+        //    {
+        //        //SailingType.Items.Add(new ComboBoxItem() { Content = name });
+        //    }
+
+        //    var WatersTypeNames = new List<string>()
+        //            {
+        //                "Bugt", "Fjord", "Stræde", "Sund",
+        //            };
+
+        //    foreach (var name in WatersTypeNames)
+        //    {
+        //        WatersType.Items.Add(new ComboBoxItem() { Content = name });
+        //    }
+
+
+
+
+        //    //var WatersNames = new List<string>()
+        //    //        {
+        //    //            "Als Sund", "Bornholmsgat", "Bælthavet", "Farvandet nord for Fyn", "Farvandet syd for Fyn"
+        //    //        };
+
+        //    //foreach (var name in WatersNames)
+        //    //{
+        //    //    Waters.Items.Add(new ComboBoxItem() { Content = name });
+        //    //}
+
+        //    var VesselNames = new List<string>()
+        //            {
+        //                "MHV 807", "MHV 808", "MHV 809", "MHV 810", "MHV 811"
+        //            };
+
+        //    foreach (var name in VesselNames)
+        //    {
+        //        VesselName.Items.Add(new ComboBoxItem() { Content = name });               
+        //    }
+        //}
+
+        //private void Waters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //WatersString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void VesselName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //VesselString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void SailingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+
+
+        //}
+
+        //private void StartTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // StartDate_date = (DateTime)StartTime.SelectedDate;
+        //    //DateTime EndDate_date;
+        //    //DateTime myDate = StartTime.DisplayDate.Date +
+        //    //        StartTime.DisplayDate.TimeOfDay;
+        //    //Debug.WriteLine(StartTime.DisplayDate.Day);
+        //    //Debug.WriteLine(StartTime.DisplayDate.TimeOfDay);
+        //}
+
+        //private void AddLogBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        ////    TimeSpan end = new TimeSpan(int.Parse(HourStringEnd), int.Parse(MinutStringEnd), 0);
+        ////    EndDate_date = EndDate_date.Date + end;
+
+        ////    TimeSpan start = new TimeSpan(int.Parse(HourString), int.Parse(MinutString), 0);
+        ////    StartDate_date = StartDate_date.Date + start;
+
+        ////    Sailing currentSailing = new Sailing(StartDate_date, EndDate_date, (SailingType)1, VesselString);
+        ////    Debug.WriteLine($"{currentSailing.StartTime}, {currentSailing.EndTime},{currentSailing.SailingType},{currentSailing.VesselID}");
+
+        //}
+
+        //private void WatersType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //WatersTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void EndTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //EndDate_date = (DateTime)EndTime.SelectedDate;
+        //}
+
+        //private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //RoleString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void Hour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //HourString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void Minut_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //MinutString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+        //private void HourEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // HourStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void MinutEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //   // MinutStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+        //}
+
+        //private void Task_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
+
+        //private void WatersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
+
+        //private void LogHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
+
+        //private void LogMinutes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
+
+        //private void LogTime_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+
+        //}
+        #endregion
+
+        private void VesselPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            WatersString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            string[] parts = VesselPicker.SelectedItem.ToString().Split(' ');
+            logEntryVM.VesselID = parts[0] + " " + parts[1];
         }
 
-        private void VesselName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TypePicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            VesselString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            logEntryVM.SailingType = (SailingType)TypePicker.SelectedIndex;
         }
 
-        private void SailingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void StartDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            //SailingTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-                
-
+            logEntryVM.StartTimes[0] = StartDatePicker.SelectedDate.Value.ToString("dd/MM/yyyy");
         }
 
-        private void StartTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void EndDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            StartDate_date = (DateTime)StartTime.SelectedDate;
-            //DateTime EndDate_date;
-            //DateTime myDate = StartTime.DisplayDate.Date +
-            //        StartTime.DisplayDate.TimeOfDay;
-            //Debug.WriteLine(StartTime.DisplayDate.Day);
-            //Debug.WriteLine(StartTime.DisplayDate.TimeOfDay);
+            logEntryVM.EndTimes[0] = EndDatePicker.SelectedDate.Value.ToString("dd/MM/yyyy");
         }
 
-        private void AddLogBtn_Click(object sender, RoutedEventArgs e)
+        private void StartHour_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TimeSpan end = new TimeSpan(int.Parse(HourStringEnd), int.Parse(MinutStringEnd), 0);
-            EndDate_date = EndDate_date.Date + end;
-
-            TimeSpan start = new TimeSpan(int.Parse(HourString), int.Parse(MinutString), 0);
-            StartDate_date = StartDate_date.Date + start;
-
-            Sailing currentSailing = new Sailing(StartDate_date, EndDate_date, (SailingType)1, VesselString);
-            Debug.WriteLine($"{currentSailing.StartTime}, {currentSailing.EndTime},{currentSailing.SailingType},{currentSailing.VesselID}");
-            
+            logEntryVM.StartTimes[1] = StartHour.SelectedItem.ToString();
         }
 
-        private void WatersType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void StartMinute_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            WatersTypeString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            logEntryVM.StartTimes[2] = StartMinute.SelectedItem.ToString();
         }
 
-        private void EndTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void EndMinute_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            EndDate_date = (DateTime)EndTime.SelectedDate;
+            logEntryVM.EndTimes[2] = EndMinute.SelectedItem.ToString();
         }
 
-        private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EndHour_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //RoleString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            logEntryVM.EndTimes[1] = EndHour.SelectedItem.ToString();
         }
 
-        private void Hour_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void WatersPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            HourString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();                                 
+            logEntryVM.SelectedWaters.Clear();
+            foreach (object o in WatersPicker.SelectedItems)
+            {
+                logEntryVM.SelectedWaters.Add((Waters)o);
+            }
         }
 
-        private void Minut_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RolePicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MinutString = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
-        }
-        private void HourEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            HourStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();
+            logEntryVM.Role = (Role)RolePicker.SelectedIndex;
         }
 
-        private void MinutEnd_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void HourNumberBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            MinutStringEnd = ((ComboBoxItem)(((System.Windows.Controls.ComboBox)sender).SelectedItem)).Content.ToString();            
+            try
+            {
+                logEntryVM.NumberofHours = double.Parse(HourNumberBox.Text);
+            }
+            catch
+            {
+                HourNumberBox.Text = "";
+                HourNumberBox.BorderBrush = new SolidColorBrush(Colors.Red);
+            }
         }
 
-        private void Task_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TaskPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            logEntryVM.SelectedTasks.Clear();
+            foreach (object o in TaskPicker.SelectedItems)
+            {
+                logEntryVM.SelectedTasks.Add((Models.Task) o);
+            }
         }
 
-        private void WatersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void LogEntrybtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                logEntryVM.AddLogEntry();
+                LogEntrybtn.Content = "Logget";
+                LogEntrybtn.IsEnabled = false;
+
+            }
+            catch
+            {
+                MessageBox.Show("Udfyld venligst alle felter.");
+            }
         }
 
-        private void LogHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void HourNumberBox_GotFocus(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void LogMinutes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void LogTime_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            HourNumberBox.Clear();
         }
     }
 }

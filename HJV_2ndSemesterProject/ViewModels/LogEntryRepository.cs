@@ -37,7 +37,7 @@ namespace HJV_2ndSemesterProject.ViewModels
 
                 foreach (Models.Task t in entry.Tasks)
                 {
-                    LinkTaskToLogEntry(newID, t.TaskType, DataAccess.conn);
+                    LinkTaskToLogEntry(newID, t.TaskID, DataAccess.conn);
                 }
             }
         }
@@ -51,6 +51,7 @@ namespace HJV_2ndSemesterProject.ViewModels
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@LogID", updated.Id);
+                    cmd.Parameters.AddWithValue("LogID", updated.Id);
                     cmd.Parameters.AddWithValue("@Role", (int)updated.Role);
                     cmd.Parameters.AddWithValue("@NumberOfHours", updated.NumberofHours);
                     cmd.Parameters.AddWithValue("@Comment", updated.Comment);
@@ -83,38 +84,41 @@ namespace HJV_2ndSemesterProject.ViewModels
             List<LogEntry> result= new();
             DataAccess.NewConn();
             using (DataAccess.conn)
+            using (SqlCommand cmd = new SqlCommand("sp_GetLogEntriesByMa_Number", DataAccess.conn))
             {
-
-                using (SqlCommand cmd = new SqlCommand("sp_GetLogEntriesByMa_Number", DataAccess.conn))
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MA_NUmber", MA_NUmber);
+                DataAccess.conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@MA_NUmber",MA_NUmber);
-                    DataAccess.conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader()) 
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            LogEntry entry = new((Role)(int)reader["Role"], (double)reader["NumberOFHours"],
-                                reader["Comment"].ToString(), MA_NUmber, (int)reader["SailingID"],
-                                (int)reader["LogID"]);
+                        LogEntry entry = new((Role)(int)reader["Role"], (int)reader["NumberOfHours"],
+                            reader["Comment"].ToString(), MA_NUmber, (int)reader["SailingID"], null,
+                            (int)reader["LogID"]);
 
-                            result.Add(entry);
-                        }
-                        return result;
+                        result.Add(entry);
                     }
+                    return result;
                 }
             }
         }
 
-        private void LinkTaskToLogEntry(int logId, string taskType,SqlConnection connection) 
+        private void LinkTaskToLogEntry(int logId, int taskId,SqlConnection connection) 
         {
-            using (SqlCommand cmd= new("sp_CreateLogEntryTask",connection))
+            using (SqlCommand cmd1= new("sp_CreateLogEntryTask",connection))
             {
-                cmd.CommandType=CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@LogID",logId);
-                cmd.Parameters.AddWithValue("@TaskType", taskType);
-                cmd.ExecuteNonQuery();
+                cmd1.CommandType=CommandType.StoredProcedure;
+                cmd1.Parameters.AddWithValue("@LogID",logId);
+                cmd1.Parameters.AddWithValue("@TaskID", taskId);
+                cmd1.ExecuteNonQuery();
             }      
         }
+
+        //private List<Models.Task> GetUserTasks(int LogID, SqlConnection connection) 
+        //{ 
+        //    using (SqlCommand cmd= new("Select Tas"))
+        
+        //}
     }
 }

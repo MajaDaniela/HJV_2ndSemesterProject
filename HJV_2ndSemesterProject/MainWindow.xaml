@@ -39,23 +39,17 @@
                         </StackPanel>
                     </Button.Content>
                 </Button>
-
-                <Button Click="DataMapBtn_Click" Margin="0,55,0,0" Height="75">
-                    <Button.Content>
-                        <StackPanel HorizontalAlignment="Center">
-                            <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Tidligere Logs" FontWeight="Bold" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Button.Content>
+                <Button Click="DataMapBtn_Click" Height="75">
+                    <StackPanel HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Tidligere Logs" FontWeight="Bold" TextAlignment="Center"/>
+                    </StackPanel>
                 </Button>
-
-                <Button Click="ProfileBtn_Click" Margin="0,55,0,0" Height="75">
-                    <Button.Content>
-                        <StackPanel HorizontalAlignment="Center">
-                            <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
-                            <TextBlock Text="Profil" FontWeight="Bold" TextAlignment="Center" />
-                        </StackPanel>
-                    </Button.Content>
+                <Button Click="ProfileBtn_Click" Height="75">
+                    <StackPanel HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="AccountCogOutline" Height="50" Width="50"/>
+                        <TextBlock Text="Profil" FontWeight="Bold" TextAlignment="Center" />
+                    </StackPanel>
                 </Button>
 
                 <Button Click="LogOut_Click" Margin="0,125,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
