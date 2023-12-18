@@ -33,7 +33,6 @@ namespace HJV_2ndSemesterProject
         {
             InitializeComponent();
             mainVM = new(MA_Number);
-
             usernameLabel.Content = $"Velkommen, \n {mainVM.CurrentUser.MA_Number} \n {mainVM.CurrentUser.Name}";
             ShowLogEntryPage();
         }

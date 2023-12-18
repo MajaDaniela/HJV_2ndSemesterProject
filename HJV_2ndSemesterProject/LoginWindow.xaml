@@ -6,7 +6,7 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="HJV-Timeregistreringssystem-LoginWindow" Height="780" Width="1035" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem-LoginWindow" Height="600" Width="800" ResizeMode="NoResize" >
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -22,9 +22,9 @@
             <PasswordBox x:Name="DatabasePswdTb" />
             <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" />
         </StackPanel>
-        
-        <StackPanel HorizontalAlignment="Center">
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,15,0,0">
+
+        <StackPanel HorizontalAlignment="Center" Width="630">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,5,0,0">
                 <Rectangle x:Name="connectionIndicator" Width="50" Height="50">
                     <Rectangle.Style>
                         <Style TargetType="Rectangle">
@@ -32,11 +32,11 @@
                         </Style>
                     </Rectangle.Style>
                 </Rectangle>
-                <materialDesign:PackIcon x:Name="BindingIconUI" Kind="DatabaseLock" Height="53" Width="41" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <materialDesign:PackIcon x:Name="BindingIconUI" Kind="DatabaseLock" Height="54" Width="42" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="1035">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="664" Width="600">
             <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,80,0,20" Width="182"/>
 
 

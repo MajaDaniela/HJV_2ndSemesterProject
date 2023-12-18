@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="HJV-Timeregistreringssystem" Height="800" Width="1200" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem" Height="600" Width="800" ResizeMode="NoResize">
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -22,7 +22,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Frame x:Name="MainFrame" Grid.Column="1" />
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
 
 
         <!-- Sidebar -->
@@ -52,7 +52,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Click="LogOut_Click" Margin="0,125,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
+                <Button Click="LogOut_Click" Margin="0,75,0,0" Height="75" VerticalAlignment="Bottom" Background="red">
                     <Button.Content>
                         <StackPanel HorizontalAlignment="Center">
                             <materialDesign:PackIcon Kind="Logout" Height="50" Width="50"/>
