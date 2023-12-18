@@ -34,7 +34,8 @@ namespace HJV_2ndSemesterProject
             InitializeComponent();
             mainVM = new(MA_Number);
 
-            usernameLabel.Content = $"Velkommen, \n {mainVM.CurrentUser.MA_Number} \n {mainVM.CurrentUser.Name}"; 
+            usernameLabel.Content = $"Velkommen, \n {mainVM.CurrentUser.MA_Number} \n {mainVM.CurrentUser.Name}";
+            ShowLogEntryPage();
         }
         private void ShowLogEntryPage()
         {
@@ -68,11 +69,11 @@ namespace HJV_2ndSemesterProject
         -----------------
        UI clicks..
         */
-        private void HomeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Skift til User Control LogEntryPage
-            ShowLogEntryPage();
-        }
+        //private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    // Skift til User Control LogEntryPage
+        //    ShowLogEntryPage();
+        //}
 
         private void LogBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -359,6 +359,8 @@ namespace HJV_2ndSemesterProject.Views
             try
             {
                 logEntryVM.AddLogEntry();
+                LogEntrybtn.Content = "Logget";
+                LogEntrybtn.IsEnabled = false;
 
             }
             catch
