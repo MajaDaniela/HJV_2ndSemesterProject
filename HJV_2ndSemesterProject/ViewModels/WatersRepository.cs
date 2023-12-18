@@ -10,6 +10,8 @@ using HJV_2ndSemesterProject.Data;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+
+    //This class supplies a list of all the waters from the database. Used by LogEntryViewModel for databinding a listbox.
     public class WatersRepository
     {
         public ObservableCollection<Waters> Waters { get;}

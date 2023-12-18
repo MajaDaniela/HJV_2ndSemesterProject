@@ -32,7 +32,7 @@
             </StackPanel>
 
             <StackPanel Margin="10,40,10,0" Orientation="Horizontal">
-                <Label Content="Rank" FontSize="26"/>
+                <Label Content="Grad" FontSize="26"/>
             </StackPanel>
 
         

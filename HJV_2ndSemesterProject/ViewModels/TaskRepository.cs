@@ -10,6 +10,7 @@ using HJV_2ndSemesterProject.Data;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
+    //This class supplies a list of all the Tasks from the database. Used by LogEntryViewModel for databinding a listbox.
     public class TaskRepository
     {
         public ObservableCollection <Models.Task> Tasks { get; set; }

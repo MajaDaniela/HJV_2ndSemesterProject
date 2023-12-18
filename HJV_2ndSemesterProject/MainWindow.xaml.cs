@@ -27,7 +27,6 @@ namespace HJV_2ndSemesterProject
     public partial class MainWindow : Window
     {
         MainViewModel mainVM;
-        private Volunteer volunteer;
 
         public MainWindow(string MA_Number)
         {
@@ -36,7 +35,10 @@ namespace HJV_2ndSemesterProject
 
             usernameLabel.Content = $"Velkommen, \n {mainVM.CurrentUser.MA_Number} \n {mainVM.CurrentUser.Name}";
             ShowLogEntryPage();
+            //This will start the program showing the LogEntryPage.
         }
+
+        //The following methods navigate between the different UserControls.
         private void ShowLogEntryPage()
         {
             MainFrame.Navigate(new LogEntryPage(mainVM.CurrentUser.MA_Number));
@@ -44,14 +46,14 @@ namespace HJV_2ndSemesterProject
 
         private void ShowProfilePage()
         {
-            MainFrame.Navigate(new ProfilePage(mainVM));
+            MainFrame.Navigate(new ProfilePage(mainVM.CurrentUser.MA_Number));
         }
-
-        private void GoToLoginWindow()
+        private void ShowLogViewPage()
         {
-            MainFrame.Navigate(new LoginWindow());
+            MainFrame.Navigate(new LogView());
         }
 
+        //returns to LoginPage.
         private void OpenLoginWindowAndCloseMainWindow()
         {
             // Create an instance of LoginWindow
@@ -67,24 +69,12 @@ namespace HJV_2ndSemesterProject
        /*
        Funtions and methods..
         -----------------
-       UI clicks..
+       UI Button clicks..
         */
-        //private void HomeBtn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    // Skift til User Control LogEntryPage
-        //    ShowLogEntryPage();
-        //}
 
         private void LogBtn_Click(object sender, RoutedEventArgs e)
         {
-            // Skift til User Control LogEntryPage
             ShowLogEntryPage();
-        }
-
-        private void DataMapBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Skift til User Control LogEntryPage
-            //
         }
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
@@ -95,6 +85,11 @@ namespace HJV_2ndSemesterProject
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             OpenLoginWindowAndCloseMainWindow();
+        }
+
+        private void LogViewBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

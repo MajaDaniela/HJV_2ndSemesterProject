@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Navigation;
 using HJV_2ndSemesterProject.Models;
 using HJV_2ndSemesterProject.Data;
+using System.ComponentModel;
 
 namespace HJV_2ndSemesterProject.ViewModels
 {
@@ -15,6 +16,8 @@ namespace HJV_2ndSemesterProject.ViewModels
     {
         public Sailing sailing;
 
+        //Checks if the userinputs in the LogEntryPage match a saling in the database.
+        //If not it adds a saling and returns the new sailingID.
         public int CreateSailing(Sailing s)
         {
             int newId;
@@ -44,15 +47,11 @@ namespace HJV_2ndSemesterProject.ViewModels
                     {
                         LinkWatersToSailing(waters.Name,newId,DataAccess.conn);
                     }
-
                     return newId;
-                }
-                
-
+                }  
             }
-
         }
-
+        //Adds rows to the SAILING_WATERS linking table in the database.
         private void LinkWatersToSailing(string watersName,int sailingId,SqlConnection conn)
         {
             using (SqlCommand cmd = new SqlCommand("sp_CreateSailingWaters", conn))
@@ -62,16 +61,6 @@ namespace HJV_2ndSemesterProject.ViewModels
                 cmd.Parameters.AddWithValue("@WatersName", watersName);
                 cmd.ExecuteNonQuery();
             }
-        }
-
-        public void DeleteSailing()
-        {
-
-        }
-
-        public void UpdateSailing()
-        {
-
         }
     }
 }

@@ -39,7 +39,7 @@
                         </StackPanel>
                     </Button.Content>
                 </Button>
-                <Button Click="DataMapBtn_Click" Height="75">
+                <Button Click="LogViewBtn_Click" Height="75">
                     <StackPanel HorizontalAlignment="Center">
                         <materialDesign:PackIcon Kind="MapCheckOutline" Height="50" Width="50" HorizontalAlignment="Center"/>
                         <TextBlock Text="Tidligere Logs" FontWeight="Bold" TextAlignment="Center"/>

@@ -10,6 +10,7 @@ namespace HJV_2ndSemesterProject
     public enum Role
     {
         //A volunteer (with relevant training) may have a specialised role aboard the vessel.
+       // The enum values are English while the descriptions are Danish.
 
         [Description("Navigatør")]
         Navigator,

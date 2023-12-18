@@ -10,23 +10,6 @@
              mc:Ignorable="d"
              Height="780" Width="1035"  
                 >
-    <!--<UserControl.Resources>
-        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
-                            ObjectType="{x:Type System:Enum}">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="StyleAlias:EffectStyle"/>
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-    </UserControl.Resources>-->
-
-    <!--<UserControl.Resources>
-        <ObjectDataProvider x:Key="dataFromEnum " MethodName="GetValues"
-                            ObjectType="{x:Type sys:Enum}">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="local:RoleTest"/>
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-    </UserControl.Resources>-->
     <Grid Margin="10,10,0,10">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -61,7 +44,7 @@
         <ComboBox x:Name="RolePicker" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}" HorizontalAlignment="Left" Margin="80,313,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="RolePicker_SelectionChanged"/>
         <TextBox x:Name="HourNumberBox" MaxLength="5" HorizontalAlignment="Left" Margin="80,356,0,0" TextWrapping="Wrap" Text="000,0" VerticalAlignment="Top" Width="36" Height="18" LostFocus="HourNumberBox_LostFocus" GotFocus="HourNumberBox_GotFocus" />
         <TextBox x:Name="CommentBox"  HorizontalAlignment="Left" Margin="80,401,0,0" TextWrapping="Wrap" Text="{Binding Comment }" VerticalAlignment="Top" Width="418" Height="121"/>
-        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="536,142,323,386" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
+        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="536,142,265,386" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -71,60 +54,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="LogEntrybtn" Content="Log Timer" HorizontalAlignment="Left" Margin="400,48,0,0" VerticalAlignment="Top" Height="25" Width="98" Click="LogEntrybtn_Click" />
-
-
-        <!--#region Maja -->
-        <!--<Label Content="Log" HorizontalAlignment="Left" Margin="328,23,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Height="67" Width="282"/>
-        <Label Content="Navn" HorizontalAlignment="Left" Margin="317,127,0,0" VerticalAlignment="Top" Width="71" FontSize="18"/>
-        <Label Content="MA-Nummer" HorizontalAlignment="Left" Margin="315,162,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <Label Content="Rolle" HorizontalAlignment="Left" Margin="315,196,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
-        <Label Content="Starttid" HorizontalAlignment="Left" Margin="315,302,0,0" VerticalAlignment="Top" Width="111" FontSize="18"/>
-        <Label Content="Sluttid" HorizontalAlignment="Left" Margin="315,339,0,0" VerticalAlignment="Top" Width="114" FontSize="18"/>
-        <Label Content="SkibID" HorizontalAlignment="Left" Margin="315,266,0,0" VerticalAlignment="Top" Width="73" FontSize="18"/>
-
-        <Label Content="Bemærkning&#xA;/kommentar" HorizontalAlignment="Left" Margin="309,632,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <TextBox x:Name="Remark" HorizontalAlignment="Left" Margin="468,632,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="66"/>
-        <Label Content="Sejladstype" HorizontalAlignment="Left" Margin="315,230,0,0" VerticalAlignment="Top" Width="111" FontSize="18"/>
-        <Label Content="Farvande" HorizontalAlignment="Left" Margin="317,466,0,0" VerticalAlignment="Top" Width="73" FontSize="18" Height="33"/>
-        <Label Content="Opgaver" HorizontalAlignment="Left" Margin="315,370,0,0" VerticalAlignment="Top" Width="73" FontSize="18"/>
-
-        <Button x:Name="AddLogBtn" Content="Tilføj registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="390,703,0,0" Click="AddLogBtn_Click"/>
-        -->
-        <!--<ComboBox x:Name="Waters" HorizontalAlignment="Left" Margin="831,655,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Waters_SelectionChanged"/>-->
-        <!--<ComboBox x:Name="Task" HorizontalAlignment="Left" Margin="782,645,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Task_SelectionChanged"/>-->
-        <!--
-        <DatePicker x:Name="EndTime" HorizontalAlignment="Left" Margin="470,342,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="EndTime_SelectedDateChanged"/>
-        <DatePicker x:Name="StartTime" HorizontalAlignment="Left" Margin="470,309,0,0" VerticalAlignment="Top" SelectedDateFormat="Short" SelectedDateChanged="StartTime_SelectedDateChanged"/>
-        <ComboBox x:Name="VesselName" HorizontalAlignment="Left" Margin="469,274,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="VesselName_SelectionChanged"/>
-        <ComboBox x:Name="SailingType" HorizontalAlignment="Left" Margin="469,238,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SailingType_SelectionChanged"
-                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:SailingType}}}"/>
-
-
-        <ComboBox x:Name="WatersType" HorizontalAlignment="Left" Margin="471,560,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="WatersType_SelectionChanged"/>
-        <Label Content="Farvandes type" HorizontalAlignment="Left" Margin="317,554,0,0" VerticalAlignment="Top" Width="135" FontSize="18" Height="33"/>
-        <ComboBox x:Name="Hour" HorizontalAlignment="Left" Margin="591,312,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="Hour_SelectionChanged"/>
-        <ComboBox x:Name="Minut" HorizontalAlignment="Left" Margin="658,312,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="Minut_SelectionChanged"/>
-        <Label Content=":" HorizontalAlignment="Left" Margin="640,310,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="HourEnd" HorizontalAlignment="Left" Margin="591,347,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="HourEnd_SelectionChanged"/>
-        <ComboBox x:Name="MinutEnd" HorizontalAlignment="Left" Margin="658,347,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="MinutEnd_SelectionChanged"/>
-        <Label Content=":" HorizontalAlignment="Left" Margin="640,345,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="469,202,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged" 
-                  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}"/>
-                  -->
-        <!--ItemsSource="{local:EnumToItemsSource local:Status}"-->
-        <!--ItemsSource="{Binding Source={StaticResource dataFromEnum }}"-->
-        <!--<ComboBox DisplayMemberPath="DisplayName"
-          ItemsSource="{local:EnumToItemsSource {x:Type enums:RoleTest}}"
-          SelectedValue="{Binding Path=WhereEverYouWant}"
-          SelectedValuePath="Value"-->
-        <!--
-        <Label Content="Tid" HorizontalAlignment="Left" Margin="317,589,0,0" VerticalAlignment="Top" Width="135" FontSize="18" Height="33"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="473,162,0,0" VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="470,123,0,0" VerticalAlignment="Top" Width="165" FontSize="18"/>
-        <ListBox x:Name="WatersList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="473,473,343,231" SelectionChanged="WatersList_SelectionChanged" SelectionMode="Multiple"/>
-        <ListBox x:Name="TaskList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="473,377,343,327" SelectionChanged="WatersList_SelectionChanged" SelectionMode="Multiple"/>
-        <TextBox x:Name="LogTime" HorizontalAlignment="Left" Margin="471,594,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="23" TextChanged="LogTime_TextChanged"/>-->
-        <!--#endregion-->
 
     </Grid>
 </UserControl>
