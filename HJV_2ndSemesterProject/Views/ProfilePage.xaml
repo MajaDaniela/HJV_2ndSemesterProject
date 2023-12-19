@@ -15,68 +15,91 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="175" Margin="10,10,0,10">
-            <Label Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,20"/>
+        <Label Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,20"/>
 
-            <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
-                <Label Content="Navn" FontSize="26"/>
-                
-            </StackPanel>
+        <Label Content="Navn:" FontSize="26" Margin="29,92,917,605"/>
+        <Label Content="{Binding CurrentUser.Name}" FontSize="26" Margin="118,92,689,605"/>
+        <Label Content="Grad:" FontSize="26" RenderTransformOrigin="1.549,-0.02" Margin="29,184,912,513"/>
+        <Label Content="{Binding ViewRank}" FontSize="26" Margin="100,184,689,513"/>
+        <Label Content="MA-Nummer:" FontSize="26" Margin="29,134,828,567"/>
+        <Label Content="{Binding CurrentUser.MA_Number}" FontSize="26" Margin="207,132,689,565"/>
+        <Label Content="{Binding CurrentUser.Flotilla}" FontSize="26" Margin="128,237,689,460"/>
+        <Label Content="Flotille:" FontSize="26" RenderTransformOrigin="1.549,-0.02" Margin="29,237,912,460"/>
 
-            <StackPanel Margin="10,40,0,0" Orientation="Horizontal">
-                <Label Content="MA-Nummer" FontSize="26" Width="165"/>
-            </StackPanel>
 
-            <StackPanel Margin="10,40,50,0" Orientation="Horizontal">
-                <Label Content="Flotille" FontSize="26"/>
-            </StackPanel>
-
-            <StackPanel Margin="10,40,10,0" Orientation="Horizontal">
-                <Label Content="Grad" FontSize="26"/>
-            </StackPanel>
-
-        
-        </StackPanel>
-        
-        
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="375">
-            <Label Content="Antal timer til mål:" FontSize="26" Margin="70" Width="270"/>
-            <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="334" Margin="0,92,0,406">
+            <Label Content="Loggede Timer:" FontSize="26" Width="195" RenderTransformOrigin="0.5,0.5" Height="48">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.247"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 <ProgressBar Minimum="0" 
-                Maximum="100" 
-                Value="{Binding InsertBindingHere}" 
-                x:Name="pbStatus" Margin="10,-20,10,0" />
-                <TextBlock Text="{Binding Value, ElementName=progressBar, StringFormat=\{0:0\}%}" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Center" Height="37" />
+                Maximum="75"
+                             
+                Value="{Binding LoggedHours[0]}" 
+                x:Name="NavigatorStatus" Margin="49,0,86,19" Grid.Column="1"/>
+                <TextBlock Text="{Binding Value, ElementName=NavigatorStatus, StringFormat=Navigatør: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="36" Grid.Column="1" Margin="89,0,0,0" />
             </Grid>
-        </StackPanel>
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="251*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Minimum="0" 
+     Maximum="75"
+                  
+     Value="{Binding LoggedHours[1]}" 
+     x:Name="WatchOfficerStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+                <TextBlock Text="{Binding Value, ElementName=WatchOfficerStatus, StringFormat=VagtChef: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="43" Grid.Column="1" Margin="24,0,0,0" />
+            </Grid>
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="251*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Minimum="0" 
+Maximum="75"
+             
+Value="{Binding LoggedHours[1]}" 
+x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+                <TextBlock Text="{Binding Value, ElementName=VesselMasterStatus, StringFormat=Fartøjsfører: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="104" Grid.Column="1" Margin="22,0,0,0" />
+            </Grid>
 
-        <StackPanel Orientation="Vertical" Margin="190,0,375,0">
-            <StackPanel Margin="0,105,0,0" Orientation="Horizontal" Width="165" HorizontalAlignment="Left">
-                <Label x:Name="ProfileNavn" 
-                Content="{Binding Path=CurrentUser.Name}" 
-                FontSize="26" Margin="0,0,0,0" Width="445" Height="50"/>
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="251*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Minimum="0" 
+Maximum="75"
+             
+Value="{Binding LoggedHours[3]}" 
+x:Name="EngineFittertatus" Margin="86,0,86,19" Grid.ColumnSpan="2" />
+                <TextBlock Text="{Binding Value, ElementName=EngineFittertatus, StringFormat=MotorPasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Grid.Column="1" Margin="10,0,0,0" />
+            </Grid>
 
-            </StackPanel>
-
-            <StackPanel Margin="0,35,0,0" Orientation="Horizontal">
-                <Label x:Name="ProfileMaNummer" 
-           Content="{Binding Path=CurrentUser.MA_Number}" 
-           FontSize="26" Margin="0,0,0,0" Width="445" Height="50"/>
-            </StackPanel>
-
-            <StackPanel Margin="0,30,50,0" Orientation="Horizontal">
-                <Label x:Name="flotilletxt"  
-           Content="{Binding Path=CurrentUser.Flotilla}" 
-           FontSize="26" Margin="0,0,0,0" Width="425" Height="50"/>
-            </StackPanel>
-
-            <StackPanel Margin="0,38,10,0" Orientation="Horizontal">
-                <Label x:Name="ranktxt" 
-           Content="{Binding Path=CurrentUser.Rank}" 
-           FontSize="26" Margin="0,0,0,0" Width="460" Height="50"/>
-            </StackPanel>
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="251*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Minimum="0" 
+Maximum="75"
+             
+Value="{Binding LoggedHours[1]}" 
+x:Name="AssistantFitterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+                <TextBlock Text="{Binding Value, ElementName=AssistantFitterStatus, StringFormat=Ass. Motorpasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Margin="108,0,0,0" Grid.ColumnSpan="2" />
+            </Grid>
         </StackPanel>
 
     </Grid>

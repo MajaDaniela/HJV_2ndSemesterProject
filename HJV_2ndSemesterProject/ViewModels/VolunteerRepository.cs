@@ -36,5 +36,28 @@ namespace HJV_2ndSemesterProject.ViewModels
                 }
             }
         }
+
+        //Returns an Array containing a volunteer's logged hours for each role.
+        public double[] GetHours(string MA_Number)
+        {
+            double[] result = new double[5];
+            DataAccess.NewConn();
+            using (DataAccess.conn)
+            using (SqlCommand cmd = new SqlCommand("sp_GetHourSum", DataAccess.conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MA_Number", MA_Number);
+                DataAccess.conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        result[(int)reader["Role"]] = (double)reader["Total"];
+
+                    }
+                    return result;
+                }
+            }
+        }
     }
 }

@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HJV_2ndSemesterProject.ViewModels;
-using HJV_2ndSemesterProject.Models;
 using System.Data.SqlClient;
 
 
