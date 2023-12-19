@@ -8,7 +8,7 @@
                 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="HJV_2ndSemesterProject.Views.LogEntryPage"
              mc:Ignorable="d"
-             Height="780" Width="1035"  
+             Height="600" Width="800"  
                 >
     <Grid Margin="10,10,0,10">
         <Grid.Background>
@@ -18,21 +18,21 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Label Content="Log Dine Timer" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,0" Width="327"/>
-        <ComboBox x:Name="VesselPicker" ItemsSource="{Binding  Vessels.Vessels}" HorizontalAlignment="Left" Margin="80,98,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="VesselPicker_SelectionChanged" Height="22"/>
+        <ComboBox x:Name="VesselPicker" ItemsSource="{Binding Vessels.Vessels}" HorizontalAlignment="Left" Margin="80,98,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="VesselPicker_SelectionChanged" Height="22"/>
         <ComboBox x:Name="TypePicker" ItemsSource ="{Binding Source={local:EnumBindingSource {x:Type local:SailingType}}}" HorizontalAlignment="Left" Margin="80,142,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="TypePicker_SelectionChanged" Height="25"/>
         <DatePicker x:Name="StartDatePicker" HorizontalAlignment="Left" Margin="80,198,0,0" VerticalAlignment="Top" SelectedDateChanged="StartDatePicker_SelectedDateChanged"/>
         <DatePicker x:Name="EndDatePicker" HorizontalAlignment="Left" Margin="80,250,0,0" VerticalAlignment="Top" SelectedDateChanged="EndDatePicker_SelectedDateChanged"/>
-        <StackPanel Margin="219,200,707,535"  Orientation="Horizontal" Height="25">
+        <StackPanel Margin="195,199,496,356"  Orientation="Horizontal" Height="25">
             <ComboBox x:Name="StartHour" SelectionChanged="StartHour_SelectionChanged" Width="43" Height="25" BorderThickness="0"/>
             <Label Content=":" HorizontalAlignment="Center" Height=" 25" Width="12" Background="#FFE5E5E5" />
             <ComboBox x:Name="StartMinute"  Width="46" Height="25" SelectionChanged="StartMinute_SelectionChanged" RenderTransformOrigin="0.5,0.5" BorderThickness="0"/>
         </StackPanel>
-        <StackPanel Margin="219,251,707,484"  Orientation="Horizontal" Height="25">
+        <StackPanel Margin="195,250,496,305"  Orientation="Horizontal" Height="25">
             <ComboBox x:Name="EndHour" SelectionChanged="EndHour_SelectionChanged" Width="43" Height="25" BorderThickness="0"/>
             <Label Content=":" Height=" 25" Background="#FFE5E5E5" Width="12" />
             <ComboBox x:Name="EndMinute"  Width="46" Height="25" SelectionChanged="EndMinute_SelectionChanged" RenderTransformOrigin="0.5,0.5" BorderThickness="0"/>
         </StackPanel>
-        <ListBox x:Name="WatersPicker"  ItemsSource="{Binding Waters.Waters }" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="333,142,527,386" SelectionMode="Multiple" SelectionChanged="WatersPicker_SelectionChanged">
+        <ListBox x:Name="WatersPicker"  ItemsSource="{Binding Waters.Waters}" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="332,356,239,75" SelectionMode="Multiple" SelectionChanged="WatersPicker_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -43,8 +43,8 @@
         </ListBox>
         <ComboBox x:Name="RolePicker" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}" HorizontalAlignment="Left" Margin="80,313,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="RolePicker_SelectionChanged"/>
         <TextBox x:Name="HourNumberBox" MaxLength="5" HorizontalAlignment="Left" Margin="80,356,0,0" TextWrapping="Wrap" Text="000,0" VerticalAlignment="Top" Width="36" Height="18" LostFocus="HourNumberBox_LostFocus" GotFocus="HourNumberBox_GotFocus" />
-        <TextBox x:Name="CommentBox"  HorizontalAlignment="Left" Margin="80,401,0,0" TextWrapping="Wrap" Text="{Binding Comment }" VerticalAlignment="Top" Width="418" Height="121"/>
-        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="536,142,265,386" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
+        <TextBox x:Name="CommentBox"  HorizontalAlignment="Left" Margin="80,401,0,0" TextWrapping="Wrap" Text="{Binding Comment}" VerticalAlignment="Top" Width="205" Height="104"/>
+        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="332,98,234,245" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
