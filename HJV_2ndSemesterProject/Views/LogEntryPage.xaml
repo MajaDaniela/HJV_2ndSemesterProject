@@ -43,8 +43,8 @@
         </ListBox>
         <ComboBox x:Name="RolePicker" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}" HorizontalAlignment="Left" Margin="80,313,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="RolePicker_SelectionChanged"/>
         <TextBox x:Name="HourNumberBox" MaxLength="5" HorizontalAlignment="Left" Margin="80,356,0,0" TextWrapping="Wrap" Text="000,0" VerticalAlignment="Top" Width="36" Height="18" LostFocus="HourNumberBox_LostFocus" GotFocus="HourNumberBox_GotFocus" />
-        <TextBox x:Name="CommentBox"  HorizontalAlignment="Left" Margin="80,401,0,0" TextWrapping="Wrap" Text="{Binding Comment}" VerticalAlignment="Top" Width="205" Height="104"/>
-        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="332,98,234,245" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
+        <TextBox x:Name="CommentBox"  HorizontalAlignment="Left" Margin="115,401,0,0" TextWrapping="Wrap" Text="{Binding Comment}" VerticalAlignment="Top" Width="170" Height="104"/>
+        <ListBox x:Name="TaskPicker" ItemsSource="{Binding Tasks.Tasks}" Margin="332,98,234,270" RenderTransformOrigin="0.5,0.5" SelectionMode="Multiple" SelectionChanged="TaskPicker_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -53,7 +53,16 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="LogEntrybtn" Content="Log Timer" HorizontalAlignment="Left" Margin="400,48,0,0" VerticalAlignment="Top" Height="25" Width="98" Click="LogEntrybtn_Click" />
+        <Button x:Name="LogEntrybtn" Content="Log Timer" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Height="44" Width="138" Click="LogEntrybtn_Click" />
+        <Label Content="Fartøjer" HorizontalAlignment="Left" Margin="18,96,0,0" VerticalAlignment="Top" Width="80" FontSize="14" Height="26"/>
+        <Label Content="Sejladstype" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Width="80" FontSize="14" Height="27"/>
+        <Label Content="Starttid" HorizontalAlignment="Left" Margin="25,196,0,0" VerticalAlignment="Top" Width="55" FontSize="14" Height="28"/>
+        <Label Content="Sluttid" HorizontalAlignment="Left" Margin="30,247,0,0" VerticalAlignment="Top" Width="50" FontSize="14" Height="28"/>
+        <Label Content="Rolle" HorizontalAlignment="Left" Margin="30,310,0,0" VerticalAlignment="Top" Width="45" FontSize="14" Height="28"/>
+        <Label Content="Timer" HorizontalAlignment="Left" Margin="30,351,0,0" VerticalAlignment="Top" Width="45" FontSize="14" Height="28"/>
+        <Label Content="Bemærkning" HorizontalAlignment="Left" Margin="18,430,0,0" VerticalAlignment="Top" Width="89" FontSize="14" Height="28"/>
+        <Label Content="Farvand" HorizontalAlignment="Left" Margin="411,331,0,0" VerticalAlignment="Top" Width="60" FontSize="14" Height="28"/>
+        <Label Content="Opgaver" HorizontalAlignment="Left" Margin="411,70,0,0" VerticalAlignment="Top" Width="84" FontSize="14" Height="28"/>
 
     </Grid>
 </UserControl>
