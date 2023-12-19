@@ -1,4 +1,4 @@
-﻿using HJV_2ndSemesterProject.Models;
+﻿
 using HJV_2ndSemesterProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -23,9 +23,12 @@ namespace HJV_2ndSemesterProject.Views
     /// </summary>
     public partial class ProfilePage : UserControl
     {
-        public ProfilePage(string Ma_Number)
+        ProfileViewModel PVM;
+        public ProfilePage(string MA_Number)
         {
+            PVM = new(MA_Number);
             InitializeComponent();
+            DataContext = PVM;
         }
 
     }
