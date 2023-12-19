@@ -6,7 +6,7 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:HJV_2ndSemesterProject"
         mc:Ignorable="d"
-        Title="HJV-Timeregistreringssystem-LoginWindow" Height="780" Width="1035" ResizeMode="NoResize">
+        Title="HJV-Timeregistreringssystem-LoginWindow" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -15,29 +15,28 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="104" Width="300">
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="130" Width="220" Margin="0,10,10,0">
             <TextBlock Text="Server User ID" />
             <TextBox x:Name="DatabaseTb"  />
             <TextBlock Text="Server Password" />
             <PasswordBox x:Name="DatabasePswdTb" />
-            <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" />
-        </StackPanel>
-        
-        <StackPanel HorizontalAlignment="Center">
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,15,0,0">
-                <Rectangle x:Name="connectionIndicator" Width="50" Height="50">
+            <Button Content="Forbind til Server"  Height="30" x:Name="ConnectToDbBtn"  Background="LightSkyBlue" Click="ConnectToDbBtn_Click" Margin="10" Width="120" HorizontalAlignment="Left"/>
+
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,10,10" Height="52">
+                <Rectangle x:Name="connectionIndicator" Width="50" Height="50" Margin="0,-56,0,58">
                     <Rectangle.Style>
                         <Style TargetType="Rectangle">
                             <Setter Property="Fill" Value="Red" />
                         </Style>
                     </Rectangle.Style>
                 </Rectangle>
-                <materialDesign:PackIcon x:Name="BindingIconUI" Kind="DatabaseLock" Height="53" Width="41" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <materialDesign:PackIcon x:Name="BindingIconUI" Kind="DatabaseLock" Height="45" Width="42" Margin="0,-54,0,0" HorizontalAlignment="Center"/>
             </Grid>
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="1035">
-            <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,80,0,20" Width="182"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="664" Width="800">
+            <TextBlock Text="Login" Foreground="White" FontSize="64" FontWeight="Bold" Margin="0,70,0,20" Width="182"/>
 
 
 
@@ -46,12 +45,11 @@
                 <TextBox x:Name="emailTextBox" Text="111111"  Width="419" Height="42" FontSize="24" Padding="5" Background="LightGray" />
             </StackPanel>
 
-            <StackPanel Margin="0,20,0,50">
+            <StackPanel Margin="0,10,0,50">
                 <TextBlock Text="Kodeord:"  Foreground="White" FontSize="46" Width="209"/>
                 <PasswordBox x:Name="passwordBox" Password="testpassword" Width="416" Height="41" FontSize="24" Background="LightGray"/>
             </StackPanel>
-
-            <Button Content="Login" x:Name="LoginBtn" Width="316" Height="85" HorizontalAlignment="Center" FontSize="36" Background="#2ecc71" Foreground="White" Click="LoginBtn_Click"/>
+            <Button Content="Login" x:Name="LoginBtn" Width="316" Height="76" FontSize="36" Background="#2ecc71" Foreground="White" Click="LoginBtn_Click"/>
         </StackPanel>
 
     </Grid>

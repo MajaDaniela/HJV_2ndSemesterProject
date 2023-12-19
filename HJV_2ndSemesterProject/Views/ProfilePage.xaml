@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
              xmlns:System="clr-namespace:System;assembly=System.Runtime" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:ViewModels="clr-namespace:HJV_2ndSemesterProject.ViewModels" x:Class="HJV_2ndSemesterProject.Views.ProfilePage"
              mc:Ignorable="d" 
-                          Height="745" Width="1035"  >
+                          Height="600" Width="800"  >
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -14,20 +14,19 @@
                 <GradientStop Color="#FF737373" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <Label Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,0" Height="72" Width="128"/>
 
-        <Label Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,20"/>
-
-        <Label Content="Navn:" FontSize="26" Margin="29,92,917,605"/>
-        <Label Content="{Binding CurrentUser.Name}" FontSize="26" Margin="118,92,689,605"/>
-        <Label Content="Grad:" FontSize="26" RenderTransformOrigin="1.549,-0.02" Margin="29,184,912,513"/>
-        <Label Content="{Binding ViewRank}" FontSize="26" Margin="100,184,689,513"/>
-        <Label Content="MA-Nummer:" FontSize="26" Margin="29,134,828,567"/>
-        <Label Content="{Binding CurrentUser.MA_Number}" FontSize="26" Margin="207,132,689,565"/>
-        <Label Content="{Binding CurrentUser.Flotilla}" FontSize="26" Margin="128,237,689,460"/>
-        <Label Content="Flotille:" FontSize="26" RenderTransformOrigin="1.549,-0.02" Margin="29,237,912,460"/>
+        <Label Content="Navn:" FontSize="26" Margin="32,103,667,442"/>
+        <Label Content="{Binding CurrentUser.Name}" FontSize="26" Margin="105,104,408,442"/>
+        <Label Content="Grad:" FontSize="26" RenderTransformOrigin="1.549,-0.02" Margin="32,208,662,338"/>
+        <Label Content="{Binding ViewRank}" FontSize="26" Margin="102,208,408,338"/>
+        <Label Content="MA-Nummer:" FontSize="26" Margin="32,151,566,399"/>
+        <Label Content="{Binding CurrentUser.MA_Number}" FontSize="26" Margin="196,151,408,397"/>
+        <Label Content="{Binding CurrentUser.Flotilla}" FontSize="26" Margin="124,268,408,277"/>
+        <Label Content="Flotille:" FontSize="26" RenderTransformOrigin="1.549,-0.02" Margin="32,268,662,277"/>
 
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="334" Margin="0,92,0,406">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="379" Margin="277,83,0,116">
             <Label Content="Loggede Timer:" FontSize="26" Width="195" RenderTransformOrigin="0.5,0.5" Height="48">
                 <Label.RenderTransform>
                     <TransformGroup>
@@ -44,10 +43,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <ProgressBar Minimum="0" 
-                Maximum="75"
+                    Maximum="75"
                              
-                Value="{Binding LoggedHours[0]}" 
-                x:Name="NavigatorStatus" Margin="49,0,86,19" Grid.Column="1"/>
+                    Value="{Binding LoggedHours[0]}" 
+                    x:Name="NavigatorStatus" Margin="49,0,86,19" Grid.Column="1"/>
                 <TextBlock Text="{Binding Value, ElementName=NavigatorStatus, StringFormat=Navigatør: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="36" Grid.Column="1" Margin="89,0,0,0" />
             </Grid>
             <Grid Height="40">
@@ -56,10 +55,10 @@
                     <ColumnDefinition Width="251*"/>
                 </Grid.ColumnDefinitions>
                 <ProgressBar Minimum="0" 
-     Maximum="75"
+                    Maximum="75"
                   
-     Value="{Binding LoggedHours[1]}" 
-     x:Name="WatchOfficerStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+                    Value="{Binding LoggedHours[1]}" 
+                    x:Name="WatchOfficerStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
                 <TextBlock Text="{Binding Value, ElementName=WatchOfficerStatus, StringFormat=VagtChef: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="43" Grid.Column="1" Margin="24,0,0,0" />
             </Grid>
             <Grid Height="40">
@@ -68,10 +67,10 @@
                     <ColumnDefinition Width="251*"/>
                 </Grid.ColumnDefinitions>
                 <ProgressBar Minimum="0" 
-Maximum="75"
+                    Maximum="75"
              
-Value="{Binding LoggedHours[1]}" 
-x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+                    Value="{Binding LoggedHours[1]}" 
+                    x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
                 <TextBlock Text="{Binding Value, ElementName=VesselMasterStatus, StringFormat=Fartøjsfører: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="104" Grid.Column="1" Margin="22,0,0,0" />
             </Grid>
 
@@ -81,10 +80,10 @@ x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
                     <ColumnDefinition Width="251*"/>
                 </Grid.ColumnDefinitions>
                 <ProgressBar Minimum="0" 
-Maximum="75"
+                    Maximum="75"
              
-Value="{Binding LoggedHours[3]}" 
-x:Name="EngineFittertatus" Margin="86,0,86,19" Grid.ColumnSpan="2" />
+                    Value="{Binding LoggedHours[3]}" 
+                    x:Name="EngineFittertatus" Margin="86,0,86,19" Grid.ColumnSpan="2" />
                 <TextBlock Text="{Binding Value, ElementName=EngineFittertatus, StringFormat=MotorPasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Grid.Column="1" Margin="10,0,0,0" />
             </Grid>
 
@@ -94,10 +93,10 @@ x:Name="EngineFittertatus" Margin="86,0,86,19" Grid.ColumnSpan="2" />
                     <ColumnDefinition Width="251*"/>
                 </Grid.ColumnDefinitions>
                 <ProgressBar Minimum="0" 
-Maximum="75"
+                    Maximum="75"
              
-Value="{Binding LoggedHours[1]}" 
-x:Name="AssistantFitterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+                    Value="{Binding LoggedHours[1]}" 
+                    x:Name="AssistantFitterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
                 <TextBlock Text="{Binding Value, ElementName=AssistantFitterStatus, StringFormat=Ass. Motorpasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Margin="108,0,0,0" Grid.ColumnSpan="2" />
             </Grid>
         </StackPanel>
