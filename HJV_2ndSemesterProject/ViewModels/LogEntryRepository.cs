@@ -43,7 +43,7 @@ namespace HJV_2ndSemesterProject.ViewModels
             }
         }
 
-        public void UpdateLogentry( LogEntry updated )
+        public void UpdateLogEntry( LogEntry updated )
         {
             DataAccess.NewConn();
             using (DataAccess.conn)
@@ -52,7 +52,6 @@ namespace HJV_2ndSemesterProject.ViewModels
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@LogID", updated.Id);
-                    cmd.Parameters.AddWithValue("LogID", updated.Id);
                     cmd.Parameters.AddWithValue("@Role", (int)updated.Role);
                     cmd.Parameters.AddWithValue("@NumberOfHours", updated.NumberofHours);
                     cmd.Parameters.AddWithValue("@Comment", updated.Comment);
@@ -100,11 +99,15 @@ namespace HJV_2ndSemesterProject.ViewModels
 
                         result.Add(entry);
                     }
+                    foreach (LogEntry log in result)
+                    {
+                        log.Tasks.AddRange(GetLogTasks(log.Id, DataAccess.conn));
+                    }
                     return result;
                 }
             }
         }
-        // Adds rows to the  LOG_ENTRY_TASK linking table.
+        // Adds rows to the  LOG_ENTRY_TASK linking table in the database.
         private void LinkTaskToLogEntry(int logId, int taskId,SqlConnection connection) 
         {
             using (SqlCommand cmd1= new("sp_CreateLogEntryTask",connection))
@@ -116,10 +119,22 @@ namespace HJV_2ndSemesterProject.ViewModels
             }      
         }
 
-        //private List<Models.Task> GetUserTasks(int LogID, SqlConnection connection) 
-        //{ 
-        //    using (SqlCommand cmd= new("Select Tas"))
-        
-        //}
+        //Gets all tasks associated with a certain log entry.
+        private List<Models.Task> GetLogTasks(int LogID, SqlConnection connection)
+        {
+            List<Models.Task> result = new();
+            using (SqlCommand cmd1 = new("sp_GetLogsByTask",connection))
+            using (SqlDataReader reader1 = cmd1.ExecuteReader())
+            {
+                while (reader1.Read())
+                {
+                    Models.Task t = new(reader1["TaskID"].ToString(), (int)reader1["TaskType"]);
+                    result.Add(t);
+                }
+                return result;
+            }
+
+
+        }
     }
 }

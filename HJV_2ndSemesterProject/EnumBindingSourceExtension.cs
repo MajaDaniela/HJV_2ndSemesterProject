@@ -8,8 +8,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace HJV_2ndSemesterProject
-{ 
-    //It checks if its an enum. 
+{
+    //An extension that allows for databinding to an enumeration type in XAML.
     public class EnumBindingSourceExtension : MarkupExtension
     {
         public Type EnumType { get; private set; }
@@ -20,7 +20,7 @@ namespace HJV_2ndSemesterProject
                 throw new Exception("EnumType must not be null and of type Enum");
             EnumType = enumType;
         }
-       // If it is an enum it uses the GetDescription method to return an array of userfriendly strings.
+       // If it is an enum it uses the GetDescription method to return an array of userfriendly strings to be displayed in the UI.
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             List<string> descriptions = new List<string>();

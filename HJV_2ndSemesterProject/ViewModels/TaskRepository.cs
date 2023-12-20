@@ -25,7 +25,7 @@ namespace HJV_2ndSemesterProject.ViewModels
         {
             DataAccess.NewConn();
             using (DataAccess.conn)
-            using (SqlCommand cmd = new SqlCommand("Select * from TASK", DataAccess.conn))
+            using (SqlCommand cmd = new SqlCommand("Select * from TASK Order by TaskType", DataAccess.conn))
             {
                     DataAccess.conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
