@@ -69,8 +69,9 @@
                 <ProgressBar Minimum="0" 
                     Maximum="75"
              
-                    Value="{Binding LoggedHours[1]}" 
-                    x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+
+Value="{Binding LoggedHours[2]}" 
+x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
                 <TextBlock Text="{Binding Value, ElementName=VesselMasterStatus, StringFormat=Fartøjsfører: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="104" Grid.Column="1" Margin="22,0,0,0" />
             </Grid>
 
@@ -95,8 +96,9 @@
                 <ProgressBar Minimum="0" 
                     Maximum="75"
              
-                    Value="{Binding LoggedHours[1]}" 
-                    x:Name="AssistantFitterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
+
+Value="{Binding LoggedHours[4]}" 
+x:Name="AssistantFitterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
                 <TextBlock Text="{Binding Value, ElementName=AssistantFitterStatus, StringFormat=Ass. Motorpasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Margin="108,0,0,0" Grid.ColumnSpan="2" />
             </Grid>
         </StackPanel>
