@@ -22,8 +22,6 @@ Dette timeregistreringsprojekt for Marinehjemmeværnet sigter mod at modernisere
 2. Indtast gyldigt MA-Nummer i Loginfelterne
 3. Login
 
-## Problemløsning
-
 ## Databeskyttelse
 Projektet er designet med omhyggelig håndtering af brugernes personlige oplysninger i overensstemmelse med GDPR-reglerne. 
 Vi har udvalgt nuget packages og teknologier med fokus på databeskyttelse.
