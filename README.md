@@ -18,9 +18,6 @@ Dette timeregistreringsprojekt for Marinehjemmeværnet sigter mod at modernisere
 2. Åbn Solution filen
 
 ## Konfiguration
-1. Microsoft Server Management Studio Database. 
-
-## Brug
 1. Indtast UserID og password til databasen ved LoginWindow
 2. Indtast gyldigt MA-Nummer i Loginfelterne
 3. Login
