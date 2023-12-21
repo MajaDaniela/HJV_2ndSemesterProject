@@ -22,12 +22,12 @@
         <ComboBox x:Name="TypePicker" ItemsSource ="{Binding Source={local:EnumBindingSource {x:Type local:SailingType}}}" HorizontalAlignment="Left" Margin="80,142,0,0" VerticalAlignment="Top" Width="194" SelectedIndex="0" SelectionChanged="TypePicker_SelectionChanged" Height="25"/>
         <DatePicker x:Name="StartDatePicker" HorizontalAlignment="Left" Margin="80,198,0,0" VerticalAlignment="Top" SelectedDateChanged="StartDatePicker_SelectedDateChanged"/>
         <DatePicker x:Name="EndDatePicker" HorizontalAlignment="Left" Margin="80,250,0,0" VerticalAlignment="Top" SelectedDateChanged="EndDatePicker_SelectedDateChanged"/>
-        <StackPanel Margin="195,199,496,356"  Orientation="Horizontal" Height="25">
+        <StackPanel Margin="212,199,479,356"  Orientation="Horizontal" Height="25">
             <ComboBox x:Name="StartHour" SelectionChanged="StartHour_SelectionChanged" Width="43" Height="25" BorderThickness="0"/>
             <Label Content=":" HorizontalAlignment="Center" Height=" 25" Width="12" Background="#FFE5E5E5" />
             <ComboBox x:Name="StartMinute"  Width="46" Height="25" SelectionChanged="StartMinute_SelectionChanged" RenderTransformOrigin="0.5,0.5" BorderThickness="0"/>
         </StackPanel>
-        <StackPanel Margin="195,250,496,305"  Orientation="Horizontal" Height="25">
+        <StackPanel Margin="212,250,479,305"  Orientation="Horizontal" Height="25">
             <ComboBox x:Name="EndHour" SelectionChanged="EndHour_SelectionChanged" Width="43" Height="25" BorderThickness="0"/>
             <Label Content=":" Height=" 25" Background="#FFE5E5E5" Width="12" />
             <ComboBox x:Name="EndMinute"  Width="46" Height="25" SelectionChanged="EndMinute_SelectionChanged" RenderTransformOrigin="0.5,0.5" BorderThickness="0"/>

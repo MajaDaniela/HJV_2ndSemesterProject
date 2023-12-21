@@ -47,7 +47,7 @@
                              
                     Value="{Binding LoggedHours[0]}" 
                     x:Name="NavigatorStatus" Margin="49,0,86,19" Grid.Column="1"/>
-                <TextBlock Text="{Binding Value, ElementName=NavigatorStatus, StringFormat=Navigatør: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="36" Grid.Column="1" Margin="89,0,0,0" />
+                <TextBlock Text="{Binding Value, ElementName=NavigatorStatus, StringFormat=Navigatør: \{0:\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="36" Grid.Column="1" Margin="89,0,0,0" />
             </Grid>
             <Grid Height="40">
                 <Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                   
                     Value="{Binding LoggedHours[1]}" 
                     x:Name="WatchOfficerStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
-                <TextBlock Text="{Binding Value, ElementName=WatchOfficerStatus, StringFormat=VagtChef: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="43" Grid.Column="1" Margin="24,0,0,0" />
+                <TextBlock Text="{Binding Value, ElementName=WatchOfficerStatus, StringFormat=Vagtchef: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="43" Grid.Column="1" Margin="24,0,0,0" />
             </Grid>
             <Grid Height="40">
                 <Grid.ColumnDefinitions>
@@ -85,7 +85,7 @@ x:Name="VesselMasterStatus" Margin="86,0,86,19" Grid.ColumnSpan="2"/>
              
                     Value="{Binding LoggedHours[3]}" 
                     x:Name="EngineFittertatus" Margin="86,0,86,19" Grid.ColumnSpan="2" />
-                <TextBlock Text="{Binding Value, ElementName=EngineFittertatus, StringFormat=MotorPasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Grid.Column="1" Margin="10,0,0,0" />
+                <TextBlock Text="{Binding Value, ElementName=EngineFittertatus, StringFormat=Motorpasser: \{0\}/75}" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="42" Grid.Column="1" Margin="10,0,0,0" />
             </Grid>
 
             <Grid Height="40">
