@@ -1,7 +1,7 @@
 # HJV-Timeregistreringssystem
 
 ## Projektbeskrivelse
-
+Dette timeregistreringsprojekt for Marinehjemmeværnet sigter mod at modernisere og effektivisere processen for de frivillige. Ved at erstatte den nuværende besværlige Excel-metode med et brugervenligt program skræddersyet til organisationens behov, forventes det, at både tidsforbrug og antall af fejl vil forbedres markant.
 
 ## Funktioner
 - Registrering af frivilliges arbejdstimer
@@ -11,7 +11,7 @@
 ## Teknologier
 - C#
 - WPF
-- SQL Server
+- SQL
 
 ## Installation
 1. Clone dette repository: `git clone https://github.com/Scurfpea/HJV_2ndSemesterProject.git`
@@ -26,10 +26,7 @@
 3. Login
 
 ## Problemløsning
-- [Beskriv eventuelle kendte problemer eller fejl og måder at løse dem på]
 
 ## Databeskyttelse
 Projektet er designet med omhyggelig håndtering af brugernes personlige oplysninger i overensstemmelse med GDPR-reglerne. 
 Vi har udvalgt nuget packages og teknologier med fokus på databeskyttelse.
-
-## Licens
