@@ -1,7 +1,7 @@
 # HJV-Timeregistreringssystem
 
 ## Projektbeskrivelse
-Dette timeregistreringsprojekt for Marinehjemmeværnet sigter mod at modernisere og effektivisere processen for de frivillige. Ved at erstatte den nuværende besværlige Excel-metode med et brugervenligt program skræddersyet til organisationens behov, forventes det, at både tidsforbrug og antall af fejl vil forbedres markant.
+Dette timeregistreringsprojekt for Marinehjemmeværnet sigter mod at modernisere og effektivisere processen for de frivillige. Projektet er udarbejdet i C# som en WPF applikation, som er bundet op på en MSSQL database.
 
 ## Funktioner
 - Registrering af frivilliges arbejdstimer
