@@ -18,7 +18,7 @@ using System.Threading.Channels;
 using System.ComponentModel;
 using MaterialDesignThemes.Wpf;
 
-namespace HJV_2ndSemesterProject
+namespace HJV_2ndSemesterProject.Views
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml

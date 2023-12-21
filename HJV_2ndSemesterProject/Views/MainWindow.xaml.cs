@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 
 
 
-namespace HJV_2ndSemesterProject
+namespace HJV_2ndSemesterProject.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -49,7 +49,7 @@ namespace HJV_2ndSemesterProject
         }
         private void ShowLogViewPage()
         {
-            MainFrame.Navigate(new LogView());
+            MainFrame.Navigate(new LogView(mainVM.CurrentUser.MA_Number));
         }
 
         //returns to LoginPage.
@@ -88,7 +88,7 @@ namespace HJV_2ndSemesterProject
 
         private void LogViewBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowLogViewPage();
         }
     }
 }

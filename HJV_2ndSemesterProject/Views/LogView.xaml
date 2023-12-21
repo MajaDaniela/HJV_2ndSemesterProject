@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
+             xmlns:local="clr-namespace:HJV_2ndSemesterProject"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="HJV_2ndSemesterProject.Views.LogView"
              mc:Ignorable="d"
              Height="780" Width="1035"  >
@@ -14,8 +14,32 @@
                 <GradientStop Color="#FF737373" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <Label Content="Tidligere Logs" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Foreground="White" Margin="10,10,0,0" Width="283"/>
+        <ListBox x:Name="UserLogBox" ItemsSource="{Binding UserLogs}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectedItem="{Binding SelectedLogEntry}" Margin="10,113,777,490" SelectionChanged="UserLogBox_SelectionChanged"/>
+        <Grid x:Name="InputGrid" IsEnabled="False" HorizontalAlignment="Left" Height="177" VerticalAlignment="Top" Width="297" Margin="307,113,0,0">
+            <ComboBox x:Name="RoleBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:Role}}}" SelectedIndex="{Binding RoleIndex}"/>
+            <ListBox x:Name="TaskBox"  ItemsSource="{Binding SelectedLogEntry.Tasks}" Margin="0,31,125,63" SelectionMode="Multiple" ScrollViewer.HorizontalScrollBarVisibility="Hidden" SelectionChanged="TaskBox_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding TaskType}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-        <Button x:Name="SearchLogBtn" Content="Søg registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,108,0,0" />
+            <TextBox x:Name="HoursBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding HourString}" VerticalAlignment="Top" Width="60" Height="22" MaxLength="5" Margin="195,0,0,0"/>
+            <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Margin="0,119,0,0" TextWrapping="Wrap" Text="{Binding SelectedLogEntry.Comment}" VerticalAlignment="Top" Width="300" Height="58" />
+        </Grid>
+        <Button x:Name="UpdateBtn" Content="Rediger Log" HorizontalAlignment="Left" Margin="178,305,0,0" VerticalAlignment="Top" Height="22" Width="80" Click="UpdateBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Slet Log" HorizontalAlignment="Left" Margin="178,345,0,0" VerticalAlignment="Top" Height="22" Width="80" Click="DeleteBtn_Click"/>
+        <Button x:Name="Confirmationbtn" Visibility="Hidden" Content="Accepter" HorizontalAlignment="Left" Margin="539,305,0,0" VerticalAlignment="Top" Width="65" Height="22" Click="Confirmationbtn_Click" RenderTransformOrigin="2.308,0.773" />
+
+
+
+
+        <!--#region old-->
+        <!--<Button x:Name="SearchLogBtn" Content="Søg registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,108,0,0" />
         <TextBox x:Name="SearchLogTxt" HorizontalAlignment="Left" Margin="195,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="241" Height="28" TextChanged="SearchLogTxt_TextChanged"/>
 
         <Button x:Name="AddLogBtn" Content="Tilføj registrering" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="28" Background="DarkSlateGray" Foreground="White" FontSize="16" Margin="19,621,0,0" Click="AddLogBtn_Click"/>
@@ -63,8 +87,8 @@
         <ComboBox x:Name="HourEnd" HorizontalAlignment="Left" Margin="918,393,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="SailingType_SelectionChanged"/>
         <ComboBox x:Name="MinutEnd" HorizontalAlignment="Left" Margin="985,393,0,0" VerticalAlignment="Top" Width="44" SelectionChanged="SailingType_SelectionChanged"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="967,391,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="880,250,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged"/>
-
+        <ComboBox x:Name="Role" HorizontalAlignment="Left" Margin="880,250,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Role_SelectionChanged"/>-->
+        <!--#endregion-->
     </Grid>
 </UserControl>
 

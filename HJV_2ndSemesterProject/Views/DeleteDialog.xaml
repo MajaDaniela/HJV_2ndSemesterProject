@@ -1,0 +1,23 @@
+﻿<Window x:Class="HJV_2ndSemesterProject.Views.DeleteDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HJV_2ndSemesterProject.Views"
+        mc:Ignorable="d"
+        Title="Slet Log" Height="144" Width="260">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="QuestionLabel" Grid.Column="1" Content="Vil du slette denne Log?" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="149"/>
+        <Label x:Name="LogLabel" Grid.Column="1" Content="Label" HorizontalAlignment="Center" VerticalAlignment="Center" Width="139"/>
+        <Button x:Name="Cancelbtn" IsCancel="True" Grid.Column="1" Content="Annuller" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.015,0.223" />
+        <Button x:Name="Defaultbtn" IsDefault="True" Grid.Column="1" Content="Slet" Background="LightGreen" HorizontalAlignment="Left" Margin="85,85,0,0" VerticalAlignment="Top" Width="48" Click="Defaultbtn_Click"/>
+
+
+
+    </Grid>
+</Window>
